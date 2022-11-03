@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
+import HeaderVideo from '../components/HeaderVideo'
 
 export default function home() {
   return (
-    <NavBar/>
+    <HeaderVideo />
   )
 }

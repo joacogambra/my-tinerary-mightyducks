@@ -2,33 +2,132 @@
     padding:0;
     margin: 0;
     box-sizing: border-box;
+
 }
+
 
 .navBar{
     display: flex;
     width: 100%;
-    min-height: 10vh;
-    color: white;
-    background-color: aqua;
+    background-color: transparent;
     justify-content: space-around;
     align-items: center;
+    padding-top: 1rem;
+    z-index: 2;
+    position: relative;
 }
-.navBar a{
+.navBar a, .links a{
     text-decoration: none;
-    color: white
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.navBar a:hover, .links a:hover{
+    font-weight: bold;
+}
+.flechita{
+    width: 20%;
+    padding-top: 0;
+    margin-top: 0;
 }
 .drop-down{
-
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     gap: 1rem;
 }
+.drop-down-nav{
+    position: absolute;
+    top: 3rem;
+    left: 22%;
+    transform: translateY(60%);
+    color: white;
+}
+.drop-down-nav a{
+    display: block;
+    width: 100%;
+    padding: .2rem;
+    
+}
+.drop-menu{
+    position: absolute;
+    top: 2rem;
+    left: 22%;
+    transform: translateY(60%);
+    color: white;
+  
+}
+.drop-down a {
+    display: block;
+    width: 100%;
+    padding: .2rem;
+    
+}
 .user-image{
-    padding-top: 10px;
-    width: 45px;
+    width: 50px;
 }
 .logo{
-    width: 50px;
+    width: 80px;
+}
+.hero{
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:5rem;
+
+}
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-color: rgba(41, 66, 92, 0.308);
+    
+}
+.capa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1c1c1d;
+    opacity: .5;
+    mix-blend-mode: overlay;
+}
+.logoIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+   
+}
+.logoIndex img{
+    width: 50%;
+    object-fit: contain;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+   
+}
+
+@media (min-width: 1440px){
+    *{
+        font-size: 2rem;
+    }
+    .drop-menu{
+        top: .5rem;
+    }
+    .drop-down-nav{
+        top: .5rem;
+    }
 }
