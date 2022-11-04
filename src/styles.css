@@ -140,8 +140,7 @@ video{
     background-color: transparent;
     border: unset;
     border-radius: 15px;
-    padding: 0 .5rem .5rem .5rem;
-   
+    padding: 0 .5rem .5rem .5rem; 
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
 }
 footer{
