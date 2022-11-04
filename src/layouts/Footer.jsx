@@ -1,5 +1,5 @@
 import React from 'react'
-import ScrollTop from './ScrollTop'
+import ScrollTop from '../components/ScrollTop'
 
 export default function Footer() { 
   return (

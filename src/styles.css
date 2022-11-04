@@ -195,19 +195,33 @@ footer{
     min-height: 100vh;
     transition-duration: 1s ease;
     gap: 3rem;
+    background-image: url(../public/img/carouselfondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.carousel h3{
+    position: absolute;
+    color: white;
+    margin-top: 520px;
+    box-shadow: 15px 15px 30px #bebebe,
+    15px -15px 30px #ffffff;
 }
 
 .image{
     width: 1000px;
     height: 600px;
     border-radius: 30px;
-    box-shadow: 15px 15px 30px #bebebe,
-    15px -15px 30px #ffffff;
-
+    box-shadow: 15px 15px 30px #464545,
+    15px -15px 30px #070707;
 }
 
 .arrowleft, .arrowright{
     width: 50px;
+    border-radius: 50%;
+    box-shadow: 15px 15px 30px #464545,
+    15px -15px 30px #070707;
 }
 
 @media (min-width: 1440px){

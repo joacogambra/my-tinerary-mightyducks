@@ -42,7 +42,8 @@ export default function Carousel() {
     <div className='carousel'>
       <ArrowLeft direction={prev} estilo='arrowleft'/>
       <Card photo={cities[numeroCambiar].photo}/>
-      <ArrowRight direction={prev} estilo='arrowright' />
+      <ArrowRight direction={prev} estilo='arrowright' /> 
+      <h3>{cities[numeroCambiar].name} - {cities[numeroCambiar].continent}</h3> 
     </div>
   )
 }
