@@ -6,24 +6,23 @@ import SignUp from "./pages/SignUp"
 import SignIn from "./pages/SignIn"
 import City from "./pages/City"
 import Hotel from "./pages/Hotel"
-import NotFound  from "./pages/NotFound"
 import {Routes, Route} from 'react-router-dom'
+import NotFound from "./pages/NotFound"
 
 function App() {
   return (
     <>
     <main>
     <Routes>
-      <Route path="/index" element={<Home/>}/>
+      <Route path="/home" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
       <Route path="/sign-up" element={<SignUp/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
-      <Route path="city" element={<City/>}/>
-      <Route path="hotel" element={<Hotel/>}/>
-      <Route path="notfound" element={<NotFound/>}/>
-    
-
+      <Route path="/city" element={<City/>}/>
+      <Route path="/hotel" element={<Hotel/>}/>
+      <Route path="/*" element={<NotFound/>}/>
+  
     </Routes>
     </main>
     

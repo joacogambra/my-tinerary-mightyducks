@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
 
+
 export default function Header() {
     let [dropDownOcultar, setdropDownOcultar] = useState(false)
     let [mostrarOcultar, setMostrarOcultar]= useState(false)
@@ -14,6 +15,7 @@ export default function Header() {
   return (
     
         <nav className='navBar'>
+          
           { dropDownOcultar  ?
          ( 
          <><div className="drop-down">

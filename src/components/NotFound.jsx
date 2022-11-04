@@ -7,10 +7,10 @@ export default function NotFound() {
   return (
     
       <div className="logoIndex">
-        <p> Page under construction... </p>
+        <p> Page not found... </p>
         <div className='toaction'>
           <button class=" button links">
-          <LinkRouter to="/index" > Go Back HomePage</LinkRouter>
+          <LinkRouter to="/home" > Go Back HomePage</LinkRouter>
           </button>
           <CallToAction/>  
           </div>

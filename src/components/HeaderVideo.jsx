@@ -2,7 +2,7 @@ import React from 'react'
 
 
 export default function HeaderVideo(props) {
-  let {componenttop, componentmiddle, componentfotter}=props
+  let {componenttop, componentmiddle}=props
   return (
     <div className='hero'>
         {componenttop}
@@ -16,7 +16,7 @@ export default function HeaderVideo(props) {
         
         </div>
         {componentmiddle}
-        {componentfotter}
+      
     </div>
     
   )
