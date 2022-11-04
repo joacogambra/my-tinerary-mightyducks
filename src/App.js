@@ -22,6 +22,8 @@ function App() {
       <Route path="city" element={<City/>}/>
       <Route path="hotel" element={<Hotel/>}/>
       <Route path="notfound" element={<NotFound/>}/>
+    
+
     </Routes>
     </main>
     

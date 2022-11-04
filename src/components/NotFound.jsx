@@ -2,7 +2,7 @@ import React from 'react'
 
 import {Link as LinkRouter} from 'react-router-dom'
 
-export default function UnderConstruction() {
+export default function NotFound() {
   return (
     
       <div className="logoIndex">
