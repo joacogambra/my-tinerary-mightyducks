@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from './Header'
-import Logo from './Logo'
 
-export default function HeaderVideo() {
+
+export default function HeaderVideo(props) {
+  let {componenttop, componentmiddle, componentfotter}=props
   return (
     <div className='hero'>
-        <Header> </Header>
+        {componenttop}
         
         <video muted autoPlay loop>
             <source src="./backVideo.mp4" type="video/mp4"></source>
@@ -15,7 +15,8 @@ export default function HeaderVideo() {
         <div className='capa'>
         
         </div>
-        <Logo> </Logo>
+        {componentmiddle}
+        {componentfotter}
     </div>
     
   )
