@@ -1,6 +1,10 @@
+import "./styles.css"
+import Home from "./pages/Home"
 function App() {
   return (
-    <h1>My Tinerary</h1> 
+    <>
+    <Home/>
+    </>
   )
 }
 
