@@ -7,7 +7,9 @@ export default function UnderConstruction() {
     
       <div className="logoIndex">
         <p> Page under construction... please come back later </p>
+        <button className='button'>
           <LinkRouter to="/index" class="no-deco"> Go Back HomePage</LinkRouter>
+          </button>
       </div>
 
   )

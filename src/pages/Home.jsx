@@ -7,6 +7,7 @@ import Logo from '../components/Logo'
 export default function home() {
   return (
     <>
+    
     <HeaderVideo componenttop=<Header/> componentmiddle=<Logo/> componentfotter=  <Footer />/>
     
     </>
