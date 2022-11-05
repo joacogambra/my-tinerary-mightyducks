@@ -5,8 +5,16 @@
     font-family: 'Roboto', sans-serif;
 
 }
-
-
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1d;
+}
+.grow{
+    flex-grow: 1;
+}
 .navBar{
     display: flex;
     width: 100%;
@@ -20,17 +28,13 @@
 .navBar a, .links a{
     text-decoration: none;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 .navBar a:hover, .links a:hover{
     font-weight: bold;
 }
-.flechita{
-    width: 20%;
-    padding-top: 0;
-    margin-top: 0;
-}
+
 .drop-down{
     position: relative;
     display: flex;
@@ -73,12 +77,14 @@
     width: 80px;
 }
 .hero{
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
     gap:5rem;
-
+    flex-grow: 1;
+   
 }
 video{
     position: absolute;
@@ -108,6 +114,7 @@ video{
     margin: auto;
     position: relative;
     z-index: 2;
+    color: white;
    
 }
 .logoIndex img{
@@ -120,12 +127,54 @@ video{
     gap: 2rem;
    
 }
+.no-deco{
+    text-decoration: none;
+    color: white;
+}
+.toaction{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    font-size: 1rem;
+    
+}
+ .button{
+    background-color: transparent;
+    border: unset;
+    border-radius: 15px;
+    padding: 0 .5rem .5rem .5rem; 
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+footer{
+    font-size: 1rem;
+    color:white;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1;
+    background-color: #1c1c1d;
+}
+footer img{
+    width: 50px;
+}
+footer a {
+    text-decoration: none;
+    color: white;
+}
+.fila{
+    display: flex;
+    flex-direction: column;
+}
+
 footer{
     background: rgb(1,154,162);
     background: linear-gradient(180deg, rgba(1,154,162,1) 0%, rgba(77,77,179,1) 100%);
     color: white;
     width: 100%;
-    min-height: 0vh;
+    min-height: 20vh;
 }
 .footer{
     display: flex;
@@ -143,6 +192,7 @@ footer{
 .scroll{
     width: 140px;
     cursor: pointer;
+    border-radius: 20%;
 }
 
 .fila a{
@@ -166,28 +216,52 @@ footer{
 .us{
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    padding-top: 40px;
+    flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
+}
+.us img{
+ transform: translateY(20%);
 }
 
-.us p{
+.carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height:60vh ;
+    transition-duration: 1s ease;
+    gap: 3rem;
+    padding: 1rem 0  ;
+    background: linear-gradient(180deg, rgba(1, 154, 162, 0.784) 0%, rgba(77, 77, 179, 0.795) 100%);
+    
+}
+
+.image{
+    width: 60vw;
+    object-fit: cover;
+    height: 500px; 
+    border-radius: 30px;
+    box-shadow: rgba(16, 8, 59, 0.223) 0px 48px 100px 0px;
+
+}
+
+
+/* .us p{
     margin-top: 22px;
 }
 
 .us a{
     color: white;
     text-decoration: none;
-}
+} */
 
 .us a:hover{
     font-weight: bold;
     border: 2px solid white;
-}
+} 
 
 @media (min-width: 1440px){
-    *{
+    .drop-down a, .drop-down-nav a, .toaction, .links{
         font-size: 2rem;
     }
     .drop-menu{
@@ -195,5 +269,43 @@ footer{
     }
     .drop-down-nav{
         top: .5rem;
+    }
+}
+
+@media (max-width: 768px){
+    .carousel{
+            flex-direction: column; 
+            position: relative;
+            gap:.5rem;
+            position: relative;
+        
+    }
+    .image{
+        width: 100%;
+        padding: 1rem;
+        order:-2;
+    }
+    .arrow{
+        position: absolute;
+    }
+    .left{
+        top:45%;
+        left:5%;
+    }
+    .right{
+        top:45%;
+        right:5%;
+    }
+}
+@media (max-width:425px){
+    footer{
+        height: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:.5rem;
+        padding:.5rem;
+    }
+    .scroll img{
+        width: 20%;
     }
 }

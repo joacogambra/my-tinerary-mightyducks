@@ -1,4 +1,5 @@
 import React from 'react'
+import CallToAction from './CallToAction'
 
 export default function Logo () {
   return (
@@ -6,8 +7,7 @@ export default function Logo () {
     <div className='logoIndex'>
         <img src='./img/bigLogo.png' alt='MyTinerary'/>
         <div className='links'>
-            <a href="/">Cities</a>
-            <a href="/">Hotels</a>
+          <CallToAction/>
         </div>
     </div>
     </>
