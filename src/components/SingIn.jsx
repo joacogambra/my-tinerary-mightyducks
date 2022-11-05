@@ -1,4 +1,5 @@
 import React from 'react'
+import SignGoogle from './SignGoogle'
 import {Link as LinkRouter} from 'react-router-dom'
 
 export default function SingIn() {
@@ -19,13 +20,7 @@ export default function SingIn() {
                 </label>
             </div>
             <button type="submit"> Login</button>
-            <div id="gSignInWrapper">
-                 <span class="label">Sign in with:</span>
-                <div id="customBtn" class="customGPlusSignIn">
-                 <span class="icon"></span>
-                 <span class="buttonText">Google</span>
-            </div>
-            </div>
+             <SignGoogle/>
             <div>
                 <p> Don't have an account? Just <LinkRouter to='/sign-up'> "Sign Up Here" </LinkRouter></p>
             </div>
