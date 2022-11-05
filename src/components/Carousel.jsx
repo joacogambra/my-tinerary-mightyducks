@@ -49,13 +49,21 @@ export default function Carousel() {
   
 
   return (
+    <div className='container'>
+        <Arrow direction={next} image="left" ></Arrow>   
     <div className='carousel'>
-        <Arrow direction={next} image="left" ></Arrow>
-    <div>        
+      
+        <div className='cards'>
         <img src={selectedImage} alt="photos" className='image'/>
+        <img src={selectedImage} alt="photos" className='image'/>
+        </div>   
+      <div className='cards'>
+       <img src={selectedImage} alt="photos" className='image'/>
+       <img src={selectedImage} alt="photos" className='image'/>
+      </div>
+      
     </div>
         <Arrow  direction={previous} image="right"></Arrow >
-        </div>
-    
+    </div>
   )
 }
