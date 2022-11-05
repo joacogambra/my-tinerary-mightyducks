@@ -231,8 +231,11 @@ footer{
     min-height:60vh ;
     transition-duration: 1s ease;
     gap: 3rem;
-    padding: 1rem 0  ;
-    background: linear-gradient(180deg, rgba(1, 154, 162, 0.784) 0%, rgba(77, 77, 179, 0.795) 100%);
+    padding: 1rem 0 ;
+    background-image: url("../public/img/carouselfondo.jpg");
+    background-size: cover;
+
+    
     
 }
 
@@ -244,16 +247,6 @@ footer{
     box-shadow: rgba(16, 8, 59, 0.223) 0px 48px 100px 0px;
 
 }
-
-
-/* .us p{
-    margin-top: 22px;
-}
-
-.us a{
-    color: white;
-    text-decoration: none;
-} */
 
 .us a:hover{
     font-weight: bold;

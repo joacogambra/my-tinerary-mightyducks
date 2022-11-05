@@ -23,8 +23,8 @@ export default function Carousel() {
           let idInterval=  setInterval(
                () => {
                     next()
-                     console.log("pasaron 3 seg")        },
-                    3000
+                           },
+                    8000
                  ) 
                  setId(idInterval)
                  return clearInterval(id)
