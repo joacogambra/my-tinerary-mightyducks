@@ -10,7 +10,7 @@ let hotels=[
     {
         id: "ho2",
         name: "palau sant jordi ",
-        photo: ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fespanarusa.com%2Fes%2Fhedonist%2Fad%2Fhedonist%2Fcategories%2FSoul%2Fcuriosities%2F512913&psig=AOvVaw1GFK0AQFEcLhs-ydqwMHF3&ust=1667522798093000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOD-19LkkPsCFQAAAAAdAAAAABAE","https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com.ar%2FAttraction_Review-g187497-d4123720-Reviews-Palau_Sant_Jordi-Barcelona_Catalonia.html&psig=AOvVaw1GFK0AQFEcLhs-ydqwMHF3&ust=1667522798093000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOD-19LkkPsCFQAAAAAdAAAAABAT", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com.ar%2FAttraction_Review-g187497-d4123720-Reviews-Palau_Sant_Jordi-Barcelona_Catalonia.html&psig=AOvVaw1GFK0AQFEcLhs-ydqwMHF3&ust=1667522798093000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCOD-19LkkPsCFQAAAAAdAAAAABAT"],
+        photo: ["https://espanarusa.com/files/autoupload/65/38/36/ewy4zcbg313406.jpg.[pr].jpg"],
         capacity: 17000,
         citiId: "city2",
         userId:  "adm2" ,

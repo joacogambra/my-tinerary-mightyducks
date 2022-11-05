@@ -37,7 +37,7 @@ let activities = [
         description: 'November 26, 2022 in Lusail Stadium for World Cup',
         price: 60,
         duration: 2,
-        userId: 'user1',
+        userId: 'user2',
     },
     {
         id: 'it5',
@@ -47,7 +47,7 @@ let activities = [
         description: 'The fountain features sculptures of the Roman god Neptune and other mythological figures, with the magnificent Palazzo Poli palace serving as a backdrop',
         price: 0,
         duration: 1,
-        userId: 'user1',
+        userId: 'user2',
     },
     {
         id: 'it6',
@@ -57,7 +57,7 @@ let activities = [
         description: 'St. Peters Basilica is the most recognizable structure in the heart of the Vatican City, and is considered among the holiest sites in Christendom',
         price: 2,
         duration: 1,
-        userId: 'user1',
+        userId: 'user2',
     },
     {
         id: 'it7',
@@ -67,7 +67,7 @@ let activities = [
         description: 'The neo-gothic cathedral of La Plata is one of the largest churches in the world. Discover its beautiful interior with this tour which includes a climb to the viewpoint of one of its towers.',
         price: 7,
         duration: 2,
-        userId: 'user1',
+        userId: 'user3',
     },
     {
         id: 'it8',
@@ -77,7 +77,7 @@ let activities = [
         description: 'Tour of the argentine theater of La Plata',
         price: 5,
         duration: 3,
-        userId: 'user1',
+        userId: 'user3',
     },
     {
         id: 'it9',
@@ -87,7 +87,7 @@ let activities = [
         description: 'Zip lining is an action-filled recreational activity that involves riding a steel cable on a protective seat or a belt between two points and generally on a mountain that exhibits spectacular sceneries.',
         price: 120,
         duration: 2,
-        userId: 'user1',
+        userId: 'user3',
     },
     {
         id: 'it10',
@@ -97,7 +97,7 @@ let activities = [
         description: 'Activity in Cerro Catedral',
         price: 150,
         duration: 2,
-        userId: 'user1',
+        userId: 'user4',
     },
     {
         id: 'it11',
@@ -107,7 +107,7 @@ let activities = [
         description: 'Windsor, where you explore the lavish State Apartments and St. George’s Chapel of Windsor Castle, an official residence of Her Majesty the Queen.',
         price: 15,
         duration: 4,
-        userId: 'user1',
+        userId: 'user4',
     },
     {
         id: 'it12',
@@ -117,7 +117,7 @@ let activities = [
         description: 'Bug Bus bus voucher at any of the stops along one of the comprehensive routes. Opt for seating on the open-air upper deck or covered lower deck, depending on the weather, and listen to live or recorded commentary depending on the route chosen.',
         price: 18,
         duration: 3,
-        userId: 'user1',
+        userId: 'user4',
     },
 ]
 export default activities

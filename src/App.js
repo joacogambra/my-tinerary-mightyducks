@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp"
 import SignIn from "./pages/SignIn"
 import City from "./pages/City"
 import Hotel from "./pages/Hotel"
+import AutoToTop from "./components/AutoToTop"
 import {Routes, Route} from 'react-router-dom'
 import NotFound from "./pages/NotFound"
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
     <main>
+    <AutoToTop/>
     <Routes>
       <Route path="/home" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
