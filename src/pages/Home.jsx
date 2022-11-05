@@ -10,12 +10,9 @@ export default function home() {
     
     <Home2>
         
-         <HeaderVideo componenttop=<Header></Header> componentmiddle=<Logo/>/>
-        
-         <Carousel></Carousel>
-       
-         <Footer></Footer>
-       
+         <HeaderVideo componenttop=<Header></Header> componentmiddle=<Logo/>/>        
+         <Carousel></Carousel>       
+         <Footer></Footer>      
         </Home2>
    
   )

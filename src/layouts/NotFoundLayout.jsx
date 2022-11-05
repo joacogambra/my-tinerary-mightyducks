@@ -7,4 +7,5 @@ export default function NotFoundLayout(props) {
     <div className='grow'> {props.children}</div>
     
   )
-}
+  }
+  
