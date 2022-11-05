@@ -1,21 +1,24 @@
-*{
-    padding:0;
+* {
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 
 }
-.main{
+
+.main {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #1c1c1d;
 }
-.grow{
+
+.grow {
     flex-grow: 1;
 }
-.navBar{
+
+.navBar {
     display: flex;
     width: 100%;
     background-color: transparent;
@@ -25,17 +28,21 @@
     z-index: 2;
     position: relative;
 }
-.navBar a, .links a{
+
+.navBar a,
+.links a {
     text-decoration: none;
     color: white;
     font-size: 1rem;
     font-weight: 400;
 }
-.navBar a:hover, .links a:hover{
+
+.navBar a:hover,
+.links a:hover {
     font-weight: bold;
 }
 
-.drop-down{
+.drop-down {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -43,51 +50,59 @@
     justify-content: space-around;
     gap: 1rem;
 }
-.drop-down-nav{
+
+.drop-down-nav {
     position: absolute;
     top: 3rem;
     left: 22%;
     transform: translateY(60%);
     color: white;
 }
-.drop-down-nav a{
+
+.drop-down-nav a {
     display: block;
     width: 100%;
     padding: .2rem;
-    
+
 }
-.drop-menu{
+
+.drop-menu {
     position: absolute;
     top: 2rem;
     left: 22%;
     transform: translateY(60%);
     color: white;
-  
+
 }
+
 .drop-down a {
     display: block;
     width: 100%;
     padding: .2rem;
-    
+
 }
-.user-image{
+
+.user-image {
     width: 50px;
 }
-.logo{
+
+.logo {
     width: 80px;
 }
-.hero{
+
+.hero {
     width: 100%;
     height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap:5rem;
+    gap: 5rem;
     flex-grow: 1;
-   
+
 
 }
-video{
+
+video {
     position: absolute;
     top: 0;
     left: 0;
@@ -95,9 +110,10 @@ video{
     height: 100vh;
     object-fit: cover;
     background-color: rgba(41, 66, 92, 0.308);
-    
+
 }
-.capa{
+
+.capa {
     position: absolute;
     top: 0;
     left: 0;
@@ -107,7 +123,8 @@ video{
     opacity: .5;
     mix-blend-mode: overlay;
 }
-.logoIndex{
+
+.logoIndex {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,39 +133,45 @@ video{
     position: relative;
     z-index: 2;
     color: white;
-   
+
 }
-.logoIndex img{
+
+.logoIndex img {
     width: 50%;
     object-fit: contain;
 }
-.links{
+
+.links {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-   
+
 }
-.no-deco{
+
+.no-deco {
     text-decoration: none;
     color: white;
 }
-.toaction{
+
+.toaction {
     display: flex;
     flex-direction: column;
-    gap:1rem;
+    gap: 1rem;
     font-size: 1rem;
-    
+
 }
- .button{
+
+.button {
     background-color: transparent;
     border: unset;
     border-radius: 15px;
-    padding: 0 .5rem .5rem .5rem; 
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    padding: 0 .5rem .5rem .5rem;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
-footer{
+
+footer {
     font-size: 1rem;
-    color:white;
+    color: white;
     width: 100%;
     height: 20vh;
     display: flex;
@@ -158,120 +181,281 @@ footer{
     z-index: 1;
     background-color: #1c1c1d;
 }
-footer img{
+
+footer img {
     width: 50px;
 }
+
 footer a {
     text-decoration: none;
     color: white;
 }
-.fila{
+
+.fila {
     display: flex;
     flex-direction: column;
 }
 
-footer{
-    background: rgb(1,154,162);
-    background: linear-gradient(180deg, rgba(1,154,162,1) 0%, rgba(77,77,179,1) 100%);
+footer {
+    background: rgb(1, 154, 162);
+    background: linear-gradient(180deg, rgba(1, 154, 162, 1) 0%, rgba(77, 77, 179, 1) 100%);
     color: white;
     width: 100%;
     min-height: 20vh;
 }
-.footer{
+
+.footer {
     display: flex;
     justify-content: space-around;
     padding-top: 20px;
 }
 
-.footer h3{
+.footer h3 {
     cursor: pointer;
 }
 
-.footer h3:hover{
+.footer h3:hover {
     text-decoration: underline;
 }
-.scroll{
+
+.scroll {
     width: 140px;
     cursor: pointer;
     border-radius: 20%;
 }
 
-.fila a{
+.fila a {
     color: white;
     text-decoration: none;
 }
-.fila a:hover{
+
+.fila a:hover {
     font-weight: 600;
 }
 
-.fila{
+.fila {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.github{
+.github {
     width: 40px;
 }
 
-.us{
+.us {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-.us img{
- transform: translateY(20%);
+
+.us img {
+    transform: translateY(20%);
 }
 
-.carousel{
+.container {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     min-height: 100vh;
     transition-duration: 1s ease;
-    gap: 3rem;
-    padding: 1rem 0  ;
-    background: linear-gradient(180deg, rgba(1, 154, 162, 0.784) 0%, rgba(77, 77, 179, 0.795) 100%);
-    
+    gap: 1rem;
+    padding: 1rem 0;
+    background-image: url(/public/img/carouselfondo.jpg);
+    background-size: cover;
+
 }
 
-.image{
-    width: 1000px;
-    height: 600px;
+.cards {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.image {
+    width: 400px;
+    height: 350px;
     border-radius: 30px;
     box-shadow: 15px 15px 30px #bebebe,
-    15px -15px 30px #ffffff;
+        15px -15px 30px #ffffff;
 
 }
 
-
-.us a:hover{
+.us a:hover {
     font-weight: bold;
-    border: 2px solid white;
-} 
+}
 
-@media (min-width: 1440px){
-    .drop-down a, .drop-down-nav a, .toaction, .links{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.signup {
+    font-family: 'Poppins', sans-serif;
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.signup .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.signup .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.content form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b6;
+}
+
+form .category {
+    display: flex;
+    width: 80%;
+    margin: 14px 0;
+    justify-content: space-between;
+}
+
+form .category label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+form .button {
+    height: 45px;
+    margin: 35px 0
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .button input:hover {
+    transform: scale(0.99);
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+@media(max-width: 584px) {
+    .signup {
+        max-width: 100%;
+    }
+
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .category {
+        width: 100%;
+    }
+
+    .content form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media(max-width: 459px) {
+    .signup .content .category {
+        flex-direction: column;
+    }
+}
+
+
+@media (min-width: 1440px) {
+
+    .drop-down a,
+    .drop-down-nav a,
+    .toaction,
+    .links {
         font-size: 2rem;
     }
-    .drop-menu{
+
+    .drop-menu {
         top: .5rem;
     }
-    .drop-down-nav{
+
+    .drop-down-nav {
         top: .5rem;
     }
 }
-@media (max-width:425px){
-    footer{
+
+@media (max-width:425px) {
+    footer {
         height: auto;
         flex-direction: column;
         flex-wrap: wrap;
-        gap:.5rem;
-        padding:.5rem;
+        gap: .5rem;
+        padding: .5rem;
     }
-    .scroll img{
+
+    .scroll img {
         width: 20%;
     }
 }
