@@ -14,6 +14,9 @@ export default function home() {
          <Carousel></Carousel>       
          <Footer></Footer>      
         </Home2>
+
    
+
+
   )
 }
