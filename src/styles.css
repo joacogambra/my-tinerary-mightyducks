@@ -232,6 +232,9 @@ footer{
     min-height: 100vh;
     transition-duration: 1s ease;
     gap: 3rem;
+    padding: 1rem 0  ;
+    background: linear-gradient(180deg, rgba(1, 154, 162, 0.784) 0%, rgba(77, 77, 179, 0.795) 100%);
+    
 }
 
 .image{
@@ -243,17 +246,6 @@ footer{
 
 }
 
-.arrowleft, .arrowright{
-    width: 50px;
-}
-/* .us p{
-    margin-top: 22px;
-}
-
-.us a{
-    color: white;
-    text-decoration: none;
-} */
 
 .us a:hover{
     font-weight: bold;

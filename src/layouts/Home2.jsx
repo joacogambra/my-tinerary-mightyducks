@@ -1,11 +1,10 @@
 import React from 'react'
 
-export default function NotFoundLayout(props) {
-  console.log(props.children)
+export default function Home2(props) {
+ 
   return (
    
     <div className='grow'> {props.children}</div>
     
   )
-  }
-  
+}
