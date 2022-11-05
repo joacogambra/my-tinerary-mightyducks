@@ -1,7 +1,4 @@
 let cities = [
-    // 'Barcelona, Qatar, Bariloche, Roma, Londres, Estambul, Amsterdam, Praga, New York, Milan y La Plata'
-    // Rosario, Qatar, Roma, La Plata, Bariloche, Londres
-    // Barcelona
     {
         id:'city1',
         name:'Rosario',
@@ -32,7 +29,7 @@ let cities = [
         continent:'America',
         photo:'https://www.patagoniaandina.com/wp-content/uploads/2020/05/Bariloche-postada.jpg',
         population:130000,
-        userId:'adm1',
+        userId:'adm2',
     },
     {
         id:'city5',
@@ -40,7 +37,7 @@ let cities = [
         continent:'Europe',
         photo:'https://www.enroma.com/wp-content/uploads/2019/02/Busqueda-del-tesoro-Roma-del-Agua-en-grupo.jpg',
         population:2873000,
-        userId:'adm1',
+        userId:'adm2',
     },
     {
         id:'city6',
@@ -48,7 +45,7 @@ let cities = [
         continent:'Europe',
         photo:'http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTF9OtLxnbxSpLFzyhzXERKiAbnHlG25WfRzxRTNcRiTk0lHvsOXNKH9KNAOvTWi_sS',
         population:8982000,
-        userId:'adm1',
+        userId:'adm2',
     },
     {
         id:'city7',
@@ -56,7 +53,7 @@ let cities = [
         continent:'Asia',
         photo:'https://www.civitatis.com/blog/wp-content/uploads/2020/05/estambul-un-dia.jpg',
         population:15460000,
-        userId:'adm1',
+        userId:'adm3',
     },
     {
         id:'city8',
@@ -64,7 +61,7 @@ let cities = [
         continent:'Europe',
         photo:'https://www.costacruceros.com/content/dam/costa/costa-magazine/articles-magazine/travel/amsterdam-travel/amsterdam_m.jpg.image.694.390.low.jpg',
         population:821000,
-        userId:'adm1',
+        userId:'adm3',
     },
     {
         id:'city9',
@@ -72,7 +69,7 @@ let cities = [
         continent:'Europe',
         photo:'https://elviajista.com/wp-content/uploads/2021/04/alojarseenpraga.jpg',
         population:1300000,
-        userId:'adm1',
+        userId:'adm3',
     },
     {
         id:'city10',
@@ -80,7 +77,7 @@ let cities = [
         continent:'America',
         photo:'https://a.cdn-hotels.com/gdcs/production196/d1429/5c2581f0-c31d-11e8-87bb-0242ac11000d.jpg?impolicy=fcrop&w=800&h=533&q=medium',
         population:8468000,
-        userId:'adm1',
+        userId:'adm4',
     },
     {
         id:'city11',
@@ -88,7 +85,7 @@ let cities = [
         continent:'Europe',
         photo:'https://www.enmilan.net/wp-content/uploads/2019/01/que-ver-en-milan.jpeg',
         population:1352000,
-        userId:'adm1',
+        userId:'adm4',
     },
     {
         id:'city12',
@@ -96,7 +93,7 @@ let cities = [
         continent:'America',
         photo:'https://mediaim.expedia.com/destination/1/34e20433dd0a544b1da8a9e3b32a3bce.jpg',
         population:894000,
-        userId:'adm1',
+        userId:'adm4',
     },
 ]
 
