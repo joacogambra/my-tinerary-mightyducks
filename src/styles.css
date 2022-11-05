@@ -5,8 +5,16 @@
     font-family: 'Roboto', sans-serif;
 
 }
-
-
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1d;
+}
+.grow{
+    flex-grow: 1;
+}
 .navBar{
     display: flex;
     width: 100%;
@@ -20,17 +28,13 @@
 .navBar a, .links a{
     text-decoration: none;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 .navBar a:hover, .links a:hover{
     font-weight: bold;
 }
-.flechita{
-    width: 20%;
-    padding-top: 0;
-    margin-top: 0;
-}
+
 .drop-down{
     position: relative;
     display: flex;
@@ -73,11 +77,14 @@
     width: 80px;
 }
 .hero{
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
     gap:5rem;
+    flex-grow: 1;
+   
 
 }
 video{
@@ -108,6 +115,7 @@ video{
     margin: auto;
     position: relative;
     z-index: 2;
+    color: white;
    
 }
 .logoIndex img{
@@ -120,13 +128,54 @@ video{
     gap: 2rem;
    
 }
+.no-deco{
+    text-decoration: none;
+    color: white;
+}
+.toaction{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    font-size: 1rem;
+    
+}
+ .button{
+    background-color: transparent;
+    border: unset;
+    border-radius: 15px;
+    padding: 0 .5rem .5rem .5rem; 
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+footer{
+    font-size: 1rem;
+    color:white;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1;
+    background-color: #1c1c1d;
+}
+footer img{
+    width: 50px;
+}
+footer a {
+    text-decoration: none;
+    color: white;
+}
+.fila{
+    display: flex;
+    flex-direction: column;
+}
 
 footer{
     background: rgb(1,154,162);
     background: linear-gradient(180deg, rgba(1,154,162,1) 0%, rgba(77,77,179,1) 100%);
     color: white;
     width: 100%;
-    min-height: 10vh;
+    min-height: 20vh;
 }
 .footer{
     display: flex;
@@ -144,6 +193,7 @@ footer{
 .scroll{
     width: 140px;
     cursor: pointer;
+    border-radius: 20%;
 }
 
 .fila a{
@@ -167,24 +217,11 @@ footer{
 .us{
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    padding-top: 40px;
+    flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
 }
-
-.us p{
-    margin-top: 22px;
-}
-
-.us a{
-    color: white;
-    text-decoration: none;
-}
-
-.us a:hover{
-    font-weight: bold;
-    border: 2px solid white;
+.us img{
+ transform: translateY(20%);
 }
 
 .carousel{
@@ -195,37 +232,36 @@ footer{
     min-height: 100vh;
     transition-duration: 1s ease;
     gap: 3rem;
-    background-image: url(../public/img/carouselfondo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken;
-}
-
-.carousel h3{
-    position: absolute;
-    color: white;
-    margin-top: 520px;
-    box-shadow: 15px 15px 30px #bebebe,
-    15px -15px 30px #ffffff;
 }
 
 .image{
     width: 1000px;
     height: 600px;
     border-radius: 30px;
-    box-shadow: 15px 15px 30px #464545,
-    15px -15px 30px #070707;
+    box-shadow: 15px 15px 30px #bebebe,
+    15px -15px 30px #ffffff;
+
 }
 
 .arrowleft, .arrowright{
     width: 50px;
-    border-radius: 50%;
-    box-shadow: 15px 15px 30px #464545,
-    15px -15px 30px #070707;
+}
+/* .us p{
+    margin-top: 22px;
 }
 
+.us a{
+    color: white;
+    text-decoration: none;
+} */
+
+.us a:hover{
+    font-weight: bold;
+    border: 2px solid white;
+} 
+
 @media (min-width: 1440px){
-    *{
+    .drop-down a, .drop-down-nav a, .toaction, .links{
         font-size: 2rem;
     }
     .drop-menu{
@@ -233,5 +269,17 @@ footer{
     }
     .drop-down-nav{
         top: .5rem;
+    }
+}
+@media (max-width:425px){
+    footer{
+        height: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:.5rem;
+        padding:.5rem;
+    }
+    .scroll img{
+        width: 20%;
     }
 }
