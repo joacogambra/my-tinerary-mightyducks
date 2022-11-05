@@ -223,23 +223,35 @@ footer{
 .us img{
  transform: translateY(20%);
 }
-
+.container{
+    width: 100%;
+    display: flex;
+   
+}
 .carousel{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
     min-height: 100vh;
     transition-duration: 1s ease;
-    gap: 3rem;
+    gap: 1rem;
     padding: 1rem 0  ;
-    background: linear-gradient(180deg, rgba(1, 154, 162, 0.784) 0%, rgba(77, 77, 179, 0.795) 100%);
+    background-image: url(/public/img/carouselfondo.jpg);
+    background-size: cover;
     
 }
-
+.cards{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
 .image{
-    width: 1000px;
-    height: 600px;
+    width: 400px;
+    height: 350px;
     border-radius: 30px;
     box-shadow: 15px 15px 30px #bebebe,
     15px -15px 30px #ffffff;
