@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound"
 function App() {
   return (
     <>
-    <main>
+    <main className="main">
     <AutoToTop/>
     <Routes>
       <Route path="/home" element={<Home/>}/>

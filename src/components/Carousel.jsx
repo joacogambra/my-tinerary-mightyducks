@@ -1,6 +1,6 @@
 import React , {useState, useEffect} from 'react'
 import cities from '../data/cities'
-import hotels from '../data/hotels'
+import hotels from './Hotels'
 import Arrow from './Arrow'
 
 
@@ -8,7 +8,7 @@ import Arrow from './Arrow'
 export default function Carousel(props) {
  
   let hoteles = hotels.map(photos => photos.photo[0])
-  console.log(hoteles);
+  
   function slice(array1,  number1, number2) {
     let pic= array1.slice(number1,number2)
     let photos= pic.map(photos => photos.photo)
@@ -20,14 +20,6 @@ export default function Carousel(props) {
   let photo2= (slice(cities, 6,13)).concat(hoteles.slice(6,13))
   console.log(photo2)
     
-    // let halfArray2= hotels.slice(0,6)
-    
-    // let hotelsArray = halfArray2.map(photos => photos.photo[0])
-    // let photos= photo1.concat(hotelsArray)
-    
-    // let otherHotel= hotels.slice(6,13)
-    // let hotelHalf = otherHotel.map(photos => photos.photo[0])
- 
     let [numero, setNumero]= useState(0)
     let [selectedImage, setSelectedImage]= useState(photos[0])
     let [selectedImage2, setSelectedImage2]= useState(photo2[0])

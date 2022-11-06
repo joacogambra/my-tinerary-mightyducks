@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
 import cities from "../data/cities"
-import hotels from "../data/hotels"
+import hotels from "../components/Hotels"
 
 
 
