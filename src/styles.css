@@ -298,11 +298,17 @@ footer {
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+.container-signup{
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .signup {
     font-family: 'Poppins', sans-serif;
     max-width: 700px;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.281);
     padding: 25px 30px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
