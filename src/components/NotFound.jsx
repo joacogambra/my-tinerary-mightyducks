@@ -7,12 +7,12 @@ export default function NotFound() {
   return (
     
       <div className="logoIndex">
-        <p> Page not found... </p>
-        <div className='toaction'>
+        <img src='/img/404.png' alt='NotFound' className='fourcerofour'></img>
+        <div className='toaction '>
           <button class=" button links">
           <LinkRouter to="/home" > Go Back HomePage</LinkRouter>
-          </button>
           <CallToAction/>  
+          </button>
           </div>
       </div>
 

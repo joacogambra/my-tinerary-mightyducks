@@ -4,7 +4,7 @@ import React from 'react'
 export default function HeaderVideo(props) {
   let {componenttop, componentmiddle}=props
   return (
-    <div className='hero'>
+    <div className='hero grow'>
         {componenttop}
         
         <video muted autoPlay loop>
