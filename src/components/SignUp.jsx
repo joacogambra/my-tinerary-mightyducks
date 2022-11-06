@@ -1,5 +1,5 @@
 import React from 'react'
-import { json } from 'react-router-dom'
+import SignGoogle from './SignGoogle'
 
 export default function SignUp() {
     let fullName = React.useRef ()
@@ -24,6 +24,7 @@ export default function SignUp() {
     }
 
   return (
+    <div className='container-signup'>
     <div class="signup">
     <div class="title">Registration</div>
     <div class="content">
@@ -57,11 +58,10 @@ export default function SignUp() {
         <div class="button">
           <input type="submit" value="Register"/>
         </div>
-        <div class="button">
-          <input value="Register with Google"/>
-        </div>
+      <SignGoogle/>
       </form>
     </div>
+</div>
 </div>
   )
 }

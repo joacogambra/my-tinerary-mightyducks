@@ -92,16 +92,15 @@
 
 .hero {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 5rem;
     align-items: center;
-    gap:5rem;
+    gap: 5rem;
     flex-grow: 1;
-
-
+    padding-bottom: 40px;
 }
 
 video {
@@ -167,43 +166,48 @@ video {
     background-color: transparent;
     border: unset;
     border-radius: 15px;
-    padding: 0 .5rem .5rem .5rem; 
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    padding: 0 .5rem .5rem .5rem;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
 
-.fourcerofour{
+.fourcerofour {
     display: flex;
     border-radius: 15%;
     object-fit: cover;
-    
+
 }
-.sign-in{
+
+.sign-in {
     background-color: #1c1c1d92;
     width: 400px;
     height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:1rem;
+    gap: 1rem;
     align-items: center;
     z-index: 1;
     border-radius: 10%;
     color: white;
 }
+
 .sign-in p {
     padding-top: .5rem;
     font-style: italic;
 }
+
 .sign-in a {
     text-decoration: none;
     color: violet;
 }
-.sign-in input{
+
+.sign-in input {
     border-radius: 0.75em;
     height: 1.5rem;
     width: 200px;
     text-align: center;
 }
+
 #customBtn {
     display: inline-block;
     background: white;
@@ -213,22 +217,26 @@ video {
     border: thin solid #888;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
-  }
-  #customBtn:hover {
+}
+
+#customBtn:hover {
     cursor: pointer;
-  }
-  span.label {
+}
+
+span.label {
     font-family: serif;
     font-weight: normal;
-  }
-  span.icon {
+}
+
+span.icon {
     background: url('/public/img/signgoogle.png') transparent 5px 50% no-repeat;
     display: inline-block;
     vertical-align: middle;
     width: 42px;
     height: 42px;
-  }
-  span.buttonText {
+}
+
+span.buttonText {
     display: inline-block;
     vertical-align: middle;
     padding-left: 42px;
@@ -237,9 +245,9 @@ video {
     font-weight: bold;
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;
-  }
+}
 
-footer{
+footer {
     font-size: 1rem;
     color: white;
     width: 100%;
@@ -323,12 +331,14 @@ footer {
 .us img {
     transform: translateY(20%);
 }
-.container{
+
+.container {
     width: 100%;
     display: flex;
-   
+
 }
-.carousel{
+
+.carousel {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -366,11 +376,18 @@ footer {
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+.container-signup {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .signup {
     font-family: 'Poppins', sans-serif;
     max-width: 700px;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.281);
     padding: 25px 30px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -464,6 +481,123 @@ form .button input:hover {
     transform: scale(0.99);
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
+
+.cardcities {
+    z-index: 1;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0px;
+    background-color: rgba(255, 255, 255, 0.281);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+
+#searchinput {
+    width: 300px;
+    padding: 25px 30px;
+    border-radius: 5px;
+
+}
+
+#contain-checks {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 3rem;
+    background-color: rgba(255, 255, 255, 0.281);
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+
+}
+
+.a-box {
+    display: inline-block;
+    width: 240px;
+    text-align: center;
+    margin: 0px 40px;
+}
+
+.img-container {
+    height: 230px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 0px 0px 20px 20px;
+    display: inline-block;
+}
+
+.img-container img {
+    transform: skew(0deg, -13deg);
+    height: 250px;
+    margin: -35px 0px 0px -70px;
+}
+
+.inner-skew {
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0px;
+    transform: skew(0deg, 13deg);
+    font-size: 0px;
+    margin: 30px 0px 0px 0px;
+    background: #c8c2c2;
+    height: 250px;
+    width: 200px;
+}
+
+.text-container {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    padding: 120px 20px 20px 20px;
+    border-radius: 20px;
+    background: #fff;
+    margin: -120px 0px 0px 0px;
+    line-height: 19px;
+    font-size: 14px;
+}
+
+.text-container h3 {
+    margin: 20px 0px 10px 0px;
+    color: #04bcff;
+    font-size: 18px;
+}
+
+.boton-city {
+    padding: 1.3em 3em;
+    margin-top: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.507);
+}
+
+.boton-city:hover {
+    background-color: #23bfc4;
+    box-shadow: 0px 15px 20px rgba(46, 177, 229, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.boton-city:active {
+    transform: translateY(-1px);
+}
+
+
+
 
 @media(max-width: 584px) {
     .signup {
