@@ -13,7 +13,7 @@ import SignUpPage from "./pages/SignUpPage"
 function App() {
   return (
     <>
-    <main>
+    <main className="main">
     <AutoToTop/>
     <Routes>
       <Route path="/home" element={<Home/>}/>

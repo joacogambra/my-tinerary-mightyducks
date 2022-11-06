@@ -8,14 +8,17 @@
 
 .main {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #1b1b1d52;
+
+    z-index: 1;
 }
 
 .grow {
     flex-grow: 1;
+  
 }
 
 .navBar {
@@ -99,8 +102,8 @@
     gap: 5rem;
     align-items: center;
     gap: 5rem;
-    flex-grow: 1;
-    padding-bottom: 40px;
+     padding-bottom: 40px;
+
 }
 
 video {
@@ -125,7 +128,7 @@ video {
     mix-blend-mode: overlay;
 }
 
-.logoIndex {
+.logoIndex{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,6 +139,7 @@ video {
     color: white;
 
 }
+
 
 .logoIndex img {
     width: 50%;
@@ -176,43 +180,50 @@ video {
     object-fit: cover;
 
 }
-
-.sign-in {
-    background-color: #1c1c1d92;
-    width: 400px;
-    height: 40vh;
+.sign-in, .phrase{
+    background-color:  rgba(255, 255, 255, 0.541);;
+    width: 45%;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap:.8rem;
     align-items: center;
     z-index: 1;
     border-radius: 10%;
-    color: white;
+    
 }
 
-.sign-in p {
-    padding-top: .5rem;
+.sign-in p, .phrase p {
+    padding: .4rem 0; 
     font-style: italic;
 }
 
 .sign-in a {
     text-decoration: none;
-    color: violet;
+    color: rgb(218, 46, 218);
+}
+.sign-in input, .input-nav input, .input-nav select{
+    border-radius: 0.75em;
+    height: 2rem;
+    width: 250px;
+    text-align: center;
 }
 
-.sign-in input {
-    border-radius: 0.75em;
-    height: 1.5rem;
-    width: 200px;
-    text-align: center;
+.login{
+    height: 10%;
+    width: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    border: none;
 }
 
 #customBtn {
     display: inline-block;
     background: white;
     color: #444;
-    width: 190px;
+    width: 180px;
     border-radius: 5px;
     border: thin solid #888;
     box-shadow: 1px 1px 1px grey;
@@ -477,43 +488,26 @@ form .button input {
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-form .button input:hover {
+form .button input:hover, .login:hover {
     transform: scale(0.99);
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
-
-.cardcities {
-    z-index: 1;
-    width: 90%;
-    font-family: 'Poppins', sans-serif;
-
-}
-
-.search {
+.hotels{
     display: flex;
-    justify-content: center;
-    padding: 2px 0px;
-    background-color: rgba(255, 255, 255, 0.281);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-}
-
-#searchinput {
-    width: 300px;
-    padding: 25px 30px;
-    border-radius: 5px;
+    flex-direction: column;
+    background-image: linear-gradient(-225deg, #ace8cd 0%, #4090a8 100%);
+    gap:1rem;
+    width: 100%;  
 
 }
-
-#contain-checks {
+.containerHotels{
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
     gap: 3rem;
-    background-color: rgba(255, 255, 255, 0.281);
-    padding: 25px 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem ;
+    padding-bottom: 2rem;
+    
 
 }
 
@@ -521,23 +515,15 @@ form .button input:hover {
     display: inline-block;
     width: 240px;
     text-align: center;
-    margin: 0px 40px;
-}
+  }
 
-.img-container {
+  .img-container {
     height: 230px;
     width: 200px;
     overflow: hidden;
     border-radius: 0px 0px 20px 20px;
     display: inline-block;
 }
-
-.img-container img {
-    transform: skew(0deg, -13deg);
-    height: 250px;
-    margin: -35px 0px 0px -70px;
-}
-
 .inner-skew {
     display: inline-block;
     border-radius: 20px;
@@ -550,52 +536,33 @@ form .button input:hover {
     height: 250px;
     width: 200px;
 }
+.img-card{
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+}
+.img-container img {
+    transform: skew(0deg, -13deg);
+    height: 250px;
+    margin: -35px 0px 0px -70px;
 
+   
+}
 .text-container {
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
     padding: 120px 20px 20px 20px;
     border-radius: 20px;
     background: #fff;
     margin: -120px 0px 0px 0px;
     line-height: 19px;
     font-size: 14px;
-}
-
-.text-container h3 {
+  }
+  
+  .text-container h3 {
     margin: 20px 0px 10px 0px;
     color: #04bcff;
     font-size: 18px;
-}
-
-.boton-city {
-    padding: 1.3em 3em;
-    margin-top: 12px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    border: 0.5px solid rgba(0, 0, 0, 0.507);
-}
-
-.boton-city:hover {
-    background-color: #23bfc4;
-    box-shadow: 0px 15px 20px rgba(46, 177, 229, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-}
-
-.boton-city:active {
-    transform: translateY(-1px);
-}
-
+  }
 
 
 
@@ -622,6 +589,32 @@ form .button input:hover {
         width: 5px;
     }
 }
+/*hotels*/
+.input-nav {
+    width: 100%; 
+    background-color:  rgba(255, 255, 255, 0.541);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    flex-wrap: wrap;
+    
+}
+.input-nav select{
+    width: 80px;
+    
+}
+.render{
+    min-height:100vh ;
+    with:100%;
+    display: flex;
+    flex-direction: column;
+}
+.input-nav input[type="text"]{
+    color: rgb(218, 46, 218);
+}
+
 
 @media(max-width: 459px) {
     .signup .content .category {
@@ -647,7 +640,12 @@ form .button input:hover {
         top: .5rem;
     }
 }
-
+@media (max-width: 767px) {
+    .sign-in{
+        padding: 1rem;
+        width: 90%;
+    }
+}
 @media (max-width:425px) {
     footer {
         height: auto;

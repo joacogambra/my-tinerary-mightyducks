@@ -9,7 +9,7 @@ let hotels=[
     },
     {
         id: "ho2",
-        name: "palau sant jordi ",
+        name: "Palau Sant Jordi ",
         photo: ["https://espanarusa.com/files/autoupload/65/38/36/ewy4zcbg313406.jpg.[pr].jpg"],
         capacity: 17000,
         citiId: "city2",

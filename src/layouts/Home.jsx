@@ -11,8 +11,8 @@ export default function home() {
     
     <Home2>
 
-          <HeaderVideo componenttop=<Header></Header> componentmiddle=<Logo/>/>        
-         <CarouselLayout></CarouselLayout>       
+          <HeaderVideo componenttop=<Header></Header> componentmiddle=<Logo/> othercomponent=<CarouselLayout></CarouselLayout>/>        
+                
          <Footer></Footer>      
         </Home2>
  
