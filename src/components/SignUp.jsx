@@ -1,5 +1,4 @@
 import React from 'react'
-import { json } from 'react-router-dom'
 import SignGoogle from './SignGoogle'
 
 export default function SignUp() {
