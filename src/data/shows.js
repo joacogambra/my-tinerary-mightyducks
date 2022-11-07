@@ -3,7 +3,7 @@ let shows = [
         hotelId: "ho2",
         name: "Cirque Du Soleil Crystal",
         description: "Discover a new kind of performance as Cirque du Soleil meets the ice to defy all expectations. Watch world-class ice skaters and acrobats claim their new frozen playground with speed and fluidity as they challenge the laws of gravity with never-before-seen acrobatics.",
-        photo: ("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elalmanaque.com%2Freportajes%2FCirque-Solei-Toruk.htm&psig=AOvVaw2iA23p4KH77ytel_HoWmeP&ust=1667522977318000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJD_oKjlkPsCFQAAAAAdAAAAABAE"),
+        photo: ("https://www.cirquedusoleil.com/-/media/cds/images/shows/crystal/new/thumbnail_share/2022/poster_image_454x454.jpg?db=web&vs=1&hash=9508E8565AB0119DFEB9B0BCAC8ECB04"),
         price: 40,
         date: 2022-12-12,
         userId:  "user1 ",

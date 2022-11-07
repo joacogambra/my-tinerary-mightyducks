@@ -1,14 +1,14 @@
 import React from 'react'
 
 export default function Cards(props) {
-    let {name, image,continente,category}= props
+    let {name, image,continente,category, id}= props
   return (
 
-      <div class="a-box">
-           <div class="img-container">
+      <div class="a-box details">
+           <div class="img-container correccion">
               <div class="img-inner">
                 <div class="inner-skew">
-                    <img src={image} alt={name} className="img-card"/>
+                    <img src={image} alt={name} className="img-card "/>
                  </div>
                 </div>
               </div>
@@ -17,6 +17,9 @@ export default function Cards(props) {
               <div>
                 {`${category}:${continente}`}
               </div>
+              <div>
+                <button className='boton-city'id={id}>More</button>
+            </div>
         </div>
         </div>
 

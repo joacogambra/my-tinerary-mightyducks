@@ -10,7 +10,7 @@ export default function CarouselLayout() {
   return (
     <>
   <div className='carousel'>
-    <Carousel array= {cities} number1= "0" number2="6"></Carousel>
+    <Carousel></Carousel>
     
     </div>
     </>

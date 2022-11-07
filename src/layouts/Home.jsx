@@ -4,15 +4,15 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Logo from '../components/Logo'
 import Home2 from '../layouts/Home2'
-// import Carousel from '../components/Carousel'
-import CarouselLayout from './CarrouselLayout'
+import Carousel from '../components/Carousel'
+
 export default function home() {
   return (
     
     <Home2>
 
-          <HeaderVideo componenttop=<Header></Header> componentmiddle=<Logo/> othercomponent=<CarouselLayout></CarouselLayout>/>        
-                
+          <HeaderVideo componenttop=<Header></Header> componentmiddle=<Logo/>/>        
+         <Carousel></Carousel>       
          <Footer></Footer>      
         </Home2>
  
