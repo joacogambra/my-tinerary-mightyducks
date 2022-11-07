@@ -72,7 +72,7 @@ export default function FormCities() {
                     </div>
                 </form>
                 <div className='btnContainer'>
-                    <button className='btnFormAdmin' onClick={() => ValidateInfo()}>Agregar Ciudad</button>
+                    <button className='btnFormAdmin' onClick={() => ValidateInfo()}>Add City</button>
                 </div>
             </div>
         </div>
