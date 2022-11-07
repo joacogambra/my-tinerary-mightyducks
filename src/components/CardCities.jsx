@@ -2,6 +2,7 @@ import React from 'react'
 import cities from '../data/cities'
 import CityCard from './CityCard'
 import { useState } from 'react'
+import NewCityCard from './NewCityCard'
 
 export default function CardCities() {
     let continents = []
@@ -27,6 +28,9 @@ export default function CardCities() {
     let checkboxSelected = (e) => {setCheckbox ((checkbox) => ({...checkbox,[e.target.value] : e.target.checked}))}
         console.log(checkbox);
 
+    // let cruzados = checkboxSelected(search.value)
+    // console.log(cruzados);
+
     return (
         <div className='cardcities'>
             <div class="search" role="search">
@@ -39,6 +43,8 @@ export default function CardCities() {
             </div>
             <div className='contain-citycards'>
                 {cities.map(cities=><CityCard key={cities.name} cities={cities}/>)}
+                {/* despues de agregar una ciudad en el formulario descomentar NewCityCard para verla renderizada */}
+                {/* <NewCityCard/> */}
             </div>    
         </div>
     )
