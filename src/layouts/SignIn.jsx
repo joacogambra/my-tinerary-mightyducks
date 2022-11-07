@@ -7,7 +7,8 @@ import SingIn from '../components/SingIn'
 export default function SignIn() {
   return (
     <>
-    <HeaderVideo componenttop={<Header/>} componentmiddle={<SingIn/>}  ></HeaderVideo>
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<SingIn/>} ></HeaderVideo>
+    
     <Footer/>
     </>
   )

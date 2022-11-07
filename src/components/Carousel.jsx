@@ -1,11 +1,11 @@
 import React , {useState, useEffect} from 'react'
 import cities from '../data/cities'
-import hotels from './Hotels'
+import hotels from '../data/hotels'
 import Arrow from './Arrow'
 
 
 
-export default function Carousel(props) {
+export default function Carousel() {
  
   let hoteles = hotels.map(photos => photos.photo[0])
   

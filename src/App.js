@@ -10,6 +10,7 @@ import {Routes, Route} from 'react-router-dom'
 import NotFound from "./pages/NotFound"
 import SignUpPage from "./pages/SignUpPage"
 import NewCity from "./pages/NewCity"
+import {useParams} from 'react-router-dom'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
     <main className="main">
     <AutoToTop/>
     <Routes>
-      <Route path="/home" element={<Home/>}/>
+      <Route path="/index" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
       <Route path="/newcity" element={<NewCity/>}/>
@@ -26,6 +27,7 @@ function App() {
       <Route path="/:id" element={<CityPage/>} />
       <Route path="/:id" element={<Hotel/>} />
       <Route path="/*" element={<NotFound/>}/>
+
     </Routes>
     </main>
     

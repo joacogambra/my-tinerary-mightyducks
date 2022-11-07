@@ -13,6 +13,9 @@
     flex-direction: column;
     background-color: #1b1b1d52;
     z-index: 1;
+
+   
+    
 }
 
 .grow {
@@ -112,6 +115,7 @@ video {
     height: 100vh;
     object-fit: cover;
     background-color: rgba(41, 66, 92, 0.308);
+   
 
 }
 
@@ -124,6 +128,7 @@ video {
     background: #1c1c1d;
     opacity: .5;
     mix-blend-mode: overlay;
+    
 }
 
 .logoIndex {
@@ -185,13 +190,13 @@ video {
     background-color: rgba(255, 255, 255, 0.541);
     ;
     width: 45%;
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: .8rem;
     align-items: center;
-    z-index: 1;
+    z-index:1;
     border-radius: 10%;
 
 }
@@ -376,7 +381,39 @@ footer {
     gap: 1rem;
     justify-content: space-evenly;
     align-items: center;
+    
 
+}
+.arrow{
+    background: transparent;
+}
+.cardcities {
+    z-index: 1;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+}
+.search {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0px;
+    background-color: rgba(255, 255, 255, 0.281);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+#searchinput {
+    width: 300px;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+#contain-checks {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 3rem;
+    background-color: rgba(255, 255, 255, 0.281);
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 .cardcities {
@@ -429,7 +466,7 @@ footer {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .container-signup {
-    z-index: 2;
+    z-index:2;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -515,7 +552,7 @@ form .button {
     margin: 35px 0
 }
 
-form .button input {
+form .button input, .button {
     height: 100%;
     width: 100%;
     border-radius: 5px;
@@ -546,6 +583,7 @@ form .button input:hover,
     gap: 0.5rem;
     width: 100%;
 }
+
 
 .containerHotels {
     display: flex;
@@ -601,6 +639,15 @@ form .button input:hover,
 }
 .detalle{
     width: 400px;
+    margin: -35px 0px 0px -70px;   
+}
+
+.detail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    z-index: 1;  
 }
 
 .text-container {
@@ -622,6 +669,10 @@ form .button input:hover,
     color: #04bcff;
     font-size: 18px;
 }
+
+.cover{
+    object-fit: cover;
+ }
 
 .boton-city {
     padding: 1.3em 3em;
@@ -652,7 +703,9 @@ form .button input:hover,
     transform: translateY(-1px);
 }
 
-
+.boton-city:active {
+    transform: translateY(-1px);
+}
 
 @media(max-width: 584px) {
     .signup {
@@ -693,6 +746,7 @@ form .button input:hover,
 .input-nav select {
     width: 80px;
 }
+
 /* /details/ */
 .details{
     width: 500px;
@@ -711,6 +765,10 @@ form .button input:hover,
 .render {
     min-height: 100vh;
     width: 100%;
+
+.render{
+    min-height:100vh ;
+    width:100%;
     display: flex;
     flex-direction: column;
 }
@@ -719,6 +777,14 @@ form .button input:hover,
     color: rgb(218, 46, 218);
 }
 
+/*details*/
+.details{
+    width: 500px;
+    z-index: 1;    
+}
+.details .img-inner{
+   width: 100%;
+}
 /* admin form */
 
 .formAdminMain {
@@ -726,15 +792,12 @@ form .button input:hover,
     width: 90%;
     display: flex;
     justify-content: center;
-}
 
 .formAdmin {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 20vw;
-
-}
 
 .formAdminContainer {
     display: flex;
@@ -751,30 +814,28 @@ form .button input:hover,
     margin-bottom: 3vh;
 }
 
-.inpFormContainer label {
+.inpFormContainer  label{
     text-align: center;
 }
-
 .inpFormAdmin{
     height: 5vh;
-    padding-left: 10px
+    padding-left: 10px;
 }
 
 .btnContainer {
     display: flex;
     justify-content: center;
 }
-
 .btnFormAdmin {
     margin-top: 5vh;
     width: 10vw;
     height: 5vh;
 }
-
 .citylayout{
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
 @media(max-width: 459px) {
     .signup .content .category {
         flex-direction: column;
