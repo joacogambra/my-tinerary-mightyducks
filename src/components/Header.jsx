@@ -23,7 +23,7 @@ export default function Header() {
         
         </div>
         <div className='drop-down-nav'>
-          <LinkRouter to='/index'>Home</LinkRouter>
+          <LinkRouter to='/home'>Home</LinkRouter>
          <LinkRouter to='/cities'>Cities</LinkRouter>
          <LinkRouter to='/hotels'>Hotels</LinkRouter>
         

@@ -1,64 +1,46 @@
-import Inputs from "../components/Inputs"
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-    
-    export default function FormHotel() {
-        const navigate = useNavigate()
-  
-            // let id = useRef ()
-            // let name = useRef ()
-            // let photo = useRef ()
-            // let Capacity = useRef ()
-            // let cityiId = useRef ()
-    
-            // function add (){ 
-            //  let addHotel = {
-            //     id: id.value,
-            //       name:name.value,
-            //       photo: photo.value,
-            //       Capacity: Capacity.value,
-            //       cityiId: cityiId.value,
-            //     } 
-            //     localStorage.setItem ("addHotel",JSON.stringify(addHotel))
-                
-            // }
+import React from 'react'
+import {useRef} from 'react'
+import Inputs from './Inputs'
 
-            
-        const [addHotel, setAddHotel] = useState([{
-            id: '',
-            name: '',
-            photo: '',
-            Capacity: '',
-            CityId: '',
-            userAdmin: '',
+export default function FormHotel() {
+    let id = useRef ()
+    let name = useRef ()
+    let photo = useRef ()
+    let capacity = useRef ()
+    let cityId = useRef ()
     
-        }])
     
-        const add = (e) => {
-            const value = e.target.value
-            const prop = e.target.name
-            setAddHotel({
-                ...addHotel,
-                [prop]: value
-            })
-        }
-    
-        const ValidateInfo = async () => {
-            localStorage.setItem('hotels', JSON.stringify(addHotel))
-            alert('Hotel added successfully')
-        }
+    const onButtonClick = () => {
+        // `current` points to the mounted text input element
+        id.current.focus()
+        name.current.focus();
+        photo.current.focus();
+        capacity.current.focus();
+        cityId.current.focus();
+        let newHotel= {
+        name: name.current.value,
+        id:id.current.value,
+        photo:photo.current.value,
+        capacity:capacity.current.value,
+        cityId:cityId.current.value,
+    }
+    localStorage.setItem("newHotel", JSON.stringify(newHotel))
+      };
 
-    return (
-        <form className='sign-in formAdminContainer' action="" onChange={add()} >
-            
-            <Inputs dato="Id" type="text" placeholder="Id"/>
-            <Inputs dato="Name" type="text" placeholder="Name"/>
-            <Inputs dato="Photo" type="text" placeholder="Photo"/>
-            <Inputs dato="Capacity" type="text" placeholder="Capacity"/>
-            <Inputs dato="CityId" type="text" placeholder="CityId"/>
-            <Inputs dato="AdmId" type="text" placeholder="Administrador Id"/>
-            <button className='button' onClick={() => ValidateInfo()}>Add Hotel</button>
-            
-          </form>
-    )
+      
+      return (
+        <>
+        <div className='sign-in'>
+            <h3> Enter the Hotel information</h3>
+          <input ref={name} type="text"  placeholder='Name'/>
+          <input ref={id} type="text"  placeholder='Id'/>
+          <input ref={photo} type="text"  placeholder='Photo'/>
+          <input ref={capacity} type="text"  placeholder='Capacity'/>
+          <input ref={cityId} type="text"  placeholder='CityId'/>
+
+          <button onClick={onButtonClick} className='login'>Add Hotel</button>
+          </div>
+        </>
+      );
+    
 }

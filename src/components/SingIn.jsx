@@ -13,7 +13,7 @@ export default function SingIn() {
 
     function login (login){
         login.preventDefault() 
-    let registrationdata = {
+        let registrationdata = {
           email: email.current.value,
           password: password.current.value,
         } 
