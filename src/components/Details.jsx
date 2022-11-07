@@ -18,6 +18,7 @@ export default function Details(props) {
    <div>
      {`${category}:${number}`}
    </div>
+<button className='button'> Comments</button>
 </div>
 </div>
 
