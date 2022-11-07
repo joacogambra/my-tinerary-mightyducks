@@ -9,7 +9,7 @@ import AutoToTop from "./components/AutoToTop"
 import {Routes, Route} from 'react-router-dom'
 import NotFound from "./pages/NotFound"
 import SignUpPage from "./pages/SignUpPage"
-import {useParams} from 'react-router-dom'
+import NewHotel from "./pages/NewHotel"
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
       <Route path="/city" element={<City/>}/>
       <Route path="/hotel" element={<Hotel/>}/>
       <Route path="/*" element={<NotFound/>}/>
+      <Route path="/new-hotel" element={<NewHotel/>}/>
       <Route path="/:id" element={<Hotel/>} />
   
     </Routes>
