@@ -1,10 +1,8 @@
 import React from 'react'
-import Hotel from '../layouts/NewHotel'
+import FormLayout from '../layouts/FormLayout'
 
-export default function HotelPage() {
+export default function NewHotel() {
   return (
-    <Hotel>
-      
-    </Hotel>
+    <FormLayout/>
   )
 }

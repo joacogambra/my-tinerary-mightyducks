@@ -12,7 +12,7 @@ export default function Footer() {
         </div>     
       <div className='us'>
         <p>My Tinerary © 2022 by</p>
-        <a href='https://github.com/joacogambra' rel="noreferrer" target="_blank"> Laila, Jalil <img src='./img/github.png' className='github' alt='github'></img></a>
+        <a href='https://github.com/LailaJalil' rel="noreferrer" target="_blank"> Laila, Jalil <img src='./img/github.png' className='github' alt='github'></img></a>
         <a href='https://github.com/joacogambra'rel="noreferrer" target="_blank">Gambra, Joaquin <img src='./img/github.png' className='github' alt='github'></img></a>
       </div>
       <ScrollTop/>

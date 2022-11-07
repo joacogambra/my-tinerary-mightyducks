@@ -6,11 +6,11 @@ import shows from '../data/shows'
 
 
 export default function Detail() {
-   const { id }= useParams()
-
-  let perfilEncontrado= hotels.find(elemento=> elemento.id=== id)
+   const { hotel }= useParams()
+   console.log(hotel);
+  let perfilEncontrado= hotels.find(elemento=> elemento.id=== hotel)
   console.log(perfilEncontrado)
-let showsEncontrado = shows.filter(elemento=>elemento.hotelId === id )
+let showsEncontrado = shows.filter(elemento=>elemento.hotelId === hotel )
     console.log(showsEncontrado);
   return (
    
