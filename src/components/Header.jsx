@@ -23,7 +23,7 @@ export default function Header() {
         
         </div>
         <div className='drop-down-nav'>
-          <LinkRouter to='/home'>Home</LinkRouter>
+          <LinkRouter to='/index'>Home</LinkRouter>
          <LinkRouter to='/cities'>Cities</LinkRouter>
          <LinkRouter to='/hotels'>Hotels</LinkRouter>
         
@@ -38,7 +38,7 @@ export default function Header() {
           <img src="./img/image.png" alt="user" className="user-image" onClick={hide}/>
             <div className='drop-menu'>
               <LinkRouter to='/sign-in'> SignIn</LinkRouter>
-             <LinkRouter to='/sing-up'>SignUp</LinkRouter>
+             <LinkRouter to='/sign-up'>SignUp</LinkRouter>
              </div>
          </div>
          </>

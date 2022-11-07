@@ -12,8 +12,10 @@
     display: flex;
     flex-direction: column;
     background-color: #1b1b1d52;
-
     z-index: 1;
+
+   
+    
 }
 
 .grow {
@@ -102,7 +104,9 @@
     gap: 5rem;
     align-items: center;
     gap: 5rem;
-     padding-bottom: 40px;
+    padding-bottom: 40px;
+
+    
 
 }
 
@@ -114,6 +118,7 @@ video {
     height: 100vh;
     object-fit: cover;
     background-color: rgba(41, 66, 92, 0.308);
+   
 
 }
 
@@ -126,6 +131,7 @@ video {
     background: #1c1c1d;
     opacity: .5;
     mix-blend-mode: overlay;
+    
 }
 
 .logoIndex{
@@ -167,7 +173,8 @@ video {
 }
 
 .button {
-    background-color: transparent;
+    transform: scale(0.99);
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     border: unset;
     border-radius: 15px;
     padding: 0 .5rem .5rem .5rem;
@@ -183,13 +190,13 @@ video {
 .sign-in, .phrase{
     background-color:  rgba(255, 255, 255, 0.541);;
     width: 45%;
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap:.8rem;
     align-items: center;
-    z-index: 1;
+    z-index:1;
     border-radius: 10%;
     
 }
@@ -197,6 +204,7 @@ video {
 .sign-in p, .phrase p {
     padding: .4rem 0; 
     font-style: italic;
+    font-family: 'Poppins', sans-serif;
 }
 
 .sign-in a {
@@ -346,6 +354,7 @@ footer {
 .container {
     width: 100%;
     display: flex;
+    background-image: url(/public/img/carouselfondo.jpg);
 
 }
 
@@ -369,7 +378,39 @@ footer {
     gap: 1rem;
     justify-content: space-evenly;
     align-items: center;
+    
 
+}
+.arrow{
+    background: transparent;
+}
+.cardcities {
+    z-index: 1;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+}
+.search {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0px;
+    background-color: rgba(255, 255, 255, 0.281);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+#searchinput {
+    width: 300px;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+#contain-checks {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 3rem;
+    background-color: rgba(255, 255, 255, 0.281);
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 .image {
@@ -388,7 +429,7 @@ footer {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .container-signup {
-    z-index: 2;
+    z-index:2;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -474,7 +515,7 @@ form .button {
     margin: 35px 0
 }
 
-form .button input {
+form .button input, .button {
     height: 100%;
     width: 100%;
     border-radius: 5px;
@@ -488,15 +529,18 @@ form .button input {
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-form .button input:hover, .login:hover {
+form .button input:hover, .login:hover , .button:hover{
     transform: scale(0.99);
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
 .hotels{
+    padding: 1rem 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     background-image: linear-gradient(-225deg, #ace8cd 0%, #4090a8 100%);
-    gap:1rem;
+    gap:.5rem;
     width: 100%;  
 
 }
@@ -515,6 +559,8 @@ form .button input:hover, .login:hover {
     display: inline-block;
     width: 240px;
     text-align: center;
+    margin: 0px 40px;
+   
   }
 
   .img-container {
@@ -544,9 +590,18 @@ form .button input:hover, .login:hover {
 .img-container img {
     transform: skew(0deg, -13deg);
     height: 250px;
-    margin: -35px 0px 0px -70px;
+    margin: -35px 0px 0px -70px;   
+}
+.correccion img{
+    margin: -35px 0px 0px 0px;
 
-   
+}
+.detail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    z-index: 1;  
 }
 .text-container {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
@@ -563,8 +618,36 @@ form .button input:hover, .login:hover {
     color: #04bcff;
     font-size: 18px;
   }
+ .cover{
+    object-fit: cover;
+ }
 
-
+  .boton-city {
+    padding: 1.3em 3em;
+    margin-top: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.507);
+}
+.boton-city:hover {
+    background-color: #23bfc4;
+    box-shadow: 0px 15px 20px rgba(46, 177, 229, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+.boton-city:active {
+    transform: translateY(-1px);
+}
 
 @media(max-width: 584px) {
     .signup {
@@ -607,15 +690,66 @@ form .button input:hover, .login:hover {
 }
 .render{
     min-height:100vh ;
-    with:100%;
+    width:100%;
     display: flex;
     flex-direction: column;
 }
 .input-nav input[type="text"]{
     color: rgb(218, 46, 218);
 }
-
-
+/*details*/
+.details{
+    width: 500px;
+    z-index: 1;
+   
+    
+}
+.details .img-inner{
+   width: 100%;
+}
+/* admin form */
+.formAdminMain {
+    z-index: 1;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    
+}
+.formAdmin {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 20vw;
+}
+.formAdminContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.541);
+    border-radius: 20px;
+}
+.inpFormContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+}
+.inpFormContainer  label{
+    text-align: center;
+}
+.inpFormAdmin{
+    height: 5vh;
+    padding-left: 10px;
+}
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
+.btnFormAdmin {
+    margin-top: 5vh;
+    width: 10vw;
+    height: 5vh;
+}
 @media(max-width: 459px) {
     .signup .content .category {
         flex-direction: column;
@@ -644,6 +778,9 @@ form .button input:hover, .login:hover {
     .sign-in{
         padding: 1rem;
         width: 90%;
+    }
+    .details{
+        width:80%
     }
 }
 @media (max-width:425px) {
