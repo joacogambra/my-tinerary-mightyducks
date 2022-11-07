@@ -707,6 +707,7 @@ form .button input:hover,
     transform: translateY(-1px);
 }
 
+
 @media(max-width: 584px) {
     .signup {
         max-width: 100%;
@@ -763,14 +764,10 @@ form .button input:hover,
 }
 
 .render {
-    min-height: 100vh;
-    width: 100%;
-
-.render{
     min-height:100vh ;
     width:100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 .input-nav input[type="text"] {
@@ -792,13 +789,13 @@ form .button input:hover,
     width: 90%;
     display: flex;
     justify-content: center;
-
+}
 .formAdmin {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 20vw;
-
+}
 .formAdminContainer {
     display: flex;
     justify-content: center;
@@ -832,9 +829,20 @@ form .button input:hover,
     height: 5vh;
 }
 .citylayout{
+    margin-left: 620px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
+.activities-city{
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 
 @media(max-width: 459px) {
     .signup .content .category {
