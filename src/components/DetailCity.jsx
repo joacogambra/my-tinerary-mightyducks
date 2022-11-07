@@ -4,11 +4,11 @@ export default function DetailCity(props) {
   let { name, image, population } = props
 
   return (
-    <div class="a-box details">
-      <div class="img-container correccion ">
+    <div class="a-box">
+      <div class="img-container correccion">
         <div class="img-inner ">
           <div class="inner-skew">
-            <img src={image} alt={name} className="img-card " />
+            <img src={image} alt={name} className="img-card" />
           </div>
         </div>
       </div>
