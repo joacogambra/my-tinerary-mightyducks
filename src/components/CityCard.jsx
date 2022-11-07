@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function CityCard(props) {
     let cities = props.cities
     return (
