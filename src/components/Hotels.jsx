@@ -1,5 +1,5 @@
 import React from 'react'
-import hotels from '../data/Hotels'
+import hotels from '../data/hotels'
 import {useState} from 'react'
 import InputSearch from './InputSearch'
 import Select from './Select'

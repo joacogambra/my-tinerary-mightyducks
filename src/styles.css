@@ -12,7 +12,6 @@
     display: flex;
     flex-direction: column;
     background-color: #1b1b1d52;
-
     z-index: 1;
 }
 
@@ -197,6 +196,7 @@ video {
 .sign-in p, .phrase p {
     padding: .4rem 0; 
     font-style: italic;
+    font-family: 'Poppins', sans-serif;
 }
 
 .sign-in a {
@@ -372,6 +372,39 @@ footer {
 
 }
 
+.cardcities {
+    z-index: 1;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0px;
+    background-color: rgba(255, 255, 255, 0.281);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+#searchinput {
+    width: 300px;
+    padding: 25px 30px;
+    border-radius: 5px;
+
+}
+
+#contain-checks {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 3rem;
+    background-color: rgba(255, 255, 255, 0.281);
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+
+}
+
 .image {
     width: 400px;
     height: 350px;
@@ -515,6 +548,8 @@ form .button input:hover, .login:hover {
     display: inline-block;
     width: 240px;
     text-align: center;
+    margin: 0px 40px;
+   
   }
 
   .img-container {
@@ -524,6 +559,7 @@ form .button input:hover, .login:hover {
     border-radius: 0px 0px 20px 20px;
     display: inline-block;
 }
+
 .inner-skew {
     display: inline-block;
     border-radius: 20px;
@@ -545,8 +581,6 @@ form .button input:hover, .login:hover {
     transform: skew(0deg, -13deg);
     height: 250px;
     margin: -35px 0px 0px -70px;
-
-   
 }
 .text-container {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
@@ -563,6 +597,35 @@ form .button input:hover, .login:hover {
     color: #04bcff;
     font-size: 18px;
   }
+
+  .boton-city {
+    padding: 1.3em 3em;
+    margin-top: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.507);
+}
+
+.boton-city:hover {
+    background-color: #23bfc4;
+    box-shadow: 0px 15px 20px rgba(46, 177, 229, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.boton-city:active {
+    transform: translateY(-1px);
+}
 
 
 
@@ -607,7 +670,7 @@ form .button input:hover, .login:hover {
 }
 .render{
     min-height:100vh ;
-    with:100%;
+    width:100%;
     display: flex;
     flex-direction: column;
 }
