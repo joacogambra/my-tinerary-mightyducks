@@ -42,7 +42,7 @@ export default function CardCities() {
                 <input className='cpa' type="checkbox" id={continents[2]} value={continents[2]} onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
             </div>
             <div className='contain-citycards'>
-                {cities.map(cities=><CityCard key={cities.name} cities={cities}/>)}
+                {cities.map(cities=><CityCard key={cities.name} cities={cities} />)}
                 {/* despues de agregar una ciudad en el formulario descomentar NewCityCard para verla renderizada */}
                 {/* <NewCityCard/> */}
             </div>    

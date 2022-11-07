@@ -1,8 +1,13 @@
 import React from 'react'
-
+import { useState } from "react"
+import Inputs from './Inputs'
 export default function DetailCity(props) {
+  let [comments, setComments] = useState(false)
   let { name, image, population } = props
-
+  let show = () => {
+    setComments(!comments)
+   
+  }
   return (
     <div class="a-box">
       <div class="img-container correccion">
@@ -16,6 +21,18 @@ export default function DetailCity(props) {
         <h3>{name}</h3>
         <p>Population: {population}</p>   
       </div>
+      <div>
+         { show 
+              ?(<button className='button' onClick={show}> Comments</button>)
+              :(<>
+                <div>
+                  <input type="text" disabled placeholder='Beautiful!' />
+                  <Inputs type="text" name={name} placeholder="Leave a comment..." required />
+                </div>
+                <button className='button' onClick={show}> Hide Comments</button>
+
+              </>)}
+              </div>
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link as LinkRouter} from 'react-router-dom'
 
 export default function Cards(props) {
-    let {name, image,continente,category, id}= props
+    let {name, image,continente,category, id, page}= props
   return (
 
       <div class="a-box details">
@@ -14,14 +15,14 @@ export default function Cards(props) {
               </div>
             <div class="text-container">
                  <h3> {name}</h3>
-              <div>
-                {`${category}:${continente}`}
+
               </div>
+                {`${category}:${continente}`}
               <div>
-                <button className='boton-city'id={id}>More</button>
+                <LinkRouter className='boton-city'id={id} to={`/${page}/${id}`} >More</LinkRouter>
             </div>
         </div>
-        </div>
+        
 
 
   )

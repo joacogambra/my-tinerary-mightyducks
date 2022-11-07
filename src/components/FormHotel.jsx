@@ -11,12 +11,7 @@ export default function FormHotel() {
     
     
     const onButtonClick = () => {
-        // `current` points to the mounted text input element
-        id.current.focus()
-        name.current.focus();
-        photo.current.focus();
-        capacity.current.focus();
-        cityId.current.focus();
+        
         let newHotel= {
         name: name.current.value,
         id:id.current.value,

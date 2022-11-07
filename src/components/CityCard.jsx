@@ -1,8 +1,11 @@
 import React from 'react'
+import {Link as LinkRouter} from 'react-router-dom'
 
 
 export default function CityCard(props) {
     let cities = props.cities
+    let page = props
+   
     return (
         <div class="a-box">
             <div class="img-container">
@@ -17,8 +20,9 @@ export default function CityCard(props) {
                 <div>
                     {cities.continent}
                 </div>
-                <button className='boton-city'>More</button>
+                <LinkRouter className='boton-city'id={cities.id} to={`/city/${cities.id}`} >More</LinkRouter>
             </div>
-        </div>
+            </div>
+           
     )
 }

@@ -48,7 +48,7 @@ console.log("-----cruzados------")
 console.log(print);
   function printCards(array){
    return array.map((items)=>(
-      <Cards key={items.id} name={items.name} image={items.photo[0]} continente={items.capacity} category="Capacity" id={items.id}></Cards>
+      <Cards key={items.id} name={items.name} image={items.photo[0]} continente={items.capacity} category="Capacity" id={items.id} page="hotel"></Cards>
    ))
   }
 

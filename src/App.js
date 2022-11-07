@@ -18,14 +18,15 @@ function App() {
     <main className="main">
     <AutoToTop/>
     <Routes>
+    <Route path="/" element={<Home/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
-      <Route path="/newcity" element={<NewCity/>}/>
+      <Route path="/new-city" element={<NewCity/>}/>
       <Route path="/sign-up" element={<SignUpPage/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
-      <Route path="/:id" element={<CityPage/>} />
-      <Route path="/:hotel" element={<Hotel/>} />
+      <Route path="hotels/hotel/:hotel" element={<Hotel/>} />
+      <Route path="/city/:id" element={<CityPage/>} />
       <Route path="/new-hotel" element={<NewHotel/>} />
       <Route path="/*" element={<NotFound/>}/>
     </Routes>

@@ -4,16 +4,15 @@ import shows from '../data/shows'
 
 
 export default function Detail() {
-   const { id }= useParams()
-
-  
-let showsEncontrado = shows.filter(elemento=>elemento.hotelId === id )
+   const { hotel }= useParams()
+console.log(hotel)  
+let showsEncontrado = shows.filter(elemento=>elemento.hotelId === hotel )
     console.log(showsEncontrado);
   return (
 
 <>
 
-       { showsEncontrado.map((showsEncontrado)=>(
+       { showsEncontrado.map((showsEncontrado, key)=>(
 
         <div class="a-box details">
             <div class="img-container correccion ">
@@ -26,7 +25,7 @@ let showsEncontrado = shows.filter(elemento=>elemento.hotelId === id )
                 <div class="text-container">
                  <h3> {showsEncontrado.name}</h3>
                    <div>
-                <button className='boton-city'key={showsEncontrado.id}>More</button>
+                <button className='boton-city' id={showsEncontrado.id} key={showsEncontrado.id}>More</button>
                 </div>
                 </div>
                 </div>

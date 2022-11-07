@@ -762,6 +762,10 @@ form .button input:hover,
     width: 400px;
     z-index: 1;
 }
+.details .boton-city{
+  margin: 1rem;
+}
+
 
 
 .render {
