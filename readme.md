@@ -1,3 +1,3 @@
 # My Tinerary
 ## Mighty Ducks Team
-### Students: Jalil, Jalil - Gambra,Joaquing
+Co-authored-by: Jalil, Laila <lailajalil@gmail.com>
