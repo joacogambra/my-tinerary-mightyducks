@@ -1,6 +1,6 @@
 # My Tinerary - Sprint 1
 ## Mighty Ducks Team 
-### Students: Jalil, Jalil - Gambra,Joaquin 🦾
+### Students: Jalil, Laila - Gambra,Joaquin 🦾
 # Start 🚀
 ```
 # Instalar dependencias para el cliente
