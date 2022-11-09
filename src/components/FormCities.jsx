@@ -41,7 +41,7 @@ export default function FormCities() {
         
            
                 <form className='sign-in' action="">
-                    <h3> Enter the Hotel information</h3>
+                    <h3> Enter the City information</h3>
         
 
                          <label htmlFor="">
