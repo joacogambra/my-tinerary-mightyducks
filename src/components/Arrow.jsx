@@ -5,6 +5,6 @@ export default function Arrow(props) {
   
     return (
         
-       < button onClick={direction} className="arrow"> <img src={`img/${image}.png`} alt='arrow ' className={`arrow ${image}`} ></img> </button>
+       < button onClick={direction} className={`arrow ${image}`}> <img src={`img/${image}.png`} alt='arrow ' className={`arrow ${image}`} ></img> </button>
     )
 }

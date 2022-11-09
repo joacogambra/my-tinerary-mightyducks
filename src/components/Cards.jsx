@@ -5,21 +5,15 @@ export default function Cards(props) {
     let {name, image,continente,category, id, page}= props
   return (
 
-      <div class="a-box details">
-           <div class="img-container correccion">
-              <div class="img-inner">
-                <div class="inner-skew">
+      <div className="card">
                     <img src={image} alt={name} className="img-card "/>
+            <div className="card__details">
+              <div className="name">
+                 <h4> {name}</h4>
+                 <p>{`${category}:  ${continente}`}</p>
+                <LinkRouter className='card-button'id={id} to={`/${page}/${id}`} >More</LinkRouter>
                  </div>
-                </div>
-              </div>
-            <div class="text-container">
-                 <h3> {name}</h3>
-
-              </div>
-                {`${category}:${continente}`}
-              <div>
-                <LinkRouter className='boton-city'id={id} to={`/${page}/${id}`} >More</LinkRouter>
+             
             </div>
         </div>
         

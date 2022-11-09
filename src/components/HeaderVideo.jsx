@@ -4,20 +4,25 @@ import React from 'react'
 export default function HeaderVideo(props) {
   let {componenttop, componentmiddle}=props
   return (
-    <div className='hero grow'>
-        {componenttop}
+    <>
+
+            {componenttop}
         
-        <video muted autoPlay loop>
-            <source src="./backVideo.mp4" type="video/mp4"></source>
-           
-        </video>
+           <div className="video-wrapper">
+                 <video autoPlay loop muted poster='img/sunset-570881_960_720.webp' >
+                  
+                 <source src="/backVideo.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+        
+
        
-        <div className='capa'>
-        
-        </div>
-        {componentmiddle}
-      
-    </div>
+        <div className="header">
+            {componentmiddle}
+  </div>
+  </div>
+
+</> 
     
   )
 }

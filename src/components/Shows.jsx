@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import shows from '../data/shows'
+import Cards from './Cards'
 
 
 export default function Detail() {
@@ -13,22 +14,9 @@ let showsEncontrado = shows.filter(elemento=>elemento.hotelId === hotel )
 <>
 
        { showsEncontrado.map((showsEncontrado, key)=>(
-
-        <div class="a-box details">
-            <div class="img-container correccion ">
-                <div class="img-inner">
-                 <div class="inner-skew">
-                  <img src={showsEncontrado.photo} alt={showsEncontrado.name} className="img-card"/>
-                </div>
-                </div>
-                 </div>
-                <div class="text-container">
-                 <h3> {showsEncontrado.name}</h3>
-                   <div>
-                <button className='boton-city' id={showsEncontrado.id} key={showsEncontrado.id}>More</button>
-                </div>
-                </div>
-                </div>
+         
+       <Cards name={showsEncontrado.name} image={showsEncontrado.photo} id={showsEncontrado.id} category= "Description" continente={showsEncontrado.description} ></Cards>
+      
        ))
        }
   

@@ -54,12 +54,12 @@ console.log(print);
 
   return (
    <>
-   <div className='hotels'>
+   <div className='flex-column '>
     <div className='input-nav'>
     <InputSearch setchange={setChange}/>
     <Select value1="asc" value2="desc" onchange={setSortOrder}></Select>
       </div>
-      <div className='containerHotels'>
+      <div className='background flex-row wrap gap'>
       {printCards(print)}
       </div>
       </div>

@@ -19,7 +19,7 @@ export default function Header() {
           { dropDownOcultar  ?
          ( 
          <><div className="drop-down">
-        <img src="./img/MT_Logo_1.png" alt="logo" className='logo' onClick={dropDown}/>
+        <img src="/img/MT_Logo_1.png" alt="logo" className='logo' onClick={dropDown}/>
         
         </div>
         <div className='drop-down-nav'>
@@ -30,12 +30,12 @@ export default function Header() {
          </div>
          </>
          ): 
-         <img src="./img/MT_Logo_1.png" alt="logo" className='logo' onClick={dropDown}/>
+         <img src="/img/MT_Logo_1.png" alt="logo" className='logo' onClick={dropDown}/>
         }
          { mostrarOcultar ?
          (<>
          <div className='drop-down'>
-          <img src="./img/image.png" alt="user" className="user-image" onClick={hide}/>
+          <img src="/img/image.png" alt="user" className="user-image" onClick={hide}/>
             <div className='drop-menu'>
               <LinkRouter to='/sign-in'> SignIn</LinkRouter>
              <LinkRouter to='/sign-up'>SignUp</LinkRouter>
@@ -43,7 +43,7 @@ export default function Header() {
          </div>
          </>
          ): 
-         <img src="./img/image.png" alt="user" className="user-image" onClick={hide}/>
+         <img src="/img/image.png" alt="user" className="user-image" onClick={hide}/>
         }
         </nav>
 

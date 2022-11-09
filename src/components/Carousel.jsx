@@ -70,17 +70,17 @@ export default function Carousel() {
   
 
   return (
-    <div className='container'>
+    <div className='flex-row wrap gap background carousel '>
         <Arrow direction={next} image="left" ></Arrow>   
-    <div className='carousel'>
+    <div className='render'>
       
-        <div className='cards'>
-        <img src={selectedImage}  alt="photos" className='image'/>
-        <img src={selectedImageb}  alt="photos" className='image'/>
+        <div className= "flex-row gap wrap">
+        <img src={selectedImage}  alt="photos" className='image card'/>
+        <img src={selectedImageb}  alt="photos" className='image card'/>
         </div>   
-      <div className='cards'>
-       <img src={selectedImage2} alt="photos" className='image'/>
-       <img src={selectedImagec} alt="photos" className='image'/>
+      <div className='flex-row gap wrap'>
+       <img src={selectedImage2} alt="photos" className='image card'/>
+       <img src={selectedImagec} alt="photos" className='image card'/>
       </div>
       
     </div>

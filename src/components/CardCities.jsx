@@ -1,8 +1,8 @@
 import React from 'react'
 import cities from '../data/cities'
-import CityCard from './CityCard'
 import { useState } from 'react'
-import NewCityCard from './NewCityCard'
+import Cards from './Cards'
+
 
 export default function CardCities() {
     let continents = []
@@ -32,17 +32,17 @@ export default function CardCities() {
     // console.log(cruzados);
 
     return (
-        <div className='cardcities'>
-            <div class="search" role="search">
-                <input id="searchinput" type="text" placeholder="Search" onChange={search} />
+        <div className='flex-column '>
+            <div className='input-nav' role="search">
+                <input  type="text" placeholder="Search" onChange={search} />
+            <div className='checks wrap'>
+                <input  type="checkbox" id={continents[0]} value={continents[0]} onChange={checkboxSelected}/> <label for={continents[0]}>{continents[0]}</label>
+                <input  type="checkbox" id={continents[1]} value={continents[1]} onChange={checkboxSelected}/> <label for={continents[1]}>{continents[1]}</label>
+                <input  type="checkbox" id={continents[2]} value={continents[2]} onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
             </div>
-            <div id='contain-checks'>
-                <input className='cpa' type="checkbox" id={continents[0]} value={continents[0]} onChange={checkboxSelected}/> <label for={continents[0]}>{continents[0]}</label>
-                <input className='cpa' type="checkbox" id={continents[1]} value={continents[1]} onChange={checkboxSelected}/> <label for={continents[1]}>{continents[1]}</label>
-                <input className='cpa' type="checkbox" id={continents[2]} value={continents[2]} onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
             </div>
-            <div className='contain-citycards'>
-                {cities.map(cities=><CityCard key={cities.name} cities={cities} />)}
+            <div className='background flex-row wrap gap' >
+                {cities.map(cities=><Cards name={cities.name} image={cities.photo} continente={cities.continent} category="Continent" page="city" id={cities.id} />)}
                 {/* despues de agregar una ciudad en el formulario descomentar NewCityCard para verla renderizada */}
                 {/* <NewCityCard/> */}
             </div>    

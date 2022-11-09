@@ -7,10 +7,8 @@ export default function CarouselLayout() {
    
   return (
     <>
-  <div className='carousel'>
     <Carousel></Carousel>
     
-    </div>
     </>
   )
 }

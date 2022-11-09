@@ -24,44 +24,31 @@ export default function SignUp() {
     }
 
   return (
-    <div className='container-signup'>
-    <div class="signup">
-    <div class="title">Registration</div>
-    <div class="content">
-      <form action="#" onSubmit= {registration} ref={signup} >
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">Full Name</span>
-            <input ref={fullName} type="text" placeholder="Enter your name" required/>
+      <form action="#" onSubmit= {registration} ref={signup} className='sign-in'  >
+      <h3 class="title">Registration</h3>
+        <div> 
+            <input ref={fullName} type="text" placeholder="Enter your FullName" required/>
+         </div>
+          <div>
+            <input ref={userName} type="text" placeholder="Enter your Username" required/>
           </div>
-          <div class="input-box">
-            <span class="details">Username</span>
-            <input ref={userName} type="text" placeholder="Enter your username" required/>
-          </div>
-          <div class="input-box">
-            <span class="details">Email</span>
+          <div>
             <input ref={email} type="text" placeholder="Enter your email" required/>
           </div>
-          <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input ref={phone} type="text" placeholder="Enter your number" required/>
+          <div>
+            <input ref={phone} type="text" placeholder="Enter your Phone Number" required/>
           </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input ref={pass} type="password" placeholder="Enter your password" required/>
+          <div>
+            <input ref={pass} type="password" placeholder="Create your password" required/>
           </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
+          <div >
             <input type="password" placeholder="Confirm your password" required/>
           </div>
-        </div>
-        <div class="button">
+        <div class="button login">
           <input type="submit" value="Register"/>
         </div>
       <SignGoogle/>
       </form>
-    </div>
-</div>
-</div>
+
   )
 }
