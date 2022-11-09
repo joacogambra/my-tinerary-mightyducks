@@ -10,13 +10,13 @@ import Footer from '../components/Footer'
 export default function HotelLayout() {
   return (
     <>
-    <div className='render'>
+   
     <HeaderVideo componenttop=<Header/> componentmiddle=<Hotel/> />
-    <div className='grow hotels'>
-    <Shows></Shows>
-    </div>
+      <div className='flex-row grow gap evenly'>
+      <Shows></Shows>
+      </div>
    <Footer></Footer>
-   </div>
+
    </>
   )
 }

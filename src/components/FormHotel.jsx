@@ -11,12 +11,7 @@ export default function FormHotel() {
     
     
     const onButtonClick = () => {
-        // `current` points to the mounted text input element
-        id.current.focus()
-        name.current.focus();
-        photo.current.focus();
-        capacity.current.focus();
-        cityId.current.focus();
+        
         let newHotel= {
         name: name.current.value,
         id:id.current.value,
@@ -31,15 +26,17 @@ export default function FormHotel() {
       return (
         <>
         <div className='sign-in'>
+         
             <h3> Enter the Hotel information</h3>
-          <input ref={name} type="text"  placeholder='Name'/>
-          <input ref={id} type="text"  placeholder='Id'/>
-          <input ref={photo} type="text"  placeholder='Photo'/>
-          <input ref={capacity} type="text"  placeholder='Capacity'/>
-          <input ref={cityId} type="text"  placeholder='CityId'/>
+          <Inputs ref={name} type="text"  placeholder='Name'/>
+          <Inputs ref={id} type="text"  placeholder='Id'/>
+          <Inputs ref={photo} type="text"  placeholder='Photo'/>
+          <Inputs ref={capacity} type="text"  placeholder='Capacity'/>
+          <Inputs ref={cityId} type="text"  placeholder='CityId'/>
 
-          <button onClick={onButtonClick} className='login'>Add Hotel</button>
+          <button onClick={onButtonClick} className=' button login'>Add Hotel</button>
           </div>
+          
         </>
       );
     

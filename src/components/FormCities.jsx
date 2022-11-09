@@ -38,43 +38,36 @@ export default function FormCities() {
     }
 
     return (
-        <div className='formAdminMain'>
-            <div className='formAdminContainer'>
-                <form className='formAdmin' action="">
-                    <div className='inpFormContainer'>
-                        <label htmlFor="">id</label>
-                        <input name='id' className='inpFormAdmin' onChange={readInput} type="text" />
-                    </div>
+        
+           
+                <form className='sign-in' action="">
+                    <h3> Enter the City information</h3>
+        
 
-                    <div className='inpFormContainer'>
-                        <label htmlFor="">name</label>
-                        <input name='nombre' className='inpFormAdmin' onChange={readInput} type="text" />
-                    </div>
+                         <label htmlFor="">
+                        <input name='id'  onChange={readInput} type="text" placeholder='Id' />
+                    </label>
+    
+                        <label htmlFor=""></label>
+                        <input name='nombre' onChange={readInput} type="text" placeholder="Name" />
 
-                    <div className='inpFormContainer'>
-                        <label htmlFor="">continent</label>
-                        <input name='continente' className='inpFormAdmin' onChange={readInput} type="text" />
-                    </div>
-
-                    <div className='inpFormContainer'>
-                        <label htmlFor="">photo</label>
-                        <input name='foto' className='inpFormAdmin' onChange={readInput} type="text" />
-                    </div>
-
-                    <div className='inpFormContainer'>
-                        <label htmlFor="">population</label>
-                        <input name='poblacion' className='inpFormAdmin' onChange={readInput} type="text" />
-                    </div>
-
-                    <div className='inpFormContainer'>
-                        <label htmlFor="">userAdmin</label>
-                        <input name='userAdmin' className='inpFormAdmin' onChange={readInput} type="text" />
-                    </div>
-                </form>
-                <div className='btnContainer'>
-                    <button className='btnFormAdmin' onClick={() => ValidateInfo()}>Add City</button>
+                        <label htmlFor=""></label>
+                        <input name='continente'  onChange={readInput} type="text" placeholder="Continent" />
+                     
+                        <label htmlFor=""></label>
+                        <input name='foto'  onChange={readInput} type="text" placeholder="Photo" />
+            
+                        <label htmlFor=""></label>
+                        <input name='poblacion'  onChange={readInput} type="text" placeholder='Population' />
+                   
+                        <label htmlFor=""></label>
+                        <input name='userAdmin' onChange={readInput} type="text" placeholder='UserAdmin' />
+                  
+                <div>
+                    <button className=' button login' onClick={() => ValidateInfo()}>Add City</button>
                 </div>
-            </div>
-        </div>
+                </form>
+         
+       
     )
 }

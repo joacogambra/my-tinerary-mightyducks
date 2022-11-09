@@ -48,18 +48,18 @@ console.log("-----cruzados------")
 console.log(print);
   function printCards(array){
    return array.map((items)=>(
-      <Cards key={items.id} name={items.name} image={items.photo[0]} continente={items.capacity} category="Capacity" id={items.id}></Cards>
+      <Cards key={items.id} name={items.name} image={items.photo[0]} continente={items.capacity} category="Capacity" id={items.id} page="hotel"></Cards>
    ))
   }
 
   return (
    <>
-   <div className='hotels'>
+   <div className='flex-column '>
     <div className='input-nav'>
     <InputSearch setchange={setChange}/>
     <Select value1="asc" value2="desc" onchange={setSortOrder}></Select>
       </div>
-      <div className='containerHotels'>
+      <div className='background flex-row wrap gap'>
       {printCards(print)}
       </div>
       </div>

@@ -7,7 +7,8 @@ import FormHotel from '../components/FormHotel'
 export default function formHotel() {
   return (
     <>
-    <HeaderVideo componenttop={<Header/>} componentmiddle={<FormHotel/>} />
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<FormHotel/>}/>
+    
       <Footer/>     
     </>
   )

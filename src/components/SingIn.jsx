@@ -36,7 +36,7 @@ export default function SingIn() {
             <div>
             <Inputs dato={password} placeholder="Password" type="password"/>
             </div>
-            <button type="submit" className='login'> Login</button>
+            <button type="submit" className='button login'> Login</button>
              <SignGoogle/>
             <div>
                 <p> Don't have an account? Just <LinkRouter to='/sign-up'> "Sign Up Here" </LinkRouter></p>

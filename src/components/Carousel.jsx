@@ -7,22 +7,16 @@ import Arrow from './Arrow'
 
 export default function Carousel() {
  
-  let hoteles = hotels.map(photos => photos.photo[0])
+  let photo2 = hotels.map(photos => photos.photo[0])
+  let photo3= hotels.map(photos => photos.photo[2])
+  let photos= cities.map(photos => photos.photo)
   
-  function slice(array1,  number1, number2) {
-    let pic= array1.slice(number1,number2)
-    let photos= pic.map(photos => photos.photo)
-    return photos
-  }
-
-  let photos= (slice(cities, 0,6)).concat(hoteles.slice(0,6))
-  console.log(photos)
-  let photo2= (slice(cities, 6,13)).concat(hoteles.slice(6,13))
-  console.log(photo2)
-    
+ 
     let [numero, setNumero]= useState(0)
     let [selectedImage, setSelectedImage]= useState(photos[0])
     let [selectedImage2, setSelectedImage2]= useState(photo2[0])
+    let [selectedImageb, setSelectedImageb]= useState(photos[6])
+    let [selectedImagec, setSelectedImagec]= useState(photo3[0])
     let [id, setId]= useState(0)
     let [id2, setId2]= useState(0)
 
@@ -56,7 +50,9 @@ export default function Carousel() {
     function previous (){
         let nextIndex= numero > 0 ? numero -1 : photos.length -1
         setSelectedImage(photos[nextIndex])
+        setSelectedImageb(photos[nextIndex+1])
         setSelectedImage2(photo2[nextIndex])
+        setSelectedImagec (photo3[nextIndex])
         setNumero(nextIndex)
         clearInterval(id)
     }
@@ -66,23 +62,25 @@ export default function Carousel() {
         let nextIndex= numero < photos.length ? numero +1 : 0
         setSelectedImage(photos[nextIndex])
         setSelectedImage2(photo2[nextIndex])
+        setSelectedImageb(photos[nextIndex+1])
+        setSelectedImagec (photo3[nextIndex])
         setNumero(nextIndex)
         clearInterval(id)
     }
   
 
   return (
-    <div className='container'>
+    <div className='flex-row wrap gap background carousel '>
         <Arrow direction={next} image="left" ></Arrow>   
-    <div className='carousel'>
+    <div className='render'>
       
-        <div className='cards'>
-        <img src={selectedImage}  alt="photos" className='image'/>
-        
+        <div className= "flex-row gap wrap">
+        <img src={selectedImage}  alt="photos" className='image card'/>
+        <img src={selectedImageb}  alt="photos" className='image card'/>
         </div>   
-      <div className='cards'>
-       <img src={selectedImage2} alt="photos" className='image'/>
-        
+      <div className='flex-row gap wrap'>
+       <img src={selectedImage2} alt="photos" className='image card'/>
+       <img src={selectedImagec} alt="photos" className='image card'/>
       </div>
       
     </div>
