@@ -1,0 +1,674 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+/*general estilo*/
+
+.background{
+    background: linear-gradient(#fbb07f , #d76d77,#3a1c71 )
+}
+
+/*flex*/
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.evenly {
+    justify-content: space-evenly;
+}
+.flex-row{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:1rem;
+    
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.grow {
+    flex-grow: 1;
+}
+.gap{
+    gap:2rem;
+}
+
+.render {
+    min-height:100vh ;
+    width:100%; 
+}
+/*espefifico*/
+.logo-home{
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+    
+}
+.logo-home p{
+    font-style: italic;
+    text-align: left;
+    padding-right: 1rem;
+    
+}
+.logo-home img{
+    width: 40%;
+}
+
+.navBar {
+    display: flex;
+    width: 100%;
+    min-height: 20vh;
+    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index:1;  
+    
+}
+
+.navBar a,
+.links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    
+}
+
+.navBar a:hover,
+.links a:hover {
+    font-weight: bold;
+}
+
+.drop-down-nav{
+    position: absolute;
+    background-color: rgba(248, 242, 242, 0.766);
+    z-index: 1;
+    border-radius: 15px;
+    padding: .5rem;
+    width: 140px; 
+    text-align: center; 
+}
+
+.drop-down-nav a {
+    display: block;
+    width: 100%;
+    padding: .2rem;
+    font-size: 1rem;
+    color: rgb(80, 76, 76);
+    
+}
+.w-50{
+    transform: translateX(-50%);
+}
+
+.drop-down-nav a:hover  {
+    background: linear-gradient(-135deg, #71b7e682, #9c59b6a5);
+    color:white;
+    border-radius: 15px;
+}
+
+.user-image {
+    width: 50px;
+}
+
+.logo {
+    width: 80px;
+}
+video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .video-wrapper {
+ 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header{
+    position: relative;
+    padding-top: 0;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  }
+/*card*/
+.card{
+    width: 290px;
+    min-height: 350px ;
+    background-color: white;
+    border: 1px solid #6f8d9f;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.card img {
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    opacity: 0.7;
+    transition: opacity 1s ease 0s;
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+    
+}
+.card img:hover {
+    opacity: 1;
+}
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  .name p {
+    font-size: 1rem;
+  }
+   .card-button {
+    border: none;
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    font-weight: 600;
+    color: white;
+    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
+    margin: 0 auto;
+    display: block;
+    /* Button is a clickable element, therefore it should have a pointer cursor */
+    cursor: pointer;
+  }
+.card-button:hover{
+    transform: scale(0.99);
+    background: linear-gradient(-135deg, #bdd7e8, #b78ec8);
+    color: #9b59b6;
+}
+  
+  .card__details {
+    padding: 16px 8px 8px 8px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+/*termina card*/
+
+/*card-horizontal*/
+.card-horizontal{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    height: auto;
+    background-color: white;
+    border: 1px solid #6f8d9f;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+.card-horizontal-img{
+    width: 50%;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
+}
+.card-horizontal-img img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card__horizontal-text {
+    width: 50%;
+    justify-content: center;
+}
+.card-horizontal button{
+    width: 80%;
+    
+}
+
+/*city */
+.checks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight:500;    
+} 
+
+/*to action*/
+.toaction {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 1rem;
+
+}
+/* not found*/
+.fourcerofour {
+    display: flex;
+    border-radius: 15%;
+    object-fit: cover;
+}
+/*sign in/ up/ new hotel/city*/
+.sign-in {
+    background-color: rgba(255, 255, 255, 0.541);
+    width: 45%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .8rem;
+    align-items: center;
+    border-radius: 10%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+
+}
+
+.sign-in p {
+    padding: .4rem 0;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.sign-in a {
+    text-decoration: none;
+    color: rgb(218, 46, 218);
+}
+
+
+.sign-in input,
+.input-nav input,
+.input-nav select {
+    border-radius: 0.75em;
+    height: 2rem;
+    width: 250px;
+    text-align: center;
+}
+
+.login {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    border: none;
+}
+
+
+/*boton google*/
+#customBtn {
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 180px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+}
+
+#customBtn:hover {
+    cursor: pointer;
+}
+
+span.label {
+    font-family: serif;
+    font-weight: normal;
+}
+
+.icon {
+    background: url('/public/img/signgoogle.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+/*carousel*/
+.carousel{
+    position: relative;
+    width: 100%;
+}
+
+.arrow{
+    background: transparent;
+    border: none;
+}
+.arrow .right {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+}
+.arrow .left {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+.image {
+    width: 400px;
+    height: 350px;
+    border-radius: 30px;
+}
+
+/**footer*/
+footer img {
+    width: 50px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    color: white;
+    width: 100%;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: linear-gradient(#b8815d82 , #d76d78c0,#3a1c71 ) ;
+
+}
+
+footer h3 {
+    cursor: pointer;
+}
+
+footer h3:hover {
+    text-decoration: underline;
+}
+
+.scroll {
+    width: 140px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+footer a:hover {
+    font-weight: 600;
+}
+
+.github {
+    width: 40px;
+    transform: translateY(20%)
+}
+
+.us a:hover {
+    font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+ .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    text-align: left;
+}
+ .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.input-box{
+    width: 100%;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b6;
+}
+
+form .button {
+    height: 45px;
+    margin: 35px 0
+}
+
+form .button input, .button {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .button input:hover,
+.login:hover,
+.login:hover , .button:hover {
+    transform: scale(0.99);
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+@media(max-width: 584px) {
+    .signup {
+        max-width: 100%;
+    }
+
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .category {
+        width: 100%;
+    }
+
+    .content form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+/*hotels*/
+.input-nav {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.541);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.input-nav select {
+    width: 80px;
+}
+
+.input-nav input[type="text"] {
+    color: rgb(218, 46, 218);
+}
+
+@media(max-width: 459px) {
+    .signup .content .category {
+        flex-direction: column;
+    }
+    .arrow {
+        display: none;
+    }
+
+}
+@media (min-width: 2514px){
+    *{
+        font-size: 1.4rem;
+    }
+    .card-horizontal {
+        width: 950px;
+        height: 500px;
+    }
+    .card-horizontal-img {
+        height: 100%;
+    }
+    .card-horizontal-img img{
+        height: 100%;
+    }
+    .carousel{
+        width: 100%;
+    }
+    .card {
+        width: 40%;
+        height: 700px;
+        text-align: center;
+    }
+    .card__details {
+        height: 50%;
+
+    }
+    .card img {
+       height: 50%; 
+    }
+    .card-button{
+        width: 120px;
+    }
+    .arrow .left{
+        left: 5%;
+    }
+    .arrow .right{
+        right: 5%;
+    }
+    .drop-down-nav a,
+    .toaction,
+    .links, .button   {
+        font-size: 1.4rem;
+       
+    }
+    .sign-in input {
+        width: 700px;
+    }
+    .logo, .user-image{
+        width: 100px;
+    }
+    .sign-in input,
+.input-nav input,
+.input-nav select {
+    border-radius: 0.75em;
+    height: 2.5rem;
+    width: 300px;
+    text-align: center;
+}
+ .input-nav input[type="text"] {
+    width: 500px;
+ }
+}
+
+@media (min-width: 1440px) {
+
+    .drop-down-nav a,
+    .toaction,
+    .links  {
+        font-size: 1.5rem;
+    }
+ 
+} 
+
+@media (max-width: 767px) {
+    .sign-in {
+        padding: 1rem;
+        width: 90%;
+    }
+    form input {
+        width: 100%;
+    }
+    .details{
+        width: 80%;
+    }
+    .logo-home{
+        flex-direction: column;
+    }
+    .logo-home img{
+        width: 60%;
+    }
+    .card, .card-horizontal {
+        margin-left: 2rem;
+        width: 80%;
+        flex-wrap:wrap ;
+    }
+    .card-horizontal-img {
+        width: 100%;
+    }
+    .flex-row {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 2rem;
+    }
+   
+
+@media (max-width:425px) {
+    footer {
+        height: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: .5rem;
+        padding: .5rem;
+    }
+    .navBar a {
+        font-size: 1rem
+    }
+   
+    .scroll img {
+        width: 20%;
+    }
+    form input {
+        width: 100%;
+    }
+}
+   
+}
