@@ -1,66 +1,62 @@
 import React from 'react'
-import hotels from '../data/hotels'
-import {useState} from 'react'
+import { useState} from 'react'
 import InputSearch from './InputSearch'
 import Select from './Select'
 import Cards from './Cards'
+import axios from 'axios'
+import { BASE_URL } from '../Api/url';
+import { useEffect } from 'react'
 
 
 export default function Hotels() {
-let [change, setChange]= useState('')
-let [sortOrder, setSortOrder]= useState("all")
+  let [hotels, setHotels]= useState([])
+  let [busqueda, setBusqueda]= useState('')
+  let [orden, setOrden]= useState('')
 
-let hotelsB = [...hotels]
+useEffect(() =>{ 
+ 
+   axios.get(`${BASE_URL}/api/hotels/`)
+  .then(response=> setHotels(response.data.response))
+  .catch(error=> console.log(error))
+  
+  }, [])
 
-    function search(){
 
-        if (change !== ""){
-         let inputsearch= hotels.filter(hotels=>hotels.name.toLowerCase().includes((change).toLowerCase()))
-        return inputsearch}
-        else return hotels
-        
-        }
+  function search(e){
+   setBusqueda(e.target.value)
+   let query= `${BASE_URL}/api/hotels?name=${e.target.value}&order=${orden}`
+   axios.get(query)
+   .then(response=> setHotels(response.data.response))
+   .catch(error=> console.log(error))
+}
 
-     function sortBy(array, sortOrder){
-        if (sortOrder === "asc"){
-           let asc= [...array].sort((a, b) => (a.name > b.name) ? 1 : -1)
-           return asc
-        } else if (sortOrder === "desc"){
-           let desc= [...array].sort((a, b) => (a.name < b.name) ? 1 : -1)
-           return desc
-        } else{
-         return array
-        }
-     }
+ function sortBy(e){
+   setOrden(e.target.value)
+   let query= `${BASE_URL}/api/hotels?name=${busqueda}&order=${e.target.value}`
+   axios.get(query)
+   .then(response=> setHotels(response.data.response))
+   .catch(error=> console.log(error))
+   
+ }
 
-     function cruzados(){
-       let text= search()
-       let sort= (sortBy(text, sortOrder))
-       return sort
-     }
-     let print = cruzados()
-     console.log(print);
-console.log("---------Search Results---------")
-console.log(search())
-console.log("---------SortBy Results---------")
-console.log(sortBy(hotelsB, sortOrder))
-console.log("-----cruzados------")
-console.log(print);
+
+
+
   function printCards(array){
    return array.map((items)=>(
-      <Cards key={items.id} name={items.name} image={items.photo[0]} continente={items.capacity} category="Capacity" id={items.id} page="hotel"></Cards>
+      <Cards key={items._id} name={items.name} image={items.photo} continente={items.capacity} category="Capacity" id={items._id} page="hotel"></Cards>
    ))
   }
 
   return (
    <>
    <div className='flex-column '>
-    <div className='input-nav'>
-    <InputSearch setchange={setChange}/>
-    <Select value1="asc" value2="desc" onchange={setSortOrder}></Select>
+    <div className='input-nav'  >
+    <InputSearch setchange={search} dato="search" type="text" placeholder="search"/>
+    <Select value1="asc" value2="desc" onchange={sortBy}  ></Select>
       </div>
       <div className='background flex-row wrap gap'>
-      {printCards(print)}
+         {printCards(hotels)}  
       </div>
       </div>
       </>
