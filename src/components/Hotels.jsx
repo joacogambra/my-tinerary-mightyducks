@@ -68,7 +68,7 @@ useEffect(() =>{
              <div className="card__details">
               <div className="name">
              <h4>" {busqueda}"</h4>
-             <LinkRouter className='card-button' to="/hotels" > Go Back</LinkRouter>
+             <div className='card-button' onClick={()=> { window.location.reload() }}> Go Back</div>
               </div>
               </div>
           </div>
