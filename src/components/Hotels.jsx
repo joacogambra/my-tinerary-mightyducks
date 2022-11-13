@@ -6,6 +6,7 @@ import Cards from './Cards'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url';
 import { useEffect } from 'react'
+import { Link as LinkRouter} from 'react-router-dom'
 
 
 export default function Hotels() {
@@ -28,6 +29,7 @@ useEffect(() =>{
    axios.get(query)
    .then(response=> setHotels(response.data.response))
    .catch(error=> console.log(error))
+  
 }
 
  function sortBy(e){
@@ -40,11 +42,13 @@ useEffect(() =>{
  }
 
 
-
+ console.log(hotels)
 
   function printCards(array){
+
    return array.map((items)=>(
-      <Cards key={items._id} name={items.name} image={items.photo} continente={items.capacity} category="Capacity" id={items._id} page="hotel"></Cards>
+      <Cards key={items._id} name={items.name} image={items.photo[0]} continente={items.capacity} category="Capacity" id={items._id} page="hotel"></Cards>
+      
    ))
   }
 
@@ -53,12 +57,26 @@ useEffect(() =>{
    <div className='flex-column '>
     <div className='input-nav'  >
     <InputSearch setchange={search} dato="search" type="text" placeholder="search"/>
-    <Select value1="asc" value2="desc" onchange={sortBy}  ></Select>
+    <Select value1="asc" value2="desc" onchange={sortBy}  ></Select>  
       </div>
       <div className='background flex-row wrap gap'>
-         {printCards(hotels)}  
+      { hotels.length >0
+        ?( printCards(hotels)  )
+         : ( 
+          <div className="card" >
+             <img src="/img/404.png" alt="NotFound"/>
+             <div className="card__details">
+              <div className="name">
+             <h4>" {busqueda}"</h4>
+             <LinkRouter className='card-button' to="/hotels" > Go Back</LinkRouter>
+              </div>
+              </div>
+          </div>
+          )
+     }
       </div>
       </div>
+
       </>
   )
 }
