@@ -1,35 +1,43 @@
 import React from 'react'
-import cities from '../data/cities'
 import { useState } from 'react'
 import Cards from './Cards'
+import axios from 'axios'
+import { useEffect } from 'react'
+import { BASE_URL } from '../Api/url'
 
 
 export default function CardCities() {
+    let [citis,setCitis] = useState([])
+    useEffect(()=>{
+        axios.get(`${BASE_URL}/cities/`)
+        .then(res => setCitis(res.data.response))
+        .catch(error=> console.log(error))
+    }, [])
+
     let continents = []
-    cities.forEach(e => {
-        if (!continents.includes(e.continent)) {
-            continents.push(e.continent)
-        }
-    })
-    console.log(continents)
-    let status = {
-        Asia: false,
-        Europe : false,
-        America: false,
-    }
+    citis.forEach(e => { if (!continents.includes(e.continent)) {continents.push(e.continent)}})
 
     let [inputSearch, setInputSearch] = useState('')
-    let [checkbox, setCheckbox] = useState (status)
-    console.log(inputSearch);
+    function search(e){
+        setInputSearch(e.target.value)
+        let query= `${BASE_URL}/cities?name=${e.target.value}&continent=${checkbox}`
+        axios.get(query)
+        .then(res=> setCitis(res.data.response))
+        .catch(error=> console.log(error))
+     } 
 
-    let search = (e) => {setInputSearch(e.target.value) 
-        console.log(e.target.value);
+    let [checkbox, setCheckbox] = useState ('') 
+    function checkboxSelected(status){
+        setCheckbox(status.target.value)
+        let query= `${BASE_URL}/cities?name=${inputSearch}&continent=${status.target.value}`
+        axios.get(query)
+        .then(res=> setCitis(res.data.response))
     }
-    let checkboxSelected = (e) => {setCheckbox ((checkbox) => ({...checkbox,[e.target.value] : e.target.checked}))}
-        console.log(checkbox);
 
-    // let cruzados = checkboxSelected(search.value)
-    // console.log(cruzados);
+    function renderCards(array){
+        return array.map((i)=>(
+            <Cards name={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i.id}/>))
+    }         
 
     return (
         <div className='flex-column '>
@@ -42,9 +50,16 @@ export default function CardCities() {
             </div>
             </div>
             <div className='background flex-row wrap gap' >
-                {cities.map(cities=><Cards name={cities.name} image={cities.photo} continente={cities.continent} category="Continent" page="city" id={cities.id} />)}
-                {/* despues de agregar una ciudad en el formulario descomentar NewCityCard para verla renderizada */}
-                {/* <NewCityCard/> */}
+            { citis.length > 0 ?(renderCards(citis))
+            :( <div className="card" >
+                    <img src="/img/404.png" alt="NotFound"/>
+                    <div className="card__details">
+                    <div className="name">
+                         <h4>"{inputSearch}"</h4>
+                    <div className='card-button' onClick={()=> { window.location.reload() }}>Go Back</div>
+                    </div>
+                    </div>
+                </div>)}
             </div>    
         </div>
     )

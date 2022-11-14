@@ -294,7 +294,7 @@ video {
 /*sign in/ up/ new hotel/city*/
 .sign-in {
     background-color: rgba(255, 255, 255, 0.541);
-    width: 45%;
+    width: 100%;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -619,6 +619,11 @@ form .button input:hover,
     }
  
 } 
+@media screen and (max-width:920px) {
+    .checks{
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 767px) {
     .sign-in {
@@ -638,7 +643,6 @@ form .button input:hover,
         width: 60%;
     }
     .card, .card-horizontal {
-      
         width: 80%;
         flex-wrap:wrap ;
     }
@@ -648,7 +652,7 @@ form .button input:hover,
     .flex-row {
         flex-direction: column;
         justify-content: center;
-   
+     
     }
    
 

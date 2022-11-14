@@ -32,7 +32,7 @@ console.log(hotel)
       return (
         <>
       { hotel.length === 0
-     ?(<form className='sign-in'   >
+     ?(<form className='sign-in'>
          
          <h3> Enter the Hotel information</h3>
        <input name= "name"  type="text"  placeholder='Hotel´s Name' onChange={handleChange} required/>
