@@ -153,7 +153,7 @@ video {
   .header{
     position: relative;
     padding-top: 0;
-    gap: 1 rem;
+    gap: 1rem;
     max-width: 100%;
     min-height: 70vh;
     display: flex;
