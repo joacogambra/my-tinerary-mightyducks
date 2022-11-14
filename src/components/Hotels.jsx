@@ -6,7 +6,7 @@ import Cards from './Cards'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url';
 import { useEffect } from 'react'
-import { Link as LinkRouter} from 'react-router-dom'
+
 
 
 export default function Hotels() {
@@ -40,7 +40,7 @@ useEffect(() =>{
    .catch(error=> console.log(error))
    
  }
-
+console.log(hotels);
 
  console.log(hotels)
 
@@ -60,7 +60,7 @@ useEffect(() =>{
     <Select value1="asc" value2="desc" onchange={sortBy}  ></Select>  
       </div>
       <div className='background flex-row wrap gap'>
-      { hotels.length >0
+      { hotels.length > 0
         ?( printCards(hotels)  )
          : ( 
           <div className="card" >
