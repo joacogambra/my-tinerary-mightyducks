@@ -1,18 +1,33 @@
 import React from 'react'
-import hotels from '../data/hotels'
 import { useParams } from 'react-router-dom'
 import Details from './Details'
 import NotFound from './NotFound'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../Api/url'
 
 
 export default function Detail() {
+  let [hotels, setHotels]= useState([])
+  const { hotel }= useParams()
+console.log(hotel)
 
-   const { hotel }= useParams()
 
 
-     let found= hotels.find(elemento=> elemento.id=== hotel) 
+
+  useEffect(() =>{ 
+ 
+    axios.get(`${BASE_URL}/api/hotels/${hotel}`)
+   .then(response=> setHotels(response.data.response))
+   .catch(error=> console.log(error))
+   
+   }, [])
+
+
+
+    //  let found= hotels.find(elemento=> elemento.id=== hotel) 
       
-     if (found === undefined) {
+     if (hotels.length === 0) {
       return <NotFound/>
      } else {
       
@@ -21,7 +36,7 @@ export default function Detail() {
  
 
          <div>
-        <Details name={found.name} image={found.photo[0]} category="Capacity" number={found.capacity} ></Details>
+        <Details name={hotels.name} image={hotels.photo[0]} category="Capacity" number={hotels.capacity} ></Details>
         
         </div>
         
