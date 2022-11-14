@@ -1,11 +1,23 @@
 import React , {useState, useEffect} from 'react'
-import cities from '../data/cities'
-import hotels from '../data/hotels'
 import Arrow from './Arrow'
+import axios from 'axios'
+import { BASE_URL } from '../Api/url'
 
 
 
 export default function Carousel() {
+  let [hotels, setHotels]= useState([])
+  let [cities, setCities]= useState([])
+  useEffect(() =>{ 
+    axios.get(`${BASE_URL}/api/hotels/`)
+   .then(response=> setHotels(response.data.response))
+   .catch(error=> console.log(error))
+   axios.get(`${BASE_URL}/cities/`)
+   .then(response=> setCities(response.data.response))
+   .catch(error=> console.log(error))
+   }, [])
+ 
+ 
  
   let photo2 = hotels.map(photos => photos.photo[0])
   let photo3= hotels.map(photos => photos.photo[2])
