@@ -9,7 +9,7 @@ export default function NotFound() {
       <div className='flex-row logo-home '>
         <img src='/img/404.png' alt='NotFound' className='fourcerofour'></img>
         <div className='toaction '>
-          <button class=" button links">
+          <button className=" button links">
           <LinkRouter to="/home" > Go Back HomePage</LinkRouter>
           <CallToAction/>  
           </button>

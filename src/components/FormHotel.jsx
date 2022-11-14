@@ -2,10 +2,10 @@ import React from 'react'
 import {useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url';
-
+import Details from '../components/Details'
 
 export default function FormHotel() {
-
+  let [hotel, setHotel]= useState([])
   let [form, setForm] = useState({});
 
 
@@ -15,23 +15,24 @@ let handleChange = (e) => {
     ...form,
    [ e.target.name]: e.target.value,
   })
-  console.log(form);
+ 
 }   
   
 let handleSubmit=(e)=>{
   e.preventDefault()
-  console.log(e);
+ 
   axios.post(`${BASE_URL}/api/hotels/`, form)
     .then(response=>
-      console.log(response))
+      setHotel(response.data.response))
     .catch(error=> console.log(error))
  
 }
 
-
+console.log(hotel)
       return (
         <>
-     <form className='sign-in'   >
+      { hotel.length === 0
+     ?(<form className='sign-in'>
          
          <h3> Enter the Hotel information</h3>
        <input name= "name"  type="text"  placeholder='Hotel´s Name' onChange={handleChange} required/>
@@ -42,8 +43,15 @@ let handleSubmit=(e)=>{
 
        <button  className=' button login' onClick={handleSubmit} >Add Hotel</button>
        </form>
-       
-
+     )
+     :(
+      <>
+      <h3>Hotel Added</h3>
+     <Details name={hotel.name} image={hotel.photo} category="Capacity" number={hotel.capacity}/> 
+     <div className='card-button' onClick={()=> { window.location.reload() }}> Go Back</div>
+     </>
+     )
+      }
           
         </>
       );
