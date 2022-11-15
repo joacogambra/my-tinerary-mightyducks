@@ -79,7 +79,6 @@ export default function Carousel() {
         setNumero(nextIndex)
         clearInterval(id)
     }
-  
 
   return (
     <div className='flex-row wrap gap background carousel '>
@@ -87,12 +86,12 @@ export default function Carousel() {
     <div className='render'>
       
         <div className= "flex-row gap wrap">
-        <img src={selectedImage}  alt="photos" className='image card'/>
-        <img src={selectedImageb}  alt="photos" className='image card'/>
+        <img src={selectedImage} alt=" " className='image card'/>
+        <img src={selectedImageb}  alt=" " className='image card'/>
         </div>   
       <div className='flex-row gap wrap'>
-       <img src={selectedImage2} alt="photos" className='image card'/>
-       <img src={selectedImagec} alt="photos" className='image card'/>
+       <img src={selectedImage2} alt=" " className='image card'/>
+       <img src={selectedImagec} alt=" " className='image card'/>
       </div>
       
     </div>
