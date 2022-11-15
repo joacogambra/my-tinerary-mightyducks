@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { BASE_URL } from '../Api/url'
 
 
+
 export default function CardCities() {
     let [citis,setCitis] = useState([])
     useEffect(()=>{
@@ -36,14 +37,14 @@ export default function CardCities() {
 
     function renderCards(array){
         return array.map((i)=>(
-            <Cards name={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i.id}/>))
+            <Cards name={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
     }         
 
     return (
-        <div className='flex-column '>
+        <div className='flex-column'>
             <div className='input-nav' role="search">
                 <input  type="text" placeholder="Search" onChange={search} />
-            <div className='checks wrap'>
+            <div className='checks p-5'>
                 <input  type="checkbox" id={continents[0]} value={continents[0]} onChange={checkboxSelected}/> <label for={continents[0]}>{continents[0]}</label>
                 <input  type="checkbox" id={continents[1]} value={continents[1]} onChange={checkboxSelected}/> <label for={continents[1]}>{continents[1]}</label>
                 <input  type="checkbox" id={continents[2]} value={continents[2]} onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
