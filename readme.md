@@ -1,4 +1,4 @@
-# My Tinerary - Sprint 1
+# My Tinerary - Sprint 2
 ## Mighty Ducks Team 
 ### Students: Jalil, Laila - Gambra,Joaquin 🦾
 # Start 🚀
