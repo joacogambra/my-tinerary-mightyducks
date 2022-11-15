@@ -3,13 +3,12 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-
 }
 /*general estilo*/
 
-.background{
-    background: linear-gradient(#fbb07f , #d76d77,#3a1c71 )
-}
+/* .background{
+    background: linear-gradient(#fbb07f , #d76d77,#3a1c71)
+} */
 
 /*flex*/
 .flex-column{
@@ -32,7 +31,7 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     gap:1rem;
     
@@ -150,6 +149,10 @@ video {
     align-items: center;
     justify-content: center;
   }
+  .text-white{
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  }
   .header{
     position: relative;
     padding-top: 0;
@@ -157,11 +160,10 @@ video {
     width: 100%;
     min-height: 70vh;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    color: white;
-    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    color: #252525;
   }
 /*card*/
 .card{
@@ -276,6 +278,10 @@ video {
     text-align: center;
     font-weight:500;    
 } 
+.p-5{
+    padding: 2rem;
+    gap: 1rem;
+}
 
 /*to action*/
 .toaction {
@@ -294,7 +300,7 @@ video {
 /*sign in/ up/ new hotel/city*/
 .sign-in {
     background-color: rgba(255, 255, 255, 0.541);
-    width: 100%;
+    width: 60%;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -305,6 +311,30 @@ video {
     padding: 1rem;
     margin-top: 1.5rem;
 
+}
+
+.improve{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .8rem;
+    align-items: flex-start;
+    border-radius: 10%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.improve label{
+    border-radius: 0.75em;
+    height: 2.5rem;
+    width: max(20vw, 100%);
+    text-align: center;
+    
+}
+.sign-in h3, .sing-in p{
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 
 .sign-in p {
@@ -324,8 +354,8 @@ video {
 .input-nav input,
 .input-nav select {
     border-radius: 0.75em;
-    height: 2rem;
-    width: 250px;
+    height: 2.5rem;
+    width: max(20vw, 70%);
     text-align: center;
 }
 
@@ -386,9 +416,13 @@ span.label {
     left: 10%;
 }
 .image {
-    width: 400px;
+    width: 460px;
     height: 350px;
     border-radius: 30px;
+    background-image: url('../public/img/carouselfondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: luminosity;
 }
 
 /**footer*/
@@ -536,6 +570,7 @@ form .button input:hover,
 
 .input-nav input[type="text"] {
     color: rgb(218, 46, 218);
+    width: 30%;
 }
 
 @media(max-width: 459px) {
