@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-   
 }
 
 /*flex*/
@@ -206,6 +205,16 @@ video {
    justify-content: center;
    align-items: center;
   }
+/* card itinerarys*/
+.actividades{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.actividades .card{
+    margin: 10px 50px;
+}
+
 /*termina card*/
 
 /*card-horizontal*/
@@ -300,12 +309,12 @@ video {
     justify-content: center;
     gap: .8rem;
     align-items: center;
-    border-radius: 10%;
+    border-radius: 6mm;
     padding: 1rem;
     margin-top: 1.5rem;
 }
 
-.sign-in h3, .sing-in p{
+.sign-in h3, .sign-in p{
     color: white;
     text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
@@ -326,10 +335,12 @@ video {
 .sign-in input,
 .input-nav input,
 .input-nav select {
-    border-radius: 0.75em;
+    border-radius: 2mm;
     height: 2.5rem;
     width: max(20vw, 70%);
     text-align: center;
+    border: none;
+    box-shadow: 1px 1px 11px #252525;
 }
 
 /*boton google*/
@@ -349,9 +360,10 @@ video {
 }
 
 span.label {
-    font-family: serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: normal;
     padding-right: 1rem;
+    color: #252525;
 }
 
 .icon {
@@ -507,8 +519,16 @@ footer a:hover {
 }
 
 .input-nav input[type="text"] {
-    color: rgb(218, 46, 218);
-    width: 30%;
+    color: #252525;
+    min-width: 30%;
+}
+input[type="checkbox"]{
+    box-shadow: none;
+}
+
+.button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 @media(max-width: 459px) {

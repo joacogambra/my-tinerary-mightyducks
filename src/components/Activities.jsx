@@ -1,9 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Cards from './Cards'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
+import CardActivities from './CardActivities'
 
 
 export default function Detail() {
@@ -20,10 +20,10 @@ export default function Detail() {
 
   return (
 
-<>
+  <div className='actividades'>
        { activity.map((activity)=>(
-      <Cards name={activity.name} image={activity.photo[0]} id={activity._id} category= "Description" continente={activity.description} ></Cards>    
+      <CardActivities name={activity.name} image={activity.photo[0]} image1={activity.photo[1]} id={activity._id} continente={activity.description} price={activity.price} ></CardActivities>    
        ))
        }
-    </>
+       </div>
 )}
