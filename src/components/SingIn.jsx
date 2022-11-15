@@ -26,16 +26,14 @@ export default function SingIn() {
 
   return (
     <form className='sign-in'onSubmit={login} ref={signin}>
-        <div>
+     
             <h3> Welcome Back!</h3>
             <p> Please Sign In</p>
-        </div>
-            <div>
-            <Inputs dato={email} placeholder="example@mail.com" type="email"/>
-            </div>
-            <div>
+    
+          <div className='improve'>
+            <Inputs dato={email} placeholder="example@mail.com" type="email"/>  
             <Inputs dato={password} placeholder="Password" type="password"/>
-            </div>
+          </div>
             <button type="submit" className='button login'> Login</button>
              <SignGoogle/>
             <div>
