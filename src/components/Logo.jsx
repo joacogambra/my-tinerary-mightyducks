@@ -8,7 +8,7 @@ export default function Logo () {
       
         <img src='./img/bigLogo.png' alt='MyTinerary'/>
       
-          <div> 
+          <div className='text-white'> 
         <p>Twenty years from now..</p>
         <p>You wil be more disapointed by the things you didn't do</p>
         <p> So throw off the bowlines</p>
