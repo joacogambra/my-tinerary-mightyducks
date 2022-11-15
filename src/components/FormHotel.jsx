@@ -13,6 +13,7 @@ let handleChange = (e) => {
 
   setForm({
     ...form,
+    // el spread operartor hace que sume a form lo que sigue
    [ e.target.name]: e.target.value,
   })
  
@@ -28,7 +29,7 @@ let handleSubmit=(e)=>{
  
 }
 
-console.log(hotel)
+
       return (
         <>
       { hotel.length === 0
@@ -41,14 +42,14 @@ console.log(hotel)
        <input name="cityId" type="text"  placeholder='City Id' onChange={handleChange} required/>
        <input name="userId" type="text"  placeholder='Your Id' onChange={handleChange} required/>
 
-       <button  className=' button login' onClick={handleSubmit} >Add Hotel</button>
+       <button  className='button add' onClick={handleSubmit} >Add Hotel</button>
        </form>
      )
      :(
       <>
       <h3>Hotel Added</h3>
      <Details name={hotel.name} image={hotel.photo} category="Capacity" number={hotel.capacity}/> 
-     <div className='card-button' onClick={()=> { window.location.reload() }}> Go Back</div>
+     <div className='button' onClick={()=> { window.location.reload() }}> Go Back</div>
      </>
      )
       }

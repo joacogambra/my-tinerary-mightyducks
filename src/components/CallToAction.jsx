@@ -6,12 +6,8 @@ export default function CallToAction() {
   return (
     <>
       <div className='toaction'>
-        <button className="button links">
-          <LinkRouter to='/cities'>Explore The Cities</LinkRouter>
-        </button >
-        <button className="button links">
-          <LinkRouter to='/hotels'>Discover the Hotels</LinkRouter>
-        </button>
+          <LinkRouter to='/cities' className="button">Explore The Cities</LinkRouter>
+          <LinkRouter to='/hotels' className="button">Discover the Hotels</LinkRouter>
       </div>
     </>
   )

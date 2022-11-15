@@ -32,9 +32,8 @@ export default function SignUp() {
             <input ref={phone} type="text" placeholder="Enter your Phone Number" required/>                   
             <input ref={pass} type="password" placeholder="Create your password" required/>                 
             <input type="password" placeholder="Confirm your password" required/>        
-        <div class="button login">
-          <input type="submit" value="Register"/>
-        </div>
+            <input type="submit" value="Register"  className="button"/>
+  
       <SignGoogle/>
       </form>
 

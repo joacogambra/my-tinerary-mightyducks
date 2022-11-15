@@ -20,8 +20,9 @@ console.log(hotel)
     axios.get(`${BASE_URL}/api/hotels/${hotel}`)
    .then(response=> setHotels(response.data.response))
    .catch(error=> console.log(error))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
    
-   }, [])
+   })
 
 
 

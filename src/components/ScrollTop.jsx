@@ -9,6 +9,6 @@ export default function ScrollTop() {
         })
     }
   return (
-    <img src='./img/scroll.png' className='scroll' alt='scroll to top' onClick={scrollUp}></img>
+    <img src='/img/scroll.png' className='scroll' alt='scroll to top' onClick={scrollUp}></img>
   )
 }

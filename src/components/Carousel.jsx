@@ -8,6 +8,8 @@ import { BASE_URL } from '../Api/url'
 export default function Carousel() {
   let [hotels, setHotels]= useState([])
   let [cities, setCities]= useState([])
+
+  
   useEffect(() =>{ 
     axios.get(`${BASE_URL}/api/hotels/`)
    .then(response=> setHotels(response.data.response))
