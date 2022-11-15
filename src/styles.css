@@ -3,12 +3,8 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+   
 }
-/*general estilo*/
-
-/* .background{
-    background: linear-gradient(#fbb07f , #d76d77,#3a1c71)
-} */
 
 /*flex*/
 .flex-column{
@@ -121,7 +117,7 @@
 }
 
 .user-image {
-    width: 50px;
+    width: 40px;
 }
 
 .logo {
@@ -130,7 +126,7 @@
 video {
     object-fit: cover;
     height: 100%;
-    max-width: 100%;
+    width: 100%;
     top: 0;
     left: 0;
     position: fixed;
@@ -201,28 +197,7 @@ video {
   .name p {
     font-size: 1rem;
   }
-   .card-button {
-    border: none;
-    width: 80%;
-    text-align: center;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 50px;
-    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-    font-weight: 600;
-    color: white;
-    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
-    margin: 0 auto;
-    display: block;
-    /* Button is a clickable element, therefore it should have a pointer cursor */
-    cursor: pointer;
-  }
-.card-button:hover{
-    transform: scale(0.99);
-    background: linear-gradient(-135deg, #bdd7e8, #b78ec8);
-    color: #9b59b6;
-}
-  
+ 
   .card__details {
     padding: 16px 8px 8px 8px;
    width: 100%;
@@ -265,10 +240,33 @@ video {
     width: 50%;
     justify-content: center;
 }
-.card-horizontal button{
-    width: 80%;
+
+/*BUTTONS*/
+.button{
+    min-width: 48px;
+    min-height: 40px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    padding: .5rem 1rem; 
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    font-size: 1.5rem;
+    border-radius: 0.75em;
+}
+.button :hover{ 
+    transform: scale(0.99);
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     
 }
+.add{
+    width: 90%;
+    width: max(20vw, 70%);
+}
+
+
 
 /*city */
 .checks{
@@ -291,12 +289,7 @@ video {
     font-size: 1rem;
 
 }
-/* not found*/
-.fourcerofour {
-    display: flex;
-    border-radius: 15%;
-    object-fit: cover;
-}
+
 /*sign in/ up/ new hotel/city*/
 .sign-in {
     background-color: rgba(255, 255, 255, 0.541);
@@ -310,28 +303,8 @@ video {
     border-radius: 10%;
     padding: 1rem;
     margin-top: 1.5rem;
-
 }
 
-.improve{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .8rem;
-    align-items: flex-start;
-    border-radius: 10%;
-    padding: 1rem;
-    margin-top: 1.5rem;
-}
-
-.improve label{
-    border-radius: 0.75em;
-    height: 2.5rem;
-    width: max(20vw, 100%);
-    text-align: center;
-    
-}
 .sign-in h3, .sing-in p{
     color: white;
     text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
@@ -359,14 +332,6 @@ video {
     text-align: center;
 }
 
-.login {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
-    border: none;
-}
-
-
 /*boton google*/
 #customBtn {
     display: inline-block;
@@ -386,6 +351,7 @@ video {
 span.label {
     font-family: serif;
     font-weight: normal;
+    padding-right: 1rem;
 }
 
 .icon {
@@ -419,10 +385,6 @@ span.label {
     width: 460px;
     height: 350px;
     border-radius: 30px;
-    background-image: url('../public/img/carouselfondo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: luminosity;
 }
 
 /**footer*/
@@ -437,7 +399,7 @@ footer a {
 
 footer {
     color: white;
-    width: 100%;
+    max-width: 100%;
     min-height: 20vh;
     display: flex;
     align-items: center;
@@ -502,31 +464,7 @@ footer a:hover {
     border-color: #9b59b6;
 }
 
-form .button {
-    height: 45px;
-    margin: 35px 0
-}
 
-form .button input, .button {
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
-}
-
-form .button input:hover,
-.login:hover,
-.login:hover , .button:hover {
-    transform: scale(0.99);
-    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-}
 
 @media(max-width: 584px) {
     .signup {
@@ -611,9 +549,6 @@ form .button input:hover,
     .card img {
        height: 50%; 
     }
-    .card-button{
-        width: 120px;
-    }
     .arrow .left{
         left: 5%;
     }
@@ -622,7 +557,7 @@ form .button input:hover,
     }
     .drop-down-nav a,
     .toaction,
-    .links, .button   {
+    .links  {
         font-size: 1.4rem;
        
     }

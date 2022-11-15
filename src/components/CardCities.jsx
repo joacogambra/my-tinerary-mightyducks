@@ -30,6 +30,7 @@ export default function CardCities() {
     let [checkbox, setCheckbox] = useState ('') 
     function checkboxSelected(status){
         setCheckbox(status.target.value)
+        console.log(status.target.value)
         let query= `${BASE_URL}/cities?name=${inputSearch}&continent=${status.target.value}`
         axios.get(query)
         .then(res=> setCitis(res.data.response))
@@ -45,9 +46,9 @@ export default function CardCities() {
             <div className='input-nav' role="search">
                 <input  type="text" placeholder="Search" onChange={search} />
             <div className='checks p-5'>
-                <input  type="checkbox" id={continents[0]} value={continents[0]} onChange={checkboxSelected}/> <label for={continents[0]}>{continents[0]}</label>
-                <input  type="checkbox" id={continents[1]} value={continents[1]} onChange={checkboxSelected}/> <label for={continents[1]}>{continents[1]}</label>
-                <input  type="checkbox" id={continents[2]} value={continents[2]} onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
+                <input  type="checkbox" id={continents[0]} value="America" onChange={checkboxSelected}/> <label for={continents[0]}>{continents[0]}</label>
+                <input  type="checkbox" id={continents[1]} value="Asia" onChange={checkboxSelected}/> <label for={continents[1]}>{continents[1]}</label>
+                <input  type="checkbox" id={continents[2]} value="Europe" onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
             </div>
             </div>
             <div className='background flex-row wrap gap' >
@@ -57,7 +58,7 @@ export default function CardCities() {
                     <div className="card__details">
                     <div className="name">
                          <h4>"{inputSearch}"</h4>
-                    <div className='card-button' onClick={()=> { window.location.reload() }}>Go Back</div>
+                    <div className='button' onClick={()=> { window.location.reload() }}>Go Back</div>
                     </div>
                     </div>
                 </div>)}
