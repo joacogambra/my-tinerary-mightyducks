@@ -29,12 +29,10 @@ export default function SingIn() {
      
             <h3> Welcome Back!</h3>
             <p> Please Sign In</p>
-    
-          <div className='improve'>
             <Inputs dato={email} placeholder="example@mail.com" type="email"/>  
             <Inputs dato={password} placeholder="Password" type="password"/>
-          </div>
-            <button type="submit" className='button login'> Login</button>
+            <input type="submit" className='button' value="Log In"></input>
+
              <SignGoogle/>
             <div>
                 <p> Don't have an account? Just <LinkRouter to='/sign-up'> "Sign Up Here" </LinkRouter></p>

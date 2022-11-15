@@ -33,7 +33,7 @@ export default function FormCities() {
                     <input name='photo' onChange={readInput} type="text" placeholder="Photo" required/>                                  
                     <input name='population' onChange={readInput} type="text" placeholder='Population' required/>                                        
                     <input name='userId' onChange={readInput} type="text" placeholder='UserAdmin' required/>                               
-                    <button className=' button login' onClick={() => validateInfo()}>Add City</button>
+                    <button className='button add' onClick={() => validateInfo()}>Add City</button>
             </form>            
     )
 }
