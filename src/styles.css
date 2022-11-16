@@ -21,16 +21,16 @@
     justify-content: center;
     padding: 1rem 0;
 }
-.main {
+/* .main {
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     /* align-items: center; */
-    flex-direction: column;
-    gap:1rem;
+    /* flex-direction: column;
+    gap:1rem; */
     
-}
+/* } */ 
 .wrap {
     flex-wrap: wrap;
 }
@@ -151,18 +151,18 @@ video {
   .header{
     position: relative;
     padding-top: 0;
-    gap: 1rem;
+    gap: .5rem;
     width: 100%;
     min-height: 70vh;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
+    display: flex; 
+    flex-direction: column;
+     justify-content: center;
     align-items: center;
     color: #252525;
   }
 /*card*/
 .card{
-    width: 290px;
+    width: 300px;
     min-height: 350px ;
     background-color: white;
     border: 1px solid #6f8d9f;
@@ -223,7 +223,7 @@ video {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 600px;
+    width: 750px;
     height: auto;
     background-color: white;
     border: 1px solid #6f8d9f;
@@ -245,9 +245,13 @@ video {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.card__horizontal-text {
+.card-horizontal-text {
     width: 50%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 /*BUTTONS*/
@@ -265,9 +269,10 @@ video {
     font-size: 1.5rem;
     border-radius: 0.75em;
 }
-.button :hover{ 
-    transform: scale(0.99);
+.button:hover{
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+    cursor: pointer;
     
 }
 .add{
@@ -307,8 +312,8 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: .8rem;
     align-items: center;
+    gap: .8rem;
     border-radius: 6mm;
     padding: 1rem;
     margin-top: 1.5rem;
@@ -526,10 +531,6 @@ input[type="checkbox"]{
     box-shadow: none;
 }
 
-.button:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-}
 
 @media(max-width: 459px) {
     .signup .content .category {
@@ -623,9 +624,6 @@ input[type="checkbox"]{
     form input {
         width: 100%;
     }
-    .details{
-        width: 80%;
-    }
     .logo-home{
         flex-direction: column;
     }
@@ -639,10 +637,13 @@ input[type="checkbox"]{
     .card-horizontal-img {
         width: 100%;
     }
+    .card-horizontal-text{
+        width: 100%;
+    }
     .flex-row {
         flex-direction: column;
         justify-content: center;
-     
+        align-items: center;
     }
    
 

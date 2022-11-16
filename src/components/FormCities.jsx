@@ -25,7 +25,8 @@ export default function FormCities() {
     }
     console.log(cities);
 
-    return (                  
+    return (         
+                     
             <form className='sign-in' action="">
                 <h3> Enter the City information</h3>                                                        
                     <input name='name' onChange={readInput} type="text" placeholder="Name" required/>                        
