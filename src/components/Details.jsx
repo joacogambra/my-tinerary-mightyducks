@@ -15,7 +15,7 @@ export default function Details(props) {
   }
 
   return (
-
+          <div className='flex-row'>
           <div className="card-horizontal background">
                    <div className= "card-horizontal-img">
                         <img src={image} alt={name} />
@@ -41,7 +41,7 @@ export default function Details(props) {
              
             </div>  
             </div>  
-    
+            </div>
     
       )
     }

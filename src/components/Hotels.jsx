@@ -54,7 +54,7 @@ console.log(hotels);
 
   return (
    <>
-   <div className='flex-column '>
+  
     <div className='input-nav'  >
     <InputSearch setchange={search} dato="search" type="text" placeholder="search"/>
     <Select value1="asc" value2="desc" onchange={sortBy}  ></Select>  
@@ -64,18 +64,18 @@ console.log(hotels);
         ?( printCards(hotels)  )
          : ( 
           <div className="card" >
-             <img src="/img/404.png" alt="NotFound"/>
+             <img src="/img/lost.png" alt="NotFound"/>
              <div className="card__details">
               <div className="name">
-             <h4>" {busqueda}"</h4>
-             <div className='card-button' onClick={()=> { window.location.reload() }}> Go Back</div>
+             <h4>The search for "{busqueda}"... didn't bring any result</h4>
+             <div className='button' onClick={()=> { window.location.reload() }}> Go Back</div>
               </div>
               </div>
           </div>
           )
      }
       </div>
-      </div>
+     
 
       </>
   )

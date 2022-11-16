@@ -42,7 +42,7 @@ export default function CardCities() {
     }         
 
     return (
-        <div className='flex-column'>
+        <>
             <div className='input-nav' role="search">
                 <input  type="text" placeholder="Search" onChange={search} />
             <div className='checks p-5'>
@@ -54,7 +54,7 @@ export default function CardCities() {
             <div className='background flex-row wrap gap' >
             { citis.length > 0 ?(renderCards(citis))
             :( <div className="card" >
-                    <img src="/img/404.png" alt="NotFound"/>
+                    <img src="/img/lost.png" alt="NotFound"/>
                     <div className="card__details">
                     <div className="name">
                          <h4>"{inputSearch}"</h4>
@@ -63,6 +63,6 @@ export default function CardCities() {
                     </div>
                 </div>)}
             </div>    
-        </div>
+        </>
     )
 }
