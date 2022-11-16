@@ -15,12 +15,12 @@ export default function Details(props) {
   }
 
   return (
-
+          <div className='flex-row'>
           <div className="card-horizontal background">
                    <div className= "card-horizontal-img">
                         <img src={image} alt={name} />
                    </div>
-                  <div className="card-horizontal-text flex-column gap">
+                  <div className="card-horizontal-text">
                         <div className="name">
                              <h4> {name}</h4>
                              <p>{`${category}:  ${number}`}</p>
@@ -41,7 +41,7 @@ export default function Details(props) {
              
             </div>  
             </div>  
-    
+            </div>
     
       )
     }

@@ -1,11 +1,25 @@
 import React , {useState, useEffect} from 'react'
-import cities from '../data/cities'
-import hotels from '../data/hotels'
 import Arrow from './Arrow'
+import axios from 'axios'
+import { BASE_URL } from '../Api/url'
 
 
 
 export default function Carousel() {
+  let [hotels, setHotels]= useState([])
+  let [cities, setCities]= useState([])
+
+  
+  useEffect(() =>{ 
+    axios.get(`${BASE_URL}/api/hotels/`)
+   .then(response=> setHotels(response.data.response))
+   .catch(error=> console.log(error))
+   axios.get(`${BASE_URL}/cities/`)
+   .then(response=> setCities(response.data.response))
+   .catch(error=> console.log(error))
+   }, [])
+ 
+ 
  
   let photo2 = hotels.map(photos => photos.photo[0])
   let photo3= hotels.map(photos => photos.photo[2])
@@ -67,7 +81,6 @@ export default function Carousel() {
         setNumero(nextIndex)
         clearInterval(id)
     }
-  
 
   return (
     <div className='flex-row wrap gap background carousel '>
@@ -75,12 +88,12 @@ export default function Carousel() {
     <div className='render'>
       
         <div className= "flex-row gap wrap">
-        <img src={selectedImage}  alt="photos" className='image card'/>
-        <img src={selectedImageb}  alt="photos" className='image card'/>
+        <img src={selectedImage} alt=" " className='image card'/>
+        <img src={selectedImageb}  alt=" " className='image card'/>
         </div>   
       <div className='flex-row gap wrap'>
-       <img src={selectedImage2} alt="photos" className='image card'/>
-       <img src={selectedImagec} alt="photos" className='image card'/>
+       <img src={selectedImage2} alt=" " className='image card'/>
+       <img src={selectedImagec} alt=" " className='image card'/>
       </div>
       
     </div>

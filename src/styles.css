@@ -3,12 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-
-}
-/*general estilo*/
-
-.background{
-    background: linear-gradient(#fbb07f , #d76d77,#3a1c71 )
 }
 
 /*flex*/
@@ -27,16 +21,16 @@
     justify-content: center;
     padding: 1rem 0;
 }
-.main {
+/* .main {
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap:1rem;
+    /* align-items: center; */
+    /* flex-direction: column;
+    gap:1rem; */
     
-}
+/* } */ 
 .wrap {
     flex-wrap: wrap;
 }
@@ -122,7 +116,7 @@
 }
 
 .user-image {
-    width: 50px;
+    width: 40px;
 }
 
 .logo {
@@ -142,7 +136,7 @@ video {
   .video-wrapper {
  
     position: relative;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     overflow: hidden;
     text-align: center;
@@ -150,21 +144,25 @@ video {
     align-items: center;
     justify-content: center;
   }
+  .text-white{
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  }
   .header{
     position: relative;
     padding-top: 0;
+    gap: .5rem;
     width: 100%;
     min-height: 70vh;
-    display: flex;
+    display: flex; 
     flex-direction: column;
-    justify-content: center;
+     justify-content: center;
     align-items: center;
-    color: white;
-    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    color: #252525;
   }
 /*card*/
 .card{
-    width: 290px;
+    width: 300px;
     min-height: 350px ;
     background-color: white;
     border: 1px solid #6f8d9f;
@@ -198,28 +196,7 @@ video {
   .name p {
     font-size: 1rem;
   }
-   .card-button {
-    border: none;
-    width: 80%;
-    text-align: center;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 50px;
-    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-    font-weight: 600;
-    color: white;
-    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
-    margin: 0 auto;
-    display: block;
-    /* Button is a clickable element, therefore it should have a pointer cursor */
-    cursor: pointer;
-  }
-.card-button:hover{
-    transform: scale(0.99);
-    background: linear-gradient(-135deg, #bdd7e8, #b78ec8);
-    color: #9b59b6;
-}
-  
+ 
   .card__details {
     padding: 16px 8px 8px 8px;
    width: 100%;
@@ -228,6 +205,16 @@ video {
    justify-content: center;
    align-items: center;
   }
+/* card itinerarys*/
+.actividades{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.actividades .card{
+    margin: 10px 50px;
+}
+
 /*termina card*/
 
 /*card-horizontal*/
@@ -236,7 +223,7 @@ video {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 600px;
+    width: 750px;
     height: auto;
     background-color: white;
     border: 1px solid #6f8d9f;
@@ -258,14 +245,42 @@ video {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.card__horizontal-text {
+.card-horizontal-text {
     width: 50%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-.card-horizontal button{
-    width: 80%;
+
+/*BUTTONS*/
+.button{
+    min-width: 48px;
+    min-height: 40px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    padding: .5rem 1rem; 
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    font-size: 1.5rem;
+    border-radius: 0.75em;
+}
+.button:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+    cursor: pointer;
     
 }
+.add{
+    width: 90%;
+    width: max(20vw, 70%);
+}
+
+
 
 /*city */
 .checks{
@@ -275,6 +290,10 @@ video {
     text-align: center;
     font-weight:500;    
 } 
+.p-5{
+    padding: 2rem;
+    gap: 1rem;
+}
 
 /*to action*/
 .toaction {
@@ -284,26 +303,25 @@ video {
     font-size: 1rem;
 
 }
-/* not found*/
-.fourcerofour {
-    display: flex;
-    border-radius: 15%;
-    object-fit: cover;
-}
+
 /*sign in/ up/ new hotel/city*/
 .sign-in {
     background-color: rgba(255, 255, 255, 0.541);
-    width: 45%;
+    width: 60%;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: .8rem;
     align-items: center;
-    border-radius: 10%;
+    gap: .8rem;
+    border-radius: 6mm;
     padding: 1rem;
     margin-top: 1.5rem;
+}
 
+.sign-in h3, .sign-in p{
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 
 .sign-in p {
@@ -322,19 +340,13 @@ video {
 .sign-in input,
 .input-nav input,
 .input-nav select {
-    border-radius: 0.75em;
-    height: 2rem;
-    width: 250px;
+    border-radius: 2mm;
+    height: 2.5rem;
+    width: max(20vw, 70%);
     text-align: center;
-}
-
-.login {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
     border: none;
+    box-shadow: 1px 1px 11px #252525;
 }
-
 
 /*boton google*/
 #customBtn {
@@ -353,8 +365,10 @@ video {
 }
 
 span.label {
-    font-family: serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: normal;
+    padding-right: 1rem;
+    color: #252525;
 }
 
 .icon {
@@ -385,7 +399,7 @@ span.label {
     left: 10%;
 }
 .image {
-    width: 400px;
+    width: 460px;
     height: 350px;
     border-radius: 30px;
 }
@@ -402,7 +416,7 @@ footer a {
 
 footer {
     color: white;
-    width: 100%;
+    max-width: 100%;
     min-height: 20vh;
     display: flex;
     align-items: center;
@@ -467,31 +481,7 @@ footer a:hover {
     border-color: #9b59b6;
 }
 
-form .button {
-    height: 45px;
-    margin: 35px 0
-}
 
-form .button input, .button {
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
-}
-
-form .button input:hover,
-.login:hover,
-.login:hover , .button:hover {
-    transform: scale(0.99);
-    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-}
 
 @media(max-width: 584px) {
     .signup {
@@ -534,8 +524,13 @@ form .button input:hover,
 }
 
 .input-nav input[type="text"] {
-    color: rgb(218, 46, 218);
+    color: #252525;
+    min-width: 30%;
 }
+input[type="checkbox"]{
+    box-shadow: none;
+}
+
 
 @media(max-width: 459px) {
     .signup .content .category {
@@ -575,9 +570,6 @@ form .button input:hover,
     .card img {
        height: 50%; 
     }
-    .card-button{
-        width: 120px;
-    }
     .arrow .left{
         left: 5%;
     }
@@ -586,7 +578,7 @@ form .button input:hover,
     }
     .drop-down-nav a,
     .toaction,
-    .links, .button   {
+    .links  {
         font-size: 1.4rem;
        
     }
@@ -618,6 +610,11 @@ form .button input:hover,
     }
  
 } 
+@media screen and (max-width:920px) {
+    .checks{
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 767px) {
     .sign-in {
@@ -627,9 +624,6 @@ form .button input:hover,
     form input {
         width: 100%;
     }
-    .details{
-        width: 80%;
-    }
     .logo-home{
         flex-direction: column;
     }
@@ -637,17 +631,19 @@ form .button input:hover,
         width: 60%;
     }
     .card, .card-horizontal {
-        margin-left: 2rem;
         width: 80%;
         flex-wrap:wrap ;
     }
     .card-horizontal-img {
         width: 100%;
     }
+    .card-horizontal-text{
+        width: 100%;
+    }
     .flex-row {
         flex-direction: column;
         justify-content: center;
-        margin-left: 2rem;
+        align-items: center;
     }
    
 

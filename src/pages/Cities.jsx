@@ -9,8 +9,9 @@ import CardCities from '../components/CardCities'
 export default function Cities() {
   return (
     <>
-    <HeaderVideo componenttop={<Header/>}/>
-    <CardCities/>
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<CardCities/>}/>
+    
+    
       <Footer/>     
     </>
   )

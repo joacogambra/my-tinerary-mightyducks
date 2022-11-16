@@ -9,10 +9,7 @@ export default function HotelsLayout() {
   return (
    <>
    <div className='render'>
-    <HeaderVideo componenttop=<Header/> />
-    <div className='grow'>
-    <Hotels></Hotels>
-    </div>
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<Hotels/>} />
    <Footer></Footer>
    </div>
    </> 

@@ -1,21 +1,29 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import activities from '../data/activities'
-import Cards from './Cards'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../Api/url'
+import CardActivities from './CardActivities'
 
 
 export default function Detail() {
    const { id }= useParams()
+   let [activity,setActivity] = useState([])
 
-let currentActivity = activities.filter(elemento=>elemento.citiId === id )
+    useEffect(()=>{
+        axios.get(`${BASE_URL}/itineraries?citiId=${id}`)
+        .then(res => setActivity(res.data.response))
+        .catch(error=> console.log(error))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    console.log(activity);
+
   return (
 
-<>
-       { currentActivity.map((currentActivity)=>(
-
-<Cards name={currentActivity.name} image={currentActivity.photo[1]} id={currentActivity.id} category= "Description" continente={currentActivity.description} ></Cards>
-      
+  <div className='actividades'>
+       { activity.map((activity)=>(
+      <CardActivities name={activity.name} image={activity.photo[0]} image1={activity.photo[1]} id={activity._id} continente={activity.description} price={activity.price} ></CardActivities>    
        ))
        }
-    </>
+       </div>
 )}

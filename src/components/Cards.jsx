@@ -11,7 +11,7 @@ export default function Cards(props) {
               <div className="name">
                  <h4> {name}</h4>
                  <p>{`${category}:  ${continente}`}</p>
-                <LinkRouter className='card-button'id={id} to={`/${page}/${id}`} >More</LinkRouter>
+                <LinkRouter className='button'id={id} to={`/${page}/${id}`} >More</LinkRouter>
                  </div>
              
             </div>
