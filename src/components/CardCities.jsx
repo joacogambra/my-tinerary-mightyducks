@@ -1,65 +1,83 @@
 import React from 'react'
-import { useState } from 'react'
 import Cards from './Cards'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { useSelector , useDispatch } from 'react-redux'
+import citiesAction from '../redux/actions/citiesAction'
+import citiesFiltered from '../redux/actions/citiesFiltered'
 import { BASE_URL } from '../Api/url'
 
 
-
-export default function CardCities() {
-    let [citis,setCitis] = useState([])
-    useEffect(()=>{
-        axios.get(`${BASE_URL}/cities/`)
-        .then(res => setCitis(res.data.response))
-        .catch(error=> console.log(error))
+export default function CardCities() {  
+    const {getCities, getFiltering} = citiesAction  
+    // useEffect(()=>{
+    //     dispatch(citiesAction.getCities())
+    //     // eslint-disable-next-line
+    // },[])
+    const filter = useSelector(state => state.citiesFilterReducer)
+    let search = useRef()
+    let [checkBox, setCheckBox] = useState([])
+    const {checkboxs, inputSearch} = citiesFiltered
+    let cities = useSelector(store => store.citiesReducer.cities)
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        axios.get(`${BASE_URL}/cities`)
+            .then(res => setCheckBox(res.data.response))
+            .catch(error => console.log(error.message))
+    }, [])
+    useEffect(() => {
+        if(cities.length < 1 && filter.name === '' 
+        && filter.continent.length < 1){
+            dispatch(getCities())
+        } else{
+            dispatch(getFiltering(filter))
+        }
+        // eslint-disable-next-line
     }, [])
 
+    useEffect(() => {
+        dispatch(getFiltering(filter))
+        // eslint-disable-next-line
+    }, [filter])
+    
     let continents = []
-    citis.forEach(e => { if (!continents.includes(e.continent)) {continents.push(e.continent)}})
+    cities.forEach(e => { if (!continents.includes(e.continent)) {continents.push(e.continent)}})
 
-    let [inputSearch, setInputSearch] = useState('')
-    function search(e){
-        setInputSearch(e.target.value)
-        let query= `${BASE_URL}/cities?name=${e.target.value}&continent=${checkbox}`
-        axios.get(query)
-        .then(res=> setCitis(res.data.response))
-        .catch(error=> console.log(error))
-     } 
-
-    let [checkbox, setCheckbox] = useState ('') 
-    function checkboxSelected(status){
-        setCheckbox(status.target.value)
-        console.log(status.target.value)
-        let query= `${BASE_URL}/cities?name=${inputSearch}&continent=${status.target.value}`
-        axios.get(query)
-        .then(res=> setCitis(res.data.response))
+    let citiesChecks = (e) => {
+        let selected = [...filter.continent]
+        if(e.target.checked){
+            selected.push(e.target.value)
+        }else{
+            selected = selected.filter(event => event !== e.target.value)
+        }
+        let defaultCheck = selected
+        dispatch(checkboxs(defaultCheck))
     }
 
-    function renderCards(array){
-        return array.map((i)=>(
-            <Cards name={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
-    }         
+    let citiesFound = () => {
+        let text = search.current.value.trim()
+        dispatch(inputSearch(text))
+    } 
 
     return (
         <>
             <div className='input-nav' role="search">
-                <input  type="text" placeholder="Search" onChange={search} />
+                <input  type="text" placeholder="Search" ref={search} onChange={citiesFound} value={filter.name} />
+            {Array.from(new Set(checkBox?.map(i => i.continent))).map(i => {
+            return(
             <div className='checks p-5'>
-                <input  type="checkbox" id={continents[0]} value="America" onChange={checkboxSelected}/> <label for={continents[0]}>{continents[0]}</label>
-                <input  type="checkbox" id={continents[1]} value="Asia" onChange={checkboxSelected}/> <label for={continents[1]}>{continents[1]}</label>
-                <input  type="checkbox" id={continents[2]} value="Europe" onChange={checkboxSelected}/> <label for={continents[2]}>{continents[2]}</label>
-            </div>
+                <input  type="checkbox" checked={filter.continent.includes(i) ? true : false} value={i} onClick={citiesChecks}/> 
+                <label key={i}>{i}</label>
+            </div> )})}
             </div>
             <div className='background flex-row wrap gap' >
-            { citis.length > 0 ?(renderCards(citis))
-            :( <div className="card" >
-                    <img src="/img/lost.png" alt="NotFound"/>
-                    <div className="card__details">
-                    <div className="name">
-                         <h4>"{inputSearch}"</h4>
+            { cities.length > 0 ? cities.map((i)=>(
+                    <Cards key={i.name} name={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
+                    : ( <div className="card" >
+                    <img src="/img/404.png" alt="NotFound" className='cities404'/>
+                    <div className="card__details">                  
                     <div className='button' onClick={()=> { window.location.reload() }}>Go Back</div>
-                    </div>
                     </div>
                 </div>)}
             </div>    
