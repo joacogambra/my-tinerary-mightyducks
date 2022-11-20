@@ -52,19 +52,26 @@ export default function CardCities() {
             selected = selected.filter(event => event !== e.target.value)
         }
         let defaultCheck = selected
+        console.log(selected);
         dispatch(checkboxs(defaultCheck))
     }
 
     let citiesFound = () => {
         let text = search.current.value.trim()
+        console.log(text);
         dispatch(inputSearch(text))
     } 
+
+    function renderCards(array){
+        return array.map((i)=>(
+            <Cards name={i.name} key={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
+    }   
 
     return (
         <>
             <div className='input-nav' role="search">
                 <input  type="text" placeholder="Search" ref={search} onChange={citiesFound} value={filter.name} />
-            {Array.from(new Set(checkBox?.map(i => i.continent))).map(i => {
+                {Array.from(new Set(checkBox?.map(i => i.continent))).map(i => {
             return(
             <div className='checks p-5'>
                 <input  type="checkbox" checked={filter.continent.includes(i) ? true : false} value={i} onClick={citiesChecks}/> 
@@ -72,8 +79,7 @@ export default function CardCities() {
             </div> )})}
             </div>
             <div className='background flex-row wrap gap' >
-            { cities.length > 0 ? cities.map((i)=>(
-                    <Cards key={i.name} name={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
+            { cities.length > 0 ? (renderCards(cities))
                     : ( <div className="card" >
                     <img src="/img/404.png" alt="NotFound" className='cities404'/>
                     <div className="card__details">                  
