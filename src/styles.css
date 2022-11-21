@@ -295,6 +295,10 @@ video {
     gap: 1rem;
 }
 
+.cities404{
+    background-color: #252525;
+}
+
 /*to action*/
 .toaction {
     display: flex;
