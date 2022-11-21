@@ -1,6 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
 import citiesAction from "../actions/citiesAction";
+import newCityAction from "../actions/newCityAction";
 
+const {newCity} = newCityAction
 const {getFiltering} = citiesAction
 const initialState = {
     cities:[],
@@ -19,6 +21,11 @@ const citiesReducer = createReducer(initialState, (builder)=>{
             ...state,
             ...action.payload
         }
+    })
+    .addCase(newCity.fulfilled, (state, action )=>{   
+            if(action.payload.success) {
+                state.cities.push(action.payload.success)
+            }      
     })
 })
 
