@@ -1,6 +1,5 @@
 import React from 'react'
 import SignGoogle from './SignGoogle'
-import Inputs from './Inputs'
 import {Link as LinkRouter} from 'react-router-dom'
 import {useRef} from 'react'
 
@@ -8,7 +7,7 @@ import {useRef} from 'react'
 export default function SingIn() {   
     let email = useRef ()
     let password = useRef ()
-    let signin= useRef()
+   
  
 
     function login (login){
@@ -17,21 +16,21 @@ export default function SingIn() {
           email: email.current.value,
           password: password.current.value,
         } 
-    
+   
     localStorage.setItem ("registrationdata",JSON.stringify(registrationdata))
-    signin.current.reset()
+    
     }
 
 
 
   return (
-    <form className='sign-in'onSubmit={login} ref={signin}>
+    <form className='sign-in'>
      
             <h3> Welcome Back!</h3>
             <p> Please Sign In</p>
-            <Inputs dato={email} placeholder="example@mail.com" type="email"/>  
-            <Inputs dato={password} placeholder="Password" type="password"/>
-            <input type="submit" className='button' value="Log In"></input>
+            <input name="email" placeholder="example@mail.com" type="email" ref={email}/>  
+            <input dato="password" placeholder="Password" type="password" ref={password}/>
+            <input type="submit" className='button' value="Log In" onClick={login}/>
 
              <SignGoogle/>
             <div>
