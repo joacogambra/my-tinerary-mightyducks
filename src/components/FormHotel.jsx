@@ -54,23 +54,8 @@ let form={
     .catch(error=>console.log(error))
   
   }
-  
 
- 
-    
-  
-
-
-
-//  console.log(hotel._id)
-
-// if(name.message === 'string.empty'){
-//   swal.fire({
-//     icon: 'error',
-//     title: 'Please enter the name',
-    
-//   })
-
+  console.log(hotel);
  
        return (
         
