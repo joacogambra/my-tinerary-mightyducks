@@ -352,6 +352,10 @@ video {
     box-shadow: 1px 1px 11px #252525;
 }
 
+.sweetrouter{
+    width: 100%;
+}
+
 /*boton google*/
 #customBtn {
     display: inline-block;
