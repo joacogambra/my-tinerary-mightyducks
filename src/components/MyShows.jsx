@@ -12,41 +12,7 @@ export default function MyShows() {
     let [id, setId]= useState('')
     let [form, setForm] = useState(true)
     
-    let name= useRef()
-    let photo= useRef()
-    let description= useRef()
-    let price= useRef()
-    let date= useRef()
-    let hotelId = useRef()
-    let userId = useRef()
-
-    useEffect(()=>{
-      axios.patch(`${BASE_URL}/shows/${id}`, form )
-       .then(response=>console.log(response.data.response))
-       .catch(error=> console.log(error) )
-       
-   },[id, form])   
-
-
-
-    let editar= (e) => {
-      setId(e.target.id)
-      setForm(!form)
-      
-    }
-    let handleSubmit=(e)=>{
-      e.preventDefault()
-    let form={
-      name: name.current.value,
-      photo: photo.current.value,
-      description: description.current.value,
-      hotelId: hotelId.current.value,
-      userId: userId.current.value,
-      price: price.current.value,
-      date: date.current.value,
-    }
-  }
-
+//traer
     let userid = "636d2cd4a943744050f9ef16"
     let [showDel, setShowDel] = useState([])
     useEffect(() => {
@@ -55,13 +21,69 @@ export default function MyShows() {
         .catch(error => console.log(error.message))
       // eslint-disable-next-line
     }, [])
-    console.log(showDel);  
+    // console.log(showDel);  
+//form
+    let name= useRef()
+    let photo= useRef()
+    let description= useRef()
+    let price= useRef()
+    let date= useRef()
+    let hotelId = useRef()
+    let userId = useRef()
+    
+    let editar= (e) => {
+      setId(e.target.value)
+      setForm(!form)
+      console.log(e.target.id)
+    }
+   
+  //form datos
+    let handleSubmit=(e)=>{
+      e.preventDefault()
+      let form={
+        name: name.current.value,
+        photo: photo.current.value,
+        description: description.current.value,
+        hotelId: hotelId.current.value,
+        userId: userId.current.value,
+        price: price.current.value,
+        date: date.current.value,
+      }
+    
+
+   
+      axios.patch(`${BASE_URL}/api/shows/${id}`, form )
+       .then(response=>{console.log(response.data.response)
+        setForm(response.data.response)
+        if(response.data.success === true){
+          Swal({
+            title: "Success",
+            text: "The Show was editted succesfully",
+             icon: "success",
+             timer: 5000,
+             confirmButtonText: "Cool"
+          })
+          
+        .then(()=> { window.location.reload() }) 
+        }
+      })
+      .catch(error=>{
+          console.log(error); 
+        if (error.response.status === 400){
+        Swal({
+          icon: 'error',
+          title: 'Check the info you sent:',})
+        } 
+    })
+  }   
+
+ 
     return (
       <>
       {form
       ?(<div className='myCities'>
         {showDel?.map((i)=>(
-              <CardUserShows city={i} name={i.name} key={i._id} image={i.photo[0]} category={i.description} id={i._id} price={i.price} editar={editar}/>))}
+              <CardUserShows name={i.name} key={i._id} image={i.photo[0]} category={i.description} id={i._id} price={i.price} editar={editar} cardid={i._id}/>))}
       </div>)
       :( <form className="sign-in" >
      

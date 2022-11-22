@@ -4,15 +4,15 @@ import { BASE_URL } from '../Api/url'
 import { useEffect, useState, useRef } from 'react'
 import EditCards from './EditCards'
 import Swal from 'sweetalert';
-// // import ShowCards from './ShowsCards'
-
-
-
-
-
+import { useDispatch } from "react-redux";
+import hotelsActions from '../redux/actions/hotelsActions'
 
 
 export default function MyHotels() {
+
+  const dispatch = useDispatch()
+  const { deleteOneShow } = hotelsActions
+
 //form
     let [myHotels, setMyHotels]= useState([])
     // let [myShows, setMyShows]= useState([])
@@ -37,7 +37,7 @@ export default function MyHotels() {
     
      //onclick editar
      let editar= (e) => {
-        setId(e.target.id)
+        setId(e.target.value)
         setForm(!form)
         console.log(form)  
       }
@@ -45,8 +45,26 @@ export default function MyHotels() {
 //onclick borrar
 
 let borrar=(e)=>{
-    setId(e.target.id);//id
+    setId(e.target.value);
+    console.log(e.target)
+      Swal({
+        title: 'Are you sure?',
+        text: "you want to delete this hotel?",
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          Swal("Poof! Hotel file has been deleted!", {
+            icon: "success",
+          })
+        } else {
+          Swal("Your Hotel  is safe!");
         }
+      });
+    }
+    //id
+    console.log(id)    
 //printcard Hotel
      function allCards(array){
         return array?.map((items)=>(
@@ -90,14 +108,12 @@ let borrar=(e)=>{
             
             Swal({
               icon: 'error',
-              title: 'Check the info you sent:',
-              
-             })
-          }})
+              title: 'Check the info you sent:',})
+          }
         
-        }
+        })
     
-
+      }
   return (
     <>
     <h2 className='text-white'>My Hotels</h2>

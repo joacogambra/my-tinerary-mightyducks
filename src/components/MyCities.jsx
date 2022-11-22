@@ -6,12 +6,12 @@ import CardUserCities from './CardUserCities'
 import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
+
 export default function MyCities() {
   let [form, setForm] = useState(true)
   let [id, setId]= useState('')
   const myCities = useSelector((store) => store.citiesReducer.myCities)
   console.log(myCities);
-  const dispatch = useDispatch()
   let name= useRef()
   let continent= useRef()
   let photo= useRef()
