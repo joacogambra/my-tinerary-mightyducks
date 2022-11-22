@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { BASE_URL } from '../Api/url'
 import axios from 'axios'
 import CardUserCities from './CardUserCities'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
 
@@ -13,7 +13,6 @@ export default function MyCities() {
   const myCities = useSelector((store) => store.citiesReducer.myCities)
   console.log(myCities);
 
-  const dispatch = useDispatch()
   let name= useRef()
   let continent= useRef()
   let photo= useRef()
@@ -24,8 +23,6 @@ export default function MyCities() {
       setId(e.target.id);
       setForm(!form) 
     }
-
-   const dispatch = useDispatch()
 
     let handleSubmit=(e)=>{
       e.preventDefault()

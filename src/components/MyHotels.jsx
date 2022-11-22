@@ -81,7 +81,7 @@ let borrar=(e)=>{
 
      //form alert 
       
-        axios.patch(`${BASE_URL}/itineraries/${id}`, form )
+        axios.patch(`${BASE_URL}/api/hotels/${id}`, form )
           .then(response=>{setForm(response.data.response);
             if(response.data.success === true){
               Swal({
