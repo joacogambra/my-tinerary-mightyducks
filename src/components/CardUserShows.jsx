@@ -41,7 +41,7 @@ export default function CardUserShows(props) {
         <div className="card__details">
           <div className="name">
             <h4> {name}</h4>
-            <p>{`${category}`}</p>
+            <p className='textflow'>{`${category}`}</p>
           </div>
             <p className='price'>Price:$ {`${price}`}</p>
           <div className='flex-row gap'>
