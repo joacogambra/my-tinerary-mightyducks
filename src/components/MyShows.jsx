@@ -32,7 +32,7 @@ export default function MyShows() {
     let editar= (e) => {
       setId(e.target.id)
       setForm(!form)
-      console.log(form)  
+      
     }
     let handleSubmit=(e)=>{
       e.preventDefault()
