@@ -8,16 +8,18 @@ import Swal from 'sweetalert';
 
 
 
+
 export default function MyHotels() {
 
-
     let [myHotels, setMyHotels]= useState([])
+    let [id, setId]= useState('')
     let [form, setForm] = useState(true)
     let name= useRef()
     let photo= useRef()
     let capacity= useRef()
     let cityId = useRef()
     let userId = useRef()
+    
      
     useEffect(()=>{
         let adm= "636d2cd4a943744050f9ef16"
@@ -30,14 +32,15 @@ export default function MyHotels() {
 
 
 
-     let editar= () => {
+     let editar= (e) => {
+        setId(e.target.id)
         setForm(!form)
         console.log(form)
-
+        
       }
 
     let borrar=()=>{}
-   console.log(myHotels)
+   
      function allCards(array){
         return array?.map((items)=>(
         <EditCards name={items.name} image={items.photo[0]} dato="Capacity" capacity={items.capacity} id={items._id} editar={editar} borrar={borrar}/>
@@ -53,12 +56,12 @@ export default function MyHotels() {
         cityId: cityId.current.value,
         userId: userId.current.value,
       }
-        axios.patch(`${BASE_URL}/api/hotels/`, form )
+        axios.patch(`${BASE_URL}/api/hotels/${id}`, form )
           .then(response=>{setForm(response.data.response);
             if(response.data.success === true){
               Swal({
                 title: "Success",
-                text: "The Hotel was add succesfully",
+                text: "The Hotel was editted succesfully",
                  icon: "success",
                  timer: 5000,
                  confirmButtonText: "Cool"

@@ -33,27 +33,27 @@ const filter= createAction('filter', (filter)=>{
     
      return {  filter}
 })
-const editHotels = createAsyncThunk("editHotels", async (data) => {
+// const editHotels = createAsyncThunk("editHotels", async (data) => {
 
-  console.log(data)
-
-
-  try {
-    let respuesta = await axios.patch(`${BASE_URL}hotels/${data.id}`)
-    let cargado = respuesta.data.response
-
-    return { hotelsEdit: cargado}
+//   console.log(data)
 
 
-  } catch (error) {
-    console.log(error)
-  }
-})
+//   try {
+//     let respuesta = await axios.patch(`${BASE_URL}hotels/${data.id}`)
+//     let cargado = respuesta.data.response
+
+//     return { hotelsEdit: cargado}
+
+
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
 
 const hotelsActions ={
     getHotels,
     filter,
-    editHotels,
+   
     
     
 }

@@ -13,7 +13,7 @@ export default function EditCards(props) {
      </div>
 </div>
 <div className='flex-row gap'>
-<button className='button'  onClick={editar}>Edit</button>
+<button className='button' id={id} onClick={editar}>Edit</button>
 <button className='button' onClick={borrar} >Delete</button>
 </div>
 </div>
