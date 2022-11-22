@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { BASE_URL } from '../Api/url'
 import axios from 'axios'
 import CardUserCities from './CardUserCities'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
 

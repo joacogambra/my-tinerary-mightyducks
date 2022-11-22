@@ -4,15 +4,16 @@ import { BASE_URL } from '../Api/url'
 import { useEffect, useState, useRef } from 'react'
 import EditCards from './EditCards'
 import Swal from 'sweetalert';
-// // import ShowCards from './ShowsCards'
-
-
-
-
-
+import { useDispatch } from "react-redux";
+import hotelsActions from '../redux/actions/hotelsActions'
 
 
 export default function MyHotels() {
+
+  const dispatch = useDispatch()
+  const { deleteOneShow } = hotelsActions
+
+
 //form
     let [myHotels, setMyHotels]= useState([])
     // let [myShows, setMyShows]= useState([])
@@ -37,7 +38,7 @@ export default function MyHotels() {
     
      //onclick editar
      let editar= (e) => {
-        setId(e.target.id)
+        setId(e.target.value)
         setForm(!form)
         console.log(form)  
       }
@@ -45,28 +46,33 @@ export default function MyHotels() {
 //onclick borrar
 
 let borrar=(e)=>{
-    setId(e.target.id);//id
+    setId(e.target.value);
+    console.log(e.target)
+      Swal({
+        title: 'Are you sure?',
+        text: "you want to delete this hotel?",
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          Swal("Poof! Hotel file has been deleted!", {
+            icon: "success",
+          })
+        } else {
+          Swal("Your Hotel  is safe!");
         }
+      });
+    }
+    //id
+    console.log(id)    
+
 //printcard Hotel
      function allCards(array){
         return array?.map((items)=>(
         <EditCards name={items.name} image={items.photo[0]} dato="Capacity" capacity={items.capacity} id={items._id} editar={editar} borrar={borrar}/>
 
     )) }
-    // function showsCards(array){
-    //     return array?.map((items)=>(
-    //     <ShowCards name={items.name} image={items.photo[0]} dato={items.date} precio={items.price} id={items._id} editar={editar} borrar={borrar} page="admin"/>
-
-    // )) }
-
- //traer los shows
-    // useEffect(()=>{
-    //     let query= `${BASE_URL}/api/shows/?userId=${adm}`
-    //     axios.get(query)
-    //      .then(response=>setMyShows(response.data.response))
-    //      .catch(error=> console.log(error) )
-         
-    //  },[adm])
 
 ///form datos
     let handleSubmit=(e)=>{
@@ -104,13 +110,13 @@ let borrar=(e)=>{
             
             Swal({
               icon: 'error',
-              title: 'Check the info you sent:',
-              
-             })
-          }})
+
+              title: 'Check the info you sent:',})
+          }
         
-        }
+        })
     
+      }
 
   return (
     <>
