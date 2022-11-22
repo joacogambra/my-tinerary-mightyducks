@@ -9,10 +9,10 @@ export default function CardUserCities(props) {
   const dispatch = useDispatch()
   const { deleteOneCity } = myCitiesAction
 
-  function click() {
+  function deleteCity() {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "you want to delete the city?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -22,7 +22,7 @@ export default function CardUserCities(props) {
       if (result.isConfirmed) {
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Your city has been deleted.',
           'success'
         )
         .then(()=>{window.location.reload()})
@@ -37,14 +37,10 @@ export default function CardUserCities(props) {
         <div className="name">
           <h4> {name}</h4>
           <p>{`${category}:  ${continente}`}</p>
-          <button className='button' onClick={click}>Delete</button>
+          <button className='button' onClick={deleteCity}>Delete</button>
         <button className='button' >Edit</button>
         </div>
-        
       </div>
     </div>
-
-
-
   )
 }
