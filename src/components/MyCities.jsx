@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react'
 import { BASE_URL } from '../Api/url'
 import axios from 'axios'
 import CardUserCities from './CardUserCities'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 export default function MyCities() {
 
   const myCities = useSelector((store) => store.citiesReducer.myCities)
   console.log(myCities);
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   let userid = "636d2cd4a943744050f9ef16"
   //  636d2cd4a943744050f9ef16
