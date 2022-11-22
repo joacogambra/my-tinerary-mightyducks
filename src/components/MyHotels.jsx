@@ -53,20 +53,6 @@ let borrar=(e)=>{
         <EditCards name={items.name} image={items.photo[0]} dato="Capacity" capacity={items.capacity} id={items._id} editar={editar} borrar={borrar}/>
 
     )) }
-    // function showsCards(array){
-    //     return array?.map((items)=>(
-    //     <ShowCards name={items.name} image={items.photo[0]} dato={items.date} precio={items.price} id={items._id} editar={editar} borrar={borrar} page="admin"/>
-
-    // )) }
-
- //traer los shows
-    // useEffect(()=>{
-    //     let query= `${BASE_URL}/api/shows/?userId=${adm}`
-    //     axios.get(query)
-    //      .then(response=>setMyShows(response.data.response))
-    //      .catch(error=> console.log(error) )
-         
-    //  },[adm])
 
 ///form datos
     let handleSubmit=(e)=>{

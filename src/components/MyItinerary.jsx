@@ -8,7 +8,7 @@ import Swal from 'sweetalert';
 
 export default function MyItinerary() {
   let [id, setId]= useState('')
-  let [form, setForm] = useState(true)
+  let [form, setForm] = useState(false)
 
   let name= useRef()
   let photo= useRef()
