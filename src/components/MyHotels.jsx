@@ -13,6 +13,7 @@ export default function MyHotels() {
   const dispatch = useDispatch()
   const { deleteOneShow } = hotelsActions
 
+
 //form
     let [myHotels, setMyHotels]= useState([])
     // let [myShows, setMyShows]= useState([])
@@ -65,6 +66,7 @@ let borrar=(e)=>{
     }
     //id
     console.log(id)    
+
 //printcard Hotel
      function allCards(array){
         return array?.map((items)=>(
@@ -108,12 +110,14 @@ let borrar=(e)=>{
             
             Swal({
               icon: 'error',
+
               title: 'Check the info you sent:',})
           }
         
         })
     
       }
+
   return (
     <>
     <h2 className='text-white'>My Hotels</h2>

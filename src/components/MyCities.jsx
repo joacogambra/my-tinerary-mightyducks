@@ -12,6 +12,7 @@ export default function MyCities() {
   let [id, setId]= useState('')
   const myCities = useSelector((store) => store.citiesReducer.myCities)
   console.log(myCities);
+
   let name= useRef()
   let continent= useRef()
   let photo= useRef()
