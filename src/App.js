@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound"
 import SignUpPage from "./pages/SignUpPage"
 import NewCity from "./pages/NewCity"
 import NewHotel from "./pages/NewHotel"
+import MyCitiesPage from "./pages/MyCitiesPage"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
       <Route path="/new-city" element={<NewCity/>}/>
+      <Route path="/my-cities" element={<MyCitiesPage/>}/>
       <Route path="/sign-up" element={<SignUpPage/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/hotel/:hotel" element={<Hotel/>} />
