@@ -38,7 +38,7 @@ export default function CardUserItineraries(props) {
             <h4> {name}</h4>
             <p>{`${category}`}</p>
             <p>Price:$ {`${price}`}</p>
-            <p>Price:$ {`${duration}`}</p>
+            <p>Duration:$ {`${duration}`}</p>
             <button className='button' onClick={deleteItinerary}>Delete</button>
           <button className='button' >Edit</button>
           </div>
