@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
 export default function MyItinerary() {
+
   let [id, setId]= useState('')
   let [form, setForm] = useState(true)
 
@@ -19,7 +20,8 @@ export default function MyItinerary() {
   let userId = useRef()
 
 
-    const itineraries = useSelector((store) => store.citiesReducer.itineraries)
+    const itineraries = useSelector((store) => store.itineraryReducer.itineraries)
+
     console.log(itineraries);
   
     let userid = "636d2cd4a943744050f9ef16"
