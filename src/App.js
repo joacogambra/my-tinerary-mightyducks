@@ -11,6 +11,8 @@ import NotFound from "./pages/NotFound"
 import SignUpPage from "./pages/SignUpPage"
 import NewCity from "./pages/NewCity"
 import NewHotel from "./pages/NewHotel"
+import MyHotels from "./pages/MyHotels"
+import EditHotel from "./pages/EditHotel"
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
       <Route path="/city/:id" element={<CityPage/>} />
       <Route path="/new-hotel" element={<NewHotel/>} />
       <Route path="/*" element={<NotFound/>}/>
+      <Route path="/hotels/admin/" element={<MyHotels/>}/>
+      <Route path="/hotels/admin/:id" element={<EditHotel />} />
     </Routes>
     </main>
     

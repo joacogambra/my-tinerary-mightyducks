@@ -1,5 +1,4 @@
 import {createAction, createAsyncThunk} from '@reduxjs/toolkit'
-// import { createAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { BASE_URL } from '../../Api/url'
 
@@ -24,49 +23,38 @@ const getHotels= createAsyncThunk('gethotels', async ()=>{
 catch(error) {
   console.log(error)
 }
-    // catch (AxiosError){
-    //     if (AxiosError.request.status===404){
-    //         return{
-    //             payload: {error: true},
-                
-    //         }
-    //     }
-    //     else{
-    //     return {
-    //         payload: "error"
-    //     }
-    // }
-    // }
-
-
+    
 
 
 })
 
-
-const value= createAction('value', (value,order) =>{
-    console.log(value);
-    if (value!== undefined || order !== undefined){
-      
-        return{
-            payload: {
-                value: value,
-                order: order,
-            }
-        }
-       
-    }
+const filter= createAction('filter', (filter)=>{
+    if (filter.value !== ""|| filter.order!== "")
     
-    else {
-    
-        return {
-            payload: {error: true}
-        }
-    }
+     return {  filter}
 })
+const editHotels = createAsyncThunk("editHotels", async (data) => {
+
+  console.log(data)
+
+
+  try {
+    let respuesta = await axios.patch(`${BASE_URL}hotels/${data.id}`)
+    let cargado = respuesta.data.response
+
+    return { hotelsEdit: cargado}
+
+
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 const hotelsActions ={
     getHotels,
-    value,
+    filter,
+    editHotels,
+    
     
 }
 
