@@ -65,7 +65,7 @@ export default function MyShows() {
       </div>)
       :( <form className="sign-in" >
      
-            <h3> Enter the Hotel information</h3>
+            <h3> Edit the Show</h3>
           
                    <input name="photo" type="text"  placeholder='Photo'  ref={photo} required className="card__details"/>
                    <input name= "name"  type="text"  placeholder="Name" ref={name}  required/>

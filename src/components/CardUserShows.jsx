@@ -2,9 +2,9 @@ import React from 'react'
 import showAction from '../redux/actions/showAction'
 import Swal from 'sweetalert2'
 import { useDispatch } from "react-redux";
-import axios from 'axios'
-import { BASE_URL } from '../Api/url'
-import {useEffect, useState, useRef } from 'react'
+// import axios from 'axios'
+// import { BASE_URL } from '../Api/url'
+// import {useEffect, useState, useRef } from 'react'
 
 export default function CardUserShows(props) {
     let { name, image, category, city, price, editar } = props
