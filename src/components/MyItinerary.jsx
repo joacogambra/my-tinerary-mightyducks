@@ -6,7 +6,7 @@ import CardUserItineraries from './CardUserItineraries'
 import { useSelector } from 'react-redux'
 
 export default function MyItinerary() {
-    const itineraries = useSelector((store) => store.citiesReducer.itineraries)
+    const itineraries = useSelector((store) => store.itineraryReducer.itineraries)
     console.log(itineraries);
   
     let userid = "636d2cd4a943744050f9ef16"
