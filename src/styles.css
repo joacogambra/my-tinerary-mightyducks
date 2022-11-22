@@ -191,9 +191,9 @@ video {
     margin-top: 16px;
   }
   .name p {
-    height: 200px;
+    
     font-size: 1rem;
-    overflow: scroll;
+   
   }
   .price {
     padding-top: .5rem;
@@ -209,6 +209,15 @@ video {
    justify-content: center;
    align-items: center;
    text-overflow:unset;
+  }
+ /*textoverflow*/ 
+ .textflow{
+    height: 200px;
+    overflow-y: scroll;
+    scrollbar-width: 0%;
+ }
+ .textflow:-webkit-scrollbar {
+    display: none;
   }
 /* card itinerarys*/
 .actividades{
