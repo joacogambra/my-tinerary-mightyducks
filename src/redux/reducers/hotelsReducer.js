@@ -7,7 +7,9 @@ import hotelsActions from '../actions/hotelsActions'
 const initialState={
     hotels: [],
     error: false,
-    myHotel: []
+    busqueda: "",
+    orden: "",
+  
 }
 const hotelsReducer = createReducer(initialState,
     (builder)=>{
@@ -24,13 +26,16 @@ const hotelsReducer = createReducer(initialState,
                  return {   ...state }
                })
         
-            //     .addCase(filter.fulfilled, (state,action)=>{
-            //         console.log(action.payload);
-            //         return {
-            //             ...state,
-            //             hotels: action.payload
-            //         }
-            // })
+                // .addCase(filter.fulfilled, (state,action)=>{
+                //     console.log(action.payload);
+                //     return {
+                //       ...state,
+                //       hotels: action.payload.data,
+                //       busqueda: action.payload.busqueda,
+                //       orden: action.payload.orden,
+                //     };
+                //   })
+    
             .addCase(deleteHotel.fulfilled, (state,action)=>{
               return {
                   ...state,

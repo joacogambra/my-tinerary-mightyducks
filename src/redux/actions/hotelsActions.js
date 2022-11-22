@@ -27,12 +27,27 @@ catch(error) {
 
 
 })
-
-const filter= createAction('filter', (filter)=>{
-    if (filter.value !== ""|| filter.order!== "")
+const filter = createAsyncThunk("filter", async data => {
+  let filtered = {
+    query: {
+      busqueda: data.busqueda,
+      orden: data.order,
+    },
+  };
+  console.log(filtered);
+  try {
+    const respuesta = await axios.get`${BASE_URL}/api/hotels?name=${filtered.search}&order=${filtered.orden}`
+    let filtrado = respuesta.data.response
+    return { 
+      data: filtrado, 
+      name: data.busqueda, 
+      order: data.order };
+  } catch (error) {
+    console.log(error);
     
-     return {  filter}
-})
+  }
+});
+
 // const editHotels = createAsyncThunk("editHotels", async (data) => {
 
 //   console.log(data)

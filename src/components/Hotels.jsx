@@ -8,6 +8,8 @@ import { BASE_URL } from '../Api/url';
 import { useEffect } from 'react'
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useDispatch, useSelector} from 'react-redux'
+import Swal from 'sweetalert';
+
 
 
 
@@ -17,56 +19,72 @@ export default function Hotels() {
   let [busqueda, setBusqueda]= useState('')
   let [orden, setOrden]= useState('')
   
-   const {getHotels, filter} = hotelsActions
+   const {getHotels, value} = hotelsActions
   let hotels= useSelector (state=> state.hotelsReducer.hotels)
-  let lastsearch= useSelector (state=> state.hotelsReducer.filter)
   console.log(hotels)
 
   const dispatch = useDispatch()
-
+  let [hotelsSearch, setHotelsSearch] = useState([...hotels])
 
  
   useEffect(()=>{
     
      dispatch(getHotels())
    
+    // dispatch(value({busqueda, orden}))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
      
   },[dispatch,getHotels])
 
 console.log(hotels)
   
 
+  // useEffect(() =>{ 
+    
+    //    axios.get(`${BASE_URL}/api/hotels/`)
+    //   .then(response=> setHotels(response.data.response))
+    //   .catch(error=> console.log(error))
+    
+    //   }, [])
+    
+  
   function search(e){
    setBusqueda(e.target.value)
+    //  dispatch(value(value(e.target.value)))
    let query= `${BASE_URL}/api/hotels?name=${e.target.value}&order=${orden}`
    axios.get(query)
-    .then(response=> console.log(response.data.response))
-    .catch(error=> console.log(error) )
+    .then(response=> setHotelsSearch(response.data.response))
+    .catch(error=> {
+      if (error.status === 404){
+        Swal({
+          icon: 'error',
+          title: 'Check the info you sent:',
+          text: (`${  busqueda } has no results`),
+          
+         })
+  }}
+     )
   }
 
  function sortBy(e){
    setOrden(e.target.value)
+  //  dispatch(value(orden(e.target.value)))
    let query= `${BASE_URL}/api/hotels?name=${busqueda}&order=${e.target.value}`
    axios.get(query)
-    .then(response=> console.log(response.data.response))
-   .catch(error=>{ 
-    console.log(error)})
-   
+    .then(response=> setHotelsSearch(response.data.response))
+   .catch(error=>console.log(error) )
  }
-// useEffect(()=>{
-//   let filtrado= {
-//     value: busqueda,
-//     order: orden,
-//    }
-//    console.log(filtrado);
-//    dispatch(filter(filtrado))
 
-// })
- 
- 
-
-console.log(hotels);
-
+console.log(hotelsSearch);
+let render=()=>{
+    if(hotelsSearch.lengh===0){
+     
+      return hotels
+    }
+    else{
+      return hotelsSearch
+    }
+}
 
 function printCards(array){
 
@@ -84,8 +102,8 @@ function printCards(array){
     <Select value1="asc" value2="desc" onchange={sortBy}  ></Select>  
       </div>
      <div className='background flex-row wrap gap'> 
-     { hotels.length > 0
-        ?( printCards(hotels)  )
+     { hotelsSearch.length > 0
+        ?( printCards(render())  )
          : ( 
           <div className="card" >
              <img src="/img/lost.png" alt="NotFound"/>

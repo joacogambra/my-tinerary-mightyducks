@@ -4,9 +4,8 @@ import { BASE_URL } from '../Api/url'
 import { useEffect, useState, useRef } from 'react'
 import EditCards from './EditCards'
 import Swal from 'sweetalert';
-import ShowCards from './ShowsCards'
-import hotelsActions from '../redux/actions/hotelsActions'
-import {useDispatch, useSelector} from 'react-redux'
+// // import ShowCards from './ShowsCards'
+
 
 
 
@@ -16,7 +15,7 @@ import {useDispatch, useSelector} from 'react-redux'
 export default function MyHotels() {
 //form
     let [myHotels, setMyHotels]= useState([])
-    let [myShows, setMyShows]= useState([])
+    // let [myShows, setMyShows]= useState([])
     let [id, setId]= useState('')
     let [form, setForm] = useState(true)
     let name= useRef()
@@ -26,14 +25,14 @@ export default function MyHotels() {
     let userId = useRef()
     
     //traer user hotels 
+    let adm= "636d2cd4a943744050f9ef16"
     useEffect(()=>{
-        let adm= "636d2cd4a943744050f9ef16"
         let query= `${BASE_URL}/api/hotels?userId=${adm}`
         axios.get(query)
          .then(response=>setMyHotels(response.data.response))
          .catch(error=> console.log(error) )
          
-     },[])
+     },[adm])   
     
     
      //onclick editar
@@ -54,22 +53,21 @@ let borrar=(e)=>{
         <EditCards name={items.name} image={items.photo[0]} dato="Capacity" capacity={items.capacity} id={items._id} editar={editar} borrar={borrar}/>
 
     )) }
-    function showsCards(array){
-        return array?.map((items)=>(
-        <ShowCards name={items.name} image={items.photo[0]} dato={items.date} precio={items.price} id={items._id} editar={editar} borrar={borrar} page="shows"/>
+    // function showsCards(array){
+    //     return array?.map((items)=>(
+    //     <ShowCards name={items.name} image={items.photo[0]} dato={items.date} precio={items.price} id={items._id} editar={editar} borrar={borrar} page="admin"/>
 
-    )) }
+    // )) }
 
  //traer los shows
-    useEffect(()=>{
-        let query= `${BASE_URL}/api/shows/?hotelId=${id}`
-        axios.get(query)
-         .then(response=>setMyShows(response.data.response))
-         .catch(error=> console.log(error) )
+    // useEffect(()=>{
+    //     let query= `${BASE_URL}/api/shows/?userId=${adm}`
+    //     axios.get(query)
+    //      .then(response=>setMyShows(response.data.response))
+    //      .catch(error=> console.log(error) )
          
-     },[id])
+    //  },[adm])
 
-    console.log(myShows);
 ///form datos
     let handleSubmit=(e)=>{
         e.preventDefault()
@@ -83,7 +81,7 @@ let borrar=(e)=>{
 
      //form alert 
       
-        axios.patch(`${BASE_URL}/api/hotels/${id}`, form )
+        axios.patch(`${BASE_URL}/itineraries/${id}`, form )
           .then(response=>{setForm(response.data.response);
             if(response.data.success === true){
               Swal({
@@ -122,7 +120,7 @@ let borrar=(e)=>{
      {allCards(myHotels)}
      </div>)
      :(
-        <>
+    
         <form className="sign-in" >
          
          <h3> Enter the Hotel information</h3>
@@ -136,13 +134,10 @@ let borrar=(e)=>{
                 <button  className='button add' onClick={()=> { window.location.reload() }}> Cancel </button>
            
     </form>
-    <div className='flex-row wrap gap'>
-    {showsCards(myShows)}
-    </div>
-    </>
+   
      )
     }
     
-     </>
+    </>
   )
 }

@@ -2,12 +2,13 @@ import React from 'react'
 import Footer from '../components/Footer'
 import HeaderVideo from '../components/HeaderVideo'
 import Header from '../components/Header'
-// import FormShows from '../components/FormShows'
+import MyItinerary from '../components/MyItinerary'
 
-export default function EditShows() {
+export default function MyItineraryPage() {
   return (
     <>
-    <HeaderVideo componenttop={<Header/>} />
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<MyItinerary/>}/>
+    
     
       <Footer/>     
     </>

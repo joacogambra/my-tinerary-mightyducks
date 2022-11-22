@@ -2,12 +2,13 @@ import React from 'react'
 import Footer from '../components/Footer'
 import HeaderVideo from '../components/HeaderVideo'
 import Header from '../components/Header'
-// import FormShows from '../components/FormShows'
+import MyCities from '../components/MyCities'
 
-export default function EditShows() {
+export default function MyCitiesPage() {
   return (
     <>
-    <HeaderVideo componenttop={<Header/>} />
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<MyCities/>}/>
+    
     
       <Footer/>     
     </>

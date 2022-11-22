@@ -3,33 +3,8 @@ import { useState, useRef } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
 import Swal from 'sweetalert'
-// import { useDispatch } from 'react-redux'
-// import newCityAction from '../redux/actions/newCityAction'
 
 export default function FormCities() {
-    // let form = useRef()
-    // let dispatch = useDispatch()
-    // let {newCity} = newCityAction
-
-    // async function newCityForm(event){
-    //     event.preventDefault()
-    //     let data = {}
-    //     Array.from(form.current).forEach(input =>{
-    //         if(input.name==='name'){
-    //             data[input.name] = input.value.trim()
-    //         }
-    //     })
-    //     try{
-    //         let res = await dispatch(newCity(data))
-    //         if(res.payload.success){
-    //             alert('ciudad creada')
-    //         }else{
-    //             alert('error al crear')
-    //         }
-    //     }catch(error){
-    //         console.log(error.message);
-    //     }
-    // }
     let [city, setCity] = useState([])
 
     let name = useRef()
@@ -37,7 +12,6 @@ export default function FormCities() {
     let photo = useRef()
     let population = useRef()
     let userId = useRef()
-
 
     let handleSubmit = (e) => {
         e.preventDefault()
@@ -59,7 +33,6 @@ export default function FormCities() {
                         timer: 5000,
                         confirmButtonText: "Cool"
                     })
-                        // .then(() => { window.location = `/cities/${response.data.response?._id}` })
                         .then(() => { window.location = `/cities`})
                 } else {
                     let error = response.data.message.join(",\n ")
