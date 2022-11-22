@@ -2,11 +2,12 @@ import {createReducer} from '@reduxjs/toolkit'
 import hotelsActions from '../actions/hotelsActions'
 
 
- const { getHotels, filter,} = hotelsActions
+ const { getHotels, filter, deleteHotel} = hotelsActions
 
 const initialState={
     hotels: [],
     error: false,
+    myHotel: []
 }
 const hotelsReducer = createReducer(initialState,
     (builder)=>{
@@ -30,8 +31,14 @@ const hotelsReducer = createReducer(initialState,
             //             hotels: action.payload
             //         }
             // })
+            .addCase(deleteHotel.fulfilled, (state,action)=>{
+              return {
+                  ...state,
+                  myHotels: state.myHotel.filter((hotel) => hotel._id !== action.payload.cityDeleted),
+                }
+          })
+      })
             
-    })
     
 
 export default hotelsReducer

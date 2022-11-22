@@ -13,6 +13,7 @@ import NewCity from "./pages/NewCity"
 import NewHotel from "./pages/NewHotel"
 import MyHotels from "./pages/MyHotels"
 import EditHotel from "./pages/EditHotel"
+import EditShows from "./pages/EditShows"
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
       <Route path="/*" element={<NotFound/>}/>
       <Route path="/hotels/admin/" element={<MyHotels/>}/>
       <Route path="/hotels/admin/:id" element={<EditHotel />} />
+      <Route path="/shows/admin/:id" element={<EditShows/>} />
+      
     </Routes>
     </main>
     

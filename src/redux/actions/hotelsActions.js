@@ -49,10 +49,24 @@ const filter= createAction('filter', (filter)=>{
 //     console.log(error)
 //   }
 // })
-
+const deleteHotel = createAsyncThunk('deleteHotel', async(data)=>{
+  
+  try {
+      const { id } = data    
+      let respuesta = await axios.delete(`${BASE_URL}/api/hotels/${id}`)
+      return {
+      success: true,
+      hotel : respuesta.data.hoteldeleted
+     
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+})
 const hotelsActions ={
     getHotels,
     filter,
+    deleteHotel
    
     
     
