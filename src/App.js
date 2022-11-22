@@ -13,6 +13,7 @@ import NewCity from "./pages/NewCity"
 import NewHotel from "./pages/NewHotel"
 import MyCitiesPage from "./pages/MyCitiesPage"
 import MyItineraryPage from './pages/MyItineraryPage'
+import MyShowsPage from './pages/MyShowsPage'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/new-city" element={<NewCity/>}/>
       <Route path="/my-cities" element={<MyCitiesPage/>}/>
       <Route path="/my-itineraries" element={<MyItineraryPage/>}/>
+      <Route path="/my-shows" element={<MyShowsPage/>}/>
       <Route path="/sign-up" element={<SignUpPage/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/hotel/:hotel" element={<Hotel/>} />
