@@ -1,5 +1,4 @@
 import {createAction, createAsyncThunk} from '@reduxjs/toolkit'
-// import { createAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { BASE_URL } from '../../Api/url'
 
@@ -24,49 +23,67 @@ const getHotels= createAsyncThunk('gethotels', async ()=>{
 catch(error) {
   console.log(error)
 }
-    // catch (AxiosError){
-    //     if (AxiosError.request.status===404){
-    //         return{
-    //             payload: {error: true},
-                
-    //         }
-    //     }
-    //     else{
-    //     return {
-    //         payload: "error"
-    //     }
-    // }
-    // }
-
-
+    
 
 
 })
+const filter = createAsyncThunk("filter", async data => {
+  let filtered = {
+    query: {
+      busqueda: data.busqueda,
+      orden: data.order,
+    },
+  };
+  console.log(filtered);
+  try {
+    const respuesta = await axios.get`${BASE_URL}/api/hotels?name=${filtered.search}&order=${filtered.orden}`
+    let filtrado = respuesta.data.response
+    return { 
+      data: filtrado, 
+      name: data.busqueda, 
+      order: data.order };
+  } catch (error) {
+    console.log(error);
+    
+  }
+});
+
+// const editHotels = createAsyncThunk("editHotels", async (data) => {
+
+//   console.log(data)
 
 
-const value= createAction('value', (value,order) =>{
-    console.log(value);
-    if (value!== undefined || order !== undefined){
-      
-        return{
-            payload: {
-                value: value,
-                order: order,
-            }
-        }
-       
-    }
-    
-    else {
-    
-        return {
-            payload: {error: true}
-        }
+//   try {
+//     let respuesta = await axios.patch(`${BASE_URL}hotels/${data.id}`)
+//     let cargado = respuesta.data.response
+
+//     return { hotelsEdit: cargado}
+
+
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
+const deleteHotel = createAsyncThunk('deleteHotel', async(data)=>{
+  
+  try {
+      const { id } = data    
+      let respuesta = await axios.delete(`${BASE_URL}/api/hotels/${id}`)
+      return {
+      success: true,
+      hotel : respuesta.data.hoteldeleted
+     
+      }
+    } catch (error) {
+      console.log(error.message)
     }
 })
 const hotelsActions ={
     getHotels,
-    value,
+    filter,
+    deleteHotel
+   
+    
     
 }
 

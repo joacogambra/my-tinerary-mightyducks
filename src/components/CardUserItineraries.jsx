@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { useDispatch } from "react-redux";
 
 export default function CardUserItineraries(props) {
-    let { name, image, category, city, price, duration } = props
+    let { name, image, category, city, price, duration, _id, editar } = props
 
     const dispatch = useDispatch()
     const { deleteOneItinerary } = myItinerariesAction
@@ -40,7 +40,7 @@ export default function CardUserItineraries(props) {
             <p>Price:$ {`${price}`}</p>
             <p>Duration:$ {`${duration}`}</p>
             <button className='button' onClick={deleteItinerary}>Delete</button>
-          <button className='button' >Edit</button>
+          <button className='button' id={_id} onClick={editar}>Edit</button>
           </div>
         </div>
       </div>

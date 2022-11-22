@@ -16,7 +16,7 @@ export default function Detail() {
   .then(response=> setShows(response.data.response))
   .catch(error=> console.log(error))
   
-  }, [])
+  }, [hotel])
 
 
   return (

@@ -11,6 +11,9 @@ import NotFound from "./pages/NotFound"
 import SignUpPage from "./pages/SignUpPage"
 import NewCity from "./pages/NewCity"
 import NewHotel from "./pages/NewHotel"
+import MyHotels from "./pages/MyHotels"
+import EditHotel from "./pages/EditHotel"
+import EditShows from "./pages/EditShows"
 import MyCitiesPage from "./pages/MyCitiesPage"
 import MyItineraryPage from './pages/MyItineraryPage'
 import MyShowsPage from './pages/MyShowsPage'
@@ -35,6 +38,10 @@ function App() {
       <Route path="/city/:id" element={<CityPage/>} />
       <Route path="/new-hotel" element={<NewHotel/>} />
       <Route path="/*" element={<NotFound/>}/>
+      <Route path="/hotels/admin/" element={<MyHotels/>}/>
+      <Route path="/hotels/admin/:id" element={<EditHotel />} />
+      <Route path="/shows/admin/:id" element={<EditShows/>} />
+      
     </Routes>
     </main>
     

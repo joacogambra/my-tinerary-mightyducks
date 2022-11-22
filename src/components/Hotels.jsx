@@ -8,7 +8,7 @@ import { BASE_URL } from '../Api/url';
 import { useEffect } from 'react'
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useDispatch, useSelector} from 'react-redux'
-import swal from 'sweetalert';
+import Swal from 'sweetalert';
 
 
 
@@ -54,7 +54,16 @@ console.log(hotels)
    let query= `${BASE_URL}/api/hotels?name=${e.target.value}&order=${orden}`
    axios.get(query)
     .then(response=> setHotelsSearch(response.data.response))
-    .catch(error=> console.log(error) )
+    .catch(error=> {
+      if (error.status === 404){
+        Swal({
+          icon: 'error',
+          title: 'Check the info you sent:',
+          text: (`${  busqueda } has no results`),
+          
+         })
+  }}
+     )
   }
 
  function sortBy(e){
@@ -63,13 +72,19 @@ console.log(hotels)
    let query= `${BASE_URL}/api/hotels?name=${busqueda}&order=${e.target.value}`
    axios.get(query)
     .then(response=> setHotelsSearch(response.data.response))
-   .catch(error=>{ 
-    console.log(error)})
-   
+   .catch(error=>console.log(error) )
  }
 
 console.log(hotelsSearch);
-
+let render=()=>{
+    if(hotelsSearch.lengh===0){
+     
+      return hotels
+    }
+    else{
+      return hotelsSearch
+    }
+}
 
 function printCards(array){
 
@@ -88,7 +103,7 @@ function printCards(array){
       </div>
      <div className='background flex-row wrap gap'> 
      { hotelsSearch.length > 0
-        ?( printCards(hotelsSearch)  )
+        ?( printCards(render())  )
          : ( 
           <div className="card" >
              <img src="/img/lost.png" alt="NotFound"/>

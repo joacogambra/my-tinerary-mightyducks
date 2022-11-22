@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { useDispatch } from "react-redux";
 
 export default function CardUserCities(props) {
-  let { name, image, continente, category, city  } = props
+  let { name, image, continente, category, city, editar, cityid  } = props
 
   const dispatch = useDispatch()
   const { deleteOneCity } = myCitiesAction
@@ -38,7 +38,7 @@ export default function CardUserCities(props) {
           <h4> {name}</h4>
           <p>{`${category}:  ${continente}`}</p>
           <button className='button' onClick={deleteCity}>Delete</button>
-        <button className='button' >Edit</button>
+        <button className='button' id={cityid} onClick={editar}>Edit</button>
         </div>
       </div>
     </div>
