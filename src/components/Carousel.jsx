@@ -1,34 +1,39 @@
 import React , {useState, useEffect} from 'react'
 import Arrow from './Arrow'
-import axios from 'axios'
-import { BASE_URL } from '../Api/url'
+// import axios from 'axios'
+// import { BASE_URL } from '../Api/url'
+import { useDispatch, useSelector } from 'react-redux'
+import carouselActions from '../redux/actions/carouselActions'
 
 
 
 export default function Carousel() {
-  let [hotels, setHotels]= useState([])
-  let [cities, setCities]= useState([])
+
+ let photo = useSelector(state=>state.carouselReducer.photos)
+ let dispatch= useDispatch()
+ const {imgCarousel}= carouselActions
+  // let [hotels, setHotels]= useState([])
+  // let [cities, setCities]= useState([])
 
   
   useEffect(() =>{ 
-    axios.get(`${BASE_URL}/api/hotels/`)
-   .then(response=> setHotels(response.data.response))
-   .catch(error=> console.log(error))
-   axios.get(`${BASE_URL}/cities/`)
-   .then(response=> setCities(response.data.response))
-   .catch(error=> console.log(error))
-   }, [])
+    if (photo.length===0){
+      
+      dispatch(imgCarousel())
+    }
+
+   }, [imgCarousel, dispatch,photo])
  
+
  
- 
-  let photo2 = hotels.map(photos => photos.photo[0])
-  let photo3= hotels.map(photos => photos.photo[2])
-  let photos= cities.map(photos => photos.photo)
-  
+   let photo2 = photo.slice(0,4)
+   let photo3= photo.slice(4,8)
+   let photos= photo.slice(8,12)
+
  
     let [numero, setNumero]= useState(0)
     let [selectedImage, setSelectedImage]= useState(photos[0])
-    let [selectedImage2, setSelectedImage2]= useState(photo2[0])
+    let [selectedImage2, setSelectedImage2]= useState(photo2[12])
     let [selectedImageb, setSelectedImageb]= useState(photos[6])
     let [selectedImagec, setSelectedImagec]= useState(photo3[0])
     let [id, setId]= useState(0)
@@ -83,6 +88,7 @@ export default function Carousel() {
     }
 
   return (
+    
     <div className='flex-row wrap gap background carousel '>
         <Arrow direction={next} image="left" ></Arrow>   
     <div className='render'>
