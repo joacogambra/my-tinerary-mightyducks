@@ -34,7 +34,7 @@ npm start
 | :---     |    :----:            |    ---: |
 | React    | JavaScript Framework | v18.2   |
 | Node.js  | JS runtime environment | v18.12   |
-| Express  | Framework for Nodejs | - |
+| Express  | Framework for Nodejs | v4.16.1 |
 | MDBCompass  | Tool MongoDB      | v1.33.1   |
 | Mongoose  | Node Framework      | v1.33   |
 | Postman  | API Platform      | v10.1.2  |
