@@ -41,4 +41,6 @@ npm start
 | Redux  | State container for JavaScript  | v4.2  |
 | React-redux  | library for managing and updating app | v8.0.5  |
 
+#### * Thank u to read *
+
 
