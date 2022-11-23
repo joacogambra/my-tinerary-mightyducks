@@ -299,6 +299,7 @@ video {
 /*city */
 .checks{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -371,6 +372,11 @@ video {
     text-align: center;
     border: none;
     box-shadow: 1px 1px 11px #252525;
+}
+
+.inputcheck{
+    display: flex;
+    flex-direction: column;
 }
 
 .sweetrouter{
@@ -639,11 +645,6 @@ input[type="checkbox"]{
     }
  
 } 
-@media screen and (max-width:920px) {
-    .checks{
-        flex-direction: column;
-    }
-}
 
 @media (max-width: 767px) {
     .sign-in {
