@@ -6,40 +6,59 @@ import hotelsActions from '../actions/hotelsActions'
 
 const initialState={
     hotels: [],
+    hotelsfiltrado: [],
     error: false,
-    busqueda: "",
-    orden: "",
+    text: '',
+    order: '', 
+    myHotels: [],  
   
 }
 const hotelsReducer = createReducer(initialState,
     (builder)=>{
          builder
               .addCase(getHotels.fulfilled, (state, action)=>{
-                    console.log(filter.payload);
-                     return { ...state, error: false, alert:false, hotels: action.payload.hotels }
-            
+                     return { ...state, error: false,
+                      hotels: action.payload.hotels
+                       }                                          
                  })
 
 
                .addCase(getHotels.rejected, (state,action)=>{
                
-                 return {   ...state }
+                 return {   ...state, error:true,
+                 message: action.payload.response  }
                })
-        
-                // .addCase(filter.fulfilled, (state,action)=>{
-                //     console.log(action.payload);
-                //     return {
-                //       ...state,
-                //       hotels: action.payload.data,
-                //       busqueda: action.payload.busqueda,
-                //       orden: action.payload.orden,
-                //     };
-                //   })
-    
+      
+            .addCase(filter.fulfilled, (state, action)=>{
+             
+              let filtros = {
+                text: action.payload.response,
+                order:action.payload.response || "desc",
+              }
+             
+              console.log(action);
+              
+              let newState ={
+                ...state,
+                filtros,
+                hotels:  action.payload.response.hotels
+              }
+                return newState
+            })
+            
+            .addCase(filter.rejected, (state,action)=>{
+              
+              return {   ...state,
+                hotels: []
+                }
+
+            })
+
             .addCase(deleteHotel.fulfilled, (state,action)=>{
+
               return {
                   ...state,
-                  myHotels: state.myHotel.filter((hotel) => hotel._id !== action.payload.cityDeleted),
+                  myHotels: state.myHotels.filter((hotel) => hotel._id !== action.payload.hoteldeleted),
                 }
           })
       })

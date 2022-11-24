@@ -1,4 +1,4 @@
-import {createAction, createAsyncThunk} from '@reduxjs/toolkit'
+import { createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
 import { BASE_URL } from '../../Api/url'
 
@@ -7,75 +7,63 @@ import { BASE_URL } from '../../Api/url'
 const getHotels= createAsyncThunk('gethotels', async ()=>{
     try{
         let respuesta = await axios.get(`${BASE_URL}/api/hotels/`)
-        let hotels = respuesta.data.response
-        // let status= respuesta.status
+         let hotels = respuesta.data.response
+      
+      //  console.log(hotels)
        
-        
-        
-         
-        return {
-          hotels
-        }
-
-
-    
+        return{
+       hotels
+        }           
 }
 catch(error) {
-  console.log(error)
+
+  return{
+    success: false,
+    response: error
+  }
 }
     
+})
 
+const filter = createAsyncThunk('filter', async (filtros) => {
+let {text, order }= filtros
+// if (filtros === '') return { hotels: [] }
+
+  try{
+    let respuesta = await axios.get(`${BASE_URL}/api/hotels/?order=${order}&name=${text}` )
+    
+   
+    return{
+      success: true,
+      response: {filtros, hotels: respuesta.data.response}
+    }           
+}
+catch(error) {
+
+return{
+  success: false,
+  response: error.message
+  
+}
+}
 
 })
-const filter = createAsyncThunk("filter", async data => {
-  let filtered = {
-    query: {
-      busqueda: data.busqueda,
-      orden: data.order,
-    },
-  };
-  console.log(filtered);
-  try {
-    const respuesta = await axios.get`${BASE_URL}/api/hotels?name=${filtered.search}&order=${filtered.orden}`
-    let filtrado = respuesta.data.response
-    return { 
-      data: filtrado, 
-      name: data.busqueda, 
-      order: data.order };
-  } catch (error) {
-    console.log(error);
-    
-  }
-});
 
-// const editHotels = createAsyncThunk("editHotels", async (data) => {
-
-//   console.log(data)
-
-
-//   try {
-//     let respuesta = await axios.patch(`${BASE_URL}hotels/${data.id}`)
-//     let cargado = respuesta.data.response
-
-//     return { hotelsEdit: cargado}
-
-
-//   } catch (error) {
-//     console.log(error)
-//   }
-// })
 const deleteHotel = createAsyncThunk('deleteHotel', async(data)=>{
-  
+  const { id } = data  
+
   try {
-      const { id } = data    
       let respuesta = await axios.delete(`${BASE_URL}/api/hotels/${id}`)
       return {
       success: true,
-      hotel : respuesta.data.hoteldeleted
+      hoteldeleted : respuesta.data.hoteldeleted
      
       }
     } catch (error) {
-      console.log(error.message)
+      return {
+        success: false,
+        response: error.message
+      }
     }
 })
 const hotelsActions ={

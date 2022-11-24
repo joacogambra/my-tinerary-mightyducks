@@ -14,7 +14,7 @@ export default function CardUserShows(props) {
     
     
     function deleteShow(e) {
-      let id= e.target.velue
+      let id= e.target.value
       Swal({
         title: 'Are you sure?',
         text: "you want to delete this show?",

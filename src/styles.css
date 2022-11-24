@@ -178,6 +178,7 @@ video {
     width: 100%;
     object-fit: cover;
     height: 250px;
+
     
 }
 .name {
@@ -249,7 +250,7 @@ video {
 .card-horizontal-img{
     width: 50%;
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;   
     
 }
 .card-horizontal-img img{
@@ -437,6 +438,7 @@ span.label {
     width: 460px;
     height: 350px;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 /**footer*/
