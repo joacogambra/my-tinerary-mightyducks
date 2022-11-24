@@ -24,21 +24,22 @@ export default function Carousel() {
 
    }, [imgCarousel, dispatch,photo])
  
-
+   console.log(photo);
  
-   let photo2 = photo.slice(0,4)
-   let photo3= photo.slice(4,8)
-   let photos= photo.slice(8,12)
+   let photo2 = photo
+   let photo3= photo
+   let photos= photo
 
  
     let [numero, setNumero]= useState(0)
     let [selectedImage, setSelectedImage]= useState(photos[0])
-    let [selectedImage2, setSelectedImage2]= useState(photo2[12])
-    let [selectedImageb, setSelectedImageb]= useState(photos[6])
+    let [selectedImage2, setSelectedImage2]= useState(photo2[0])
+    let [selectedImageb, setSelectedImageb]= useState(photos[0])
     let [selectedImagec, setSelectedImagec]= useState(photo3[0])
     let [id, setId]= useState(0)
     let [id2, setId2]= useState(0)
-
+   console.log(selectedImage)
+   console.log(selectedImage2)
 
     useEffect(
         ()=>{
@@ -68,10 +69,10 @@ export default function Carousel() {
   
     function previous (){
         let nextIndex= numero > 0 ? numero -1 : photos.length -1
-        setSelectedImage(photos[nextIndex])
-        setSelectedImageb(photos[nextIndex+1])
-        setSelectedImage2(photo2[nextIndex])
-        setSelectedImagec (photo3[nextIndex])
+        setSelectedImage(photos[nextIndex+1])
+        setSelectedImageb(photos[nextIndex+2])
+        setSelectedImage2(photo2[nextIndex+3])
+        setSelectedImagec (photo3[nextIndex+4])
         setNumero(nextIndex)
         clearInterval(id)
     }
@@ -79,10 +80,10 @@ export default function Carousel() {
    function next (){
  
         let nextIndex= numero < photos.length ? numero +1 : 0
-        setSelectedImage(photos[nextIndex])
-        setSelectedImage2(photo2[nextIndex])
-        setSelectedImageb(photos[nextIndex+1])
-        setSelectedImagec (photo3[nextIndex])
+        setSelectedImage(photos[nextIndex+1])
+        setSelectedImage2(photo2[nextIndex+2])
+        setSelectedImageb(photos[nextIndex+3])
+        setSelectedImagec (photo3[nextIndex+4])
         setNumero(nextIndex)
         clearInterval(id)
     }

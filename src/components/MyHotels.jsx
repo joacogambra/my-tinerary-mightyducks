@@ -11,7 +11,7 @@ import hotelsActions from '../redux/actions/hotelsActions'
 export default function MyHotels() {
 
   const dispatch = useDispatch()
-  const { deleteOneShow } = hotelsActions
+  const { deleteHotel } = hotelsActions
 
 
 //form
@@ -46,8 +46,9 @@ export default function MyHotels() {
 //onclick borrar
 
 let borrar=(e)=>{
-    setId(e.target.value);
-    console.log(e.target)
+  setId(e.target.value)
+    let id= e.target.value
+    dispatch(deleteHotel({id}))
       Swal({
         title: 'Are you sure?',
         text: "you want to delete this hotel?",
@@ -59,6 +60,7 @@ let borrar=(e)=>{
           Swal("Poof! Hotel file has been deleted!", {
             icon: "success",
           })
+        .then(window.location.reload() )
         } else {
           Swal("Your Hotel  is safe!");
         }
