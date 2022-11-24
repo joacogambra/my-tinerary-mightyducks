@@ -164,6 +164,7 @@ video {
 .card{
     width: 300px;
     min-height: 350px ;
+    max-height: 700px;
     background-color: white;
     border: 1px solid #6f8d9f;
     padding: 8px;
@@ -173,15 +174,12 @@ video {
 .card img {
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    opacity: 0.7;
     transition: opacity 1s ease 0s;
     width: 100%;
     object-fit: cover;
     height: 250px;
+
     
-}
-.card img:hover {
-    opacity: 1;
 }
 .name {
     display: flex;
@@ -194,16 +192,33 @@ video {
     margin-top: 16px;
   }
   .name p {
+    
     font-size: 1rem;
+   
   }
- 
+  .price {
+    padding-top: .5rem;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
   .card__details {
+    
     padding: 16px 8px 8px 8px;
    width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   text-overflow:unset;
+  }
+ /*textoverflow*/ 
+ .textflow{
+    height: 200px;
+    overflow-y: scroll;
+    scrollbar-width: 0%;
+ }
+ .textflow:-webkit-scrollbar {
+    display: none;
   }
 /* card itinerarys*/
 .actividades{
@@ -235,7 +250,7 @@ video {
 .card-horizontal-img{
     width: 50%;
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;   
     
 }
 .card-horizontal-img img{
@@ -285,6 +300,7 @@ video {
 /*city */
 .checks{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -293,6 +309,17 @@ video {
 .p-5{
     padding: 2rem;
     gap: 1rem;
+}
+
+.cities404{
+    background-color: #252525;
+}
+
+/* my cities*/
+.myCities{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 /*to action*/
@@ -346,6 +373,15 @@ video {
     text-align: center;
     border: none;
     box-shadow: 1px 1px 11px #252525;
+}
+
+.inputcheck{
+    display: flex;
+    flex-direction: column;
+}
+
+.sweetrouter{
+    width: 100%;
 }
 
 /*boton google*/
@@ -402,6 +438,7 @@ span.label {
     width: 460px;
     height: 350px;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 /**footer*/
@@ -610,11 +647,6 @@ input[type="checkbox"]{
     }
  
 } 
-@media screen and (max-width:920px) {
-    .checks{
-        flex-direction: column;
-    }
-}
 
 @media (max-width: 767px) {
     .sign-in {

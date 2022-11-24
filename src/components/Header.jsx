@@ -48,6 +48,11 @@ export default function Header() {
             <div className='drop-down-nav w-50' >
               <LinkRouter to='/sign-in'> SignIn</LinkRouter>
               <LinkRouter to='/sign-up'>SignUp</LinkRouter>
+              <LinkRouter to='/my-cities'>My Cities</LinkRouter>
+              <LinkRouter to='/hotels/admin/'>My Hotels</LinkRouter>
+              <LinkRouter to='/my-shows'>My Shows</LinkRouter>
+              <LinkRouter to='/my-itineraries'>My Itineraries</LinkRouter>
+              
          </div>
         </div>
          </>
