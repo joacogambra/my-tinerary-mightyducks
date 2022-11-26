@@ -304,12 +304,10 @@ video {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-weight:500;    
+    font-weight:500;
+    padding: 1rem;
+    gap: 1rem;  
 } 
-.p-5{
-    padding: 2rem;
-    gap: 1rem;
-}
 
 .cities404{
     background-color: #252525;
