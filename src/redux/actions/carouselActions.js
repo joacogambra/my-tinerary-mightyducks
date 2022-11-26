@@ -11,7 +11,6 @@ const imgCarousel = createAsyncThunk('getImg', async(value)=>{
         let hotel= res.data.response.map((e)=>{  return e.photo[0]})
         let city = (respuesta.data.response.map((e)=>{  return e.photo }))
         let photos = [...hotel,...city]
-        console.log(photos)
         return {
             success:true,
             response: {

@@ -24,7 +24,7 @@ export default function Carousel() {
 
    }, [imgCarousel, dispatch,photo])
  
-   console.log(photo);
+   
  
    let photo2 = photo
    let photo3= photo
@@ -38,8 +38,8 @@ export default function Carousel() {
     let [selectedImagec, setSelectedImagec]= useState(photo3[0])
     let [id, setId]= useState(0)
     let [id2, setId2]= useState(0)
-   console.log(selectedImage)
-   console.log(selectedImage2)
+   
+
 
     useEffect(
         ()=>{
