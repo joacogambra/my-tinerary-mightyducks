@@ -33,7 +33,6 @@ function App() {
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token'))
-    console.log(token)
      if (token) {
       dispatch(keepLog(token.token.user))
    }
