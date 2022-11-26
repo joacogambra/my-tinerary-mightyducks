@@ -1,41 +1,69 @@
 import React from 'react'
 import SignGoogle from './SignGoogle'
+import Swal from 'sweetalert2'
+import { BASE_URL } from '../Api/url'
+import axios from 'axios'
 
 export default function SignUp() {
-    let fullName = React.useRef ()
-    let userName = React.useRef ()
-    let email = React.useRef ()
-    let phone = React.useRef ()
-    let pass = React.useRef ()
-    let signup = React.useRef ()
+  let name = React.useRef()
+  let lastName = React.useRef()
+  let age = React.useRef()
+  let photo = React.useRef()
+  let email = React.useRef()
+  let password = React.useRef()
+  let signup = React.useRef()
 
-    function registration (register){
-        register.preventDefault() 
+  async function registration(register) {
+    register.preventDefault()
     let registrationdata = {
-          fullName: fullName.current.value,
-          userName: userName.current.value,
-          email: email.current.value,
-          phone: phone.current.value,
-          pass: pass.current.value,
-        } 
-    
-    localStorage.setItem ("registrationdata",JSON.stringify(registrationdata))
-    signup.current.reset()
+      name: name.current.value,
+      lastName: lastName.current.value,
+      age: age.current.value,
+      photo: photo.current.value,
+      email: email.current.value,
+      password: password.current.value,
     }
+    
+    await axios.post(`${BASE_URL}/api/auth/sign-up`, registrationdata)
+      .then((res) => {
+        try{
+          if(res.data.success){
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 2500
+            })
+          }else{
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: res.data.message,
+              showConfirmButton: false,
+              timer: 3000
+            })
+          }
+        }catch(error){
+         console.log(error.message);
+        }
+      })
+  }
+
 
   return (
-      <form action="#" onSubmit= {registration} ref={signup} className='sign-in'  >
-      <h3 class="title">Registration</h3>        
-            <input ref={fullName} type="text" placeholder="Enter your FullName" required/>                  
-            <input ref={userName} type="text" placeholder="Enter your Username" required/>                 
-            <input ref={email} type="text" placeholder="Enter your email" required/>                 
-            <input ref={phone} type="text" placeholder="Enter your Phone Number" required/>                   
-            <input ref={pass} type="password" placeholder="Create your password" required/>                 
-            <input type="password" placeholder="Confirm your password" required/>        
-            <input type="submit" value="Register"  className="button"/>
-  
-      <SignGoogle/>
-      </form>
+    <form action="#" onSubmit={registration} ref={signup} className='sign-in'>
+      <h3 className="title">Registration</h3>
+      <input ref={name} type="text" placeholder="Enter your first name" required />
+      <input ref={lastName} type="text" placeholder="Enter your last name" required />
+      <input ref={age} type="number" placeholder="Enter your age" required />
+      <input ref={photo} type="text" placeholder="Enter photo link" required />
+      <input ref={email} type="text" placeholder="Enter your email" required />
+      <input ref={password} type="password" placeholder="Create your password" required />
+      <input type="submit" value="Register" className="button" />
+
+      <SignGoogle />
+    </form>
 
   )
 }
