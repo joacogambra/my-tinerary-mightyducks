@@ -17,8 +17,29 @@ import EditShows from "./pages/EditShows"
 import MyCitiesPage from "./pages/MyCitiesPage"
 import MyItineraryPage from './pages/MyItineraryPage'
 import MyShowsPage from './pages/MyShowsPage'
+import ProtectedRoute from './components/ProtectedRoute';
+import {useSelector, useDispatch} from 'react-redux'
+import {  useEffect } from 'react'
+import userActions from './redux/actions/userActions'
 
-function App() {
+function App() {  
+
+
+  ///login
+  let{ keepLog } = userActions
+  let { role, logged } = useSelector(state=>state.userReducer)
+   const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    let token = JSON.parse(localStorage.getItem('token'))
+    console.log(token)
+     if (token) {
+      dispatch(keepLog(token.token.user))
+   }
+    // eslint-disable-next-line
+  },[])
+
   return (
     <>
     <main className="main">
@@ -38,10 +59,16 @@ function App() {
       <Route path="/city/:id" element={<CityPage/>} />
       <Route path="/new-hotel" element={<NewHotel/>} />
       <Route path="/*" element={<NotFound/>}/>
-      <Route path="/hotels/admin/" element={<MyHotels/>}/>
-      <Route path="/hotels/admin/:id" element={<EditHotel />} />
-      <Route path="/shows/admin/:id" element={<EditShows/>} />
+      <Route path="/hotels/admin/" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <MyHotels/>
+        </ProtectedRoute>}/>
+      <Route path="/hotels/admin/:id" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <EditHotel />
+        </ProtectedRoute>}/>
       
+      <Route path="/shows/admin/:id" element={<ProtectedRoute isAllowed={logged=== true && role==="adm"} reDirect={"/"} >
+      <EditShows />
+        </ProtectedRoute>}/>     
     </Routes>
     </main>
     

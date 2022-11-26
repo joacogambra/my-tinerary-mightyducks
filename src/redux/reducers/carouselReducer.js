@@ -11,9 +11,6 @@ const carouselReducer = createReducer (initialState,
     (builder)=>{
         builder
             .addCase(imgCarousel.fulfilled, (state,action)=>{
-               
-               console.log(action.payload.response);
-                //puede ser con return o directamente modif el estado
                return {photos: action.payload.response.photos }
             })
             .addCase(imgCarousel.rejected, (state,action)=>{
