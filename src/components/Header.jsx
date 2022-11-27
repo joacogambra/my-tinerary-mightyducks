@@ -57,20 +57,20 @@ let admProfile=
 
 
 useEffect(()=>{
-  let profile=()=>{
-  if (logged === true){
-    SetProfile(logProfile)}
- if (role === 'adm'){
+
+if (logged === true){
+    SetProfile(logProfile)
+ if (role === 'adm' ){
            SetProfile(admProfile)
-        }
+        }}
   else{
     SetProfile(initialProfile)
   }
-}
-  return profile
-  // eslint-disable-next-line  
-},[user])
 
+console.log(profile)
+  
+  // eslint-disable-next-line  
+},[user, logged, role])
 
 return (
 
@@ -83,6 +83,7 @@ return (
     
     
     <div className='drop-down-nav'>
+      
       <LinkRouter to='/home'>Home</LinkRouter>
       <LinkRouter to='/cities'>Cities</LinkRouter>
       <LinkRouter to='/hotels'>Hotels</LinkRouter>
@@ -92,33 +93,25 @@ return (
       <LinkRouter to='/new-hotel'>New Hotel</LinkRouter>
       </>)
       :(null)
-      }
-      
-    
+      }  
      </div>
      </div>
-     </>
-     ): 
-     <img src="/img/MT_Logo_1.png" alt="logo" className='logo ' onClick={dropDown}/>
+     </>)
+     :(<img src="/img/MT_Logo_1.png" alt="logo" className='logo ' onClick={dropDown}/> ) 
+     
     }
     
-     { mostrarOcultar
-     ?(<>
-     <div className='drop-down'>
-     
-
-        { logged=== true
-        ?(<img src={photo} alt="user" className="user-image dropDown logged" onClick={hide}/>)
-        :( <img src="/img/image.png" alt="user" className="user-image dropDown" onClick={hide}/>) }
-        <div className='drop-down-nav w-50' >
+     { mostrarOcultar ?
+    (<div className='drop-down'>
+      <img src={ photo ? photo : '/img/image.png'} alt="user" className="user-image dropDown logged" onClick={hide}/>
+       
+    <div className='drop-down-nav w-50' >
         {profile.map((item,key) => {
-  return <LinkRouter to={item.linkTo} key={item.name} >{item.name}</LinkRouter>})}
-          
+              return <LinkRouter to={item.linkTo} key={item.name} >{item.name}</LinkRouter>})}
      </div>
-    </div>
-     </>
-     ): 
-       <img src="/img/image.png" alt="user" className="user-image dropDown logged" onClick={hide}/>
+    </div>)
+    :(<img src={ photo ? photo: '/img/image.png'} alt="user" className="user-image dropDown logged" onClick={hide}/>) 
+       
     }
 
     </nav>
