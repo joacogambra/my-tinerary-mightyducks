@@ -11,8 +11,8 @@ export default function Header() {
   
   ///login
   
-  let { name, photo,   role, logged}= useSelector(state=>state.userReducer)
-  
+  let { name, photo, _id,  role, logged}= useSelector(state=>state.userReducer)
+
 
 useEffect(()=>{
   if(logged===true){
@@ -20,7 +20,8 @@ useEffect(()=>{
       name: name,
       photo: photo,
       logged: logged,
-      role: role
+      role: role,
+      _id: _id
     })
     
   }
@@ -42,7 +43,7 @@ let initialProfile= [
 let [profile,SetProfile]= useState(initialProfile)
 
 let logProfile=[
-  {linkTo: "/profile", name: "Profile"},
+  {linkTo: "/my-profile", name: "Profile"},
   {linkTo: "/", name: "Log Out"},
   {linkTo: '/my-shows', name: 'My Shows'},
   {linkTo: '/my-itineraries', name: 'My Itineraries'},
@@ -67,7 +68,7 @@ if (logged === true){
     SetProfile(initialProfile)
   }
 
-console.log(profile)
+
   
   // eslint-disable-next-line  
 },[user, logged, role])
