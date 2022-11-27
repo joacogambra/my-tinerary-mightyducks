@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom'
 
 
 export default function Profile() {
-  const navigate = useNavigate() 
+ const navigate = useNavigate() 
   let [user, setUser]= useState('')
   let [form, setForm] = useState(true)
   let { _id } = useSelector(state=>state.userReducer)
@@ -55,7 +55,7 @@ export default function Profile() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Saved!', '', 'success')
-        .then(()=>navigate('/my-profile')) 
+        .then(window.location.reload() )
         
         axios.patch(`${BASE_URL}/api/auth/me/${_id}`, form )
        .then(response=>{console.log(response)
@@ -68,6 +68,7 @@ export default function Profile() {
             text: (`${  error }`),
             
            })
+           .then(window.location.reload() )
           }
           
         }) 
@@ -80,6 +81,7 @@ export default function Profile() {
           text: (`${  error }`),
           
          })
+         .then(window.location.reload() )
       
           }
   })
