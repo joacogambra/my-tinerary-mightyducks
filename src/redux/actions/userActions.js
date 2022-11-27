@@ -38,7 +38,24 @@ const keepLog= createAsyncThunk('keepLog', async(token)=>{
     }
 }) 
 
+const signOut = createAsyncThunk('signOut', async(token)=>{
+    let url = `${BASE_URL}/api/auth/sign-out`
+    let headers = {headers: {'Authorization': `Bearer ${token}`}}
+    try{
+        let user = await axios.post(url,null,headers)
+        return{
+            success:true,
+            response:user.data.message
+        }
+    }catch(error){
+        console.log(error.response)
+        return {
+            success: false,
+            response: error.response.data.message
+        }
+    }
+})
 
-const userActions={ signIn, keepLog,}
+const userActions={ signIn, keepLog, signOut }
 
 export default userActions

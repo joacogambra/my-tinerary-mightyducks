@@ -31,9 +31,9 @@ export default function SignUp() {
             Swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: 'Your work has been saved',
+              title: 'Please check your email and verified your account',
               showConfirmButton: false,
-              timer: 2500
+              timer: 3500
             })
           }else{
             Swal.fire({
@@ -41,7 +41,7 @@ export default function SignUp() {
               icon: 'error',
               title: res.data.message,
               showConfirmButton: false,
-              timer: 3000
+              timer: 3500
             })
           }
         }catch(error){
