@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import userActions from '../redux/actions/userActions';
+import Swal from 'sweetalert2';
 
 
 export default function Header() {
@@ -11,7 +13,33 @@ export default function Header() {
   
   ///login
   
-  let { name, photo,   role, logged}= useSelector(state=>state.userReducer)
+  let { name, photo,   role, logged, token}= useSelector(state=>state.userReducer)
+  let {signOut} = userActions
+  let dispatch = useDispatch()
+  
+  async function cerrarSesion(event){
+    let res = await dispatch(signOut(token))
+    console.log(res);
+    // Swal.fire({
+    //   title: 'Are you sure?',
+    //   text: "You won't be able to revert this!",
+    //   icon: 'question',
+    //   showCancelButton: true,
+    //   confirmButtonColor: '#3085d6',
+    //   cancelButtonColor: '#d33',
+    //   confirmButtonText: 'Yes, delete it!'
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     dispatch(signOut(token))
+    //       Swal.fire(
+    //       'LogOut',
+    //       'logout',
+    //       'success'
+    //     )
+    //   }
+    // })
+  }
+  
   
 
 useEffect(()=>{
@@ -66,9 +94,6 @@ if (logged === true){
   else{
     SetProfile(initialProfile)
   }
-
-console.log(profile)
-  
   // eslint-disable-next-line  
 },[user, logged, role])
 
