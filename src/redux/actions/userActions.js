@@ -2,9 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../Api/url";
 
+let _id=''
 
 const signIn= createAsyncThunk('signIn', async(payload)=>{
- 
+       
+   _id= payload.response.user._id
+    console.log(_id)
 
     return { 
         datos: payload.response.user, 
@@ -14,12 +17,11 @@ const signIn= createAsyncThunk('signIn', async(payload)=>{
 })   
 
 const keepLog= createAsyncThunk('keepLog', async(token)=>{
-    console.log(token);
+    
      let headers = {headers: {'Authorization': `Bearer ${token}`}}
 
     try{
         let user= await axios.post(`${BASE_URL}/api/auth/token`,null, headers)
-        console.log(user.data)
         return {
             success: true,
             response: {
@@ -36,6 +38,7 @@ const keepLog= createAsyncThunk('keepLog', async(token)=>{
     }
 }) 
 
-const userActions={ signIn, keepLog }
+
+const userActions={ signIn, keepLog,}
 
 export default userActions
