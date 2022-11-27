@@ -1,8 +1,8 @@
 import React from 'react'
-import MyHotelLayout from '../layouts/MyHotelLayout'
+import MyProfile from '../components/MyProfile'
 
 export default function HotelPage() {
   return (
-    <MyHotelLayout/>
+    <MyProfile/>
   )
 }

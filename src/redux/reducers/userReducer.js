@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit'
 import userActions from '../actions/userActions'
- const { signIn, keepLog, signOut } = userActions
+ const { signIn, keepLog, signOut, } = userActions
 
 const InitialState={
 _id: '',
@@ -46,7 +46,7 @@ const userReducer = createReducer(InitialState,
 
             })
             .addCase(keepLog.fulfilled, (state, action) => {
-                console.log(action.payload.response)
+               
                 const { success,response } = action.payload
                 if (success) {
                     let { user,token } = response
@@ -55,8 +55,10 @@ const userReducer = createReducer(InitialState,
                         name: user.name,
                         photo: user.photo,
                         logged: true,
-                        token: token
+                        token: token,
+                        _id: user.id
                     }
+                    console.log(newState);
                     return newState
                 } else {
                     let newState = {
@@ -88,7 +90,7 @@ const userReducer = createReducer(InitialState,
                     return newState
                 }
             })
-
+           
 
 
 

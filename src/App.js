@@ -17,6 +17,7 @@ import EditShows from "./pages/EditShows"
 import MyCitiesPage from "./pages/MyCitiesPage"
 import MyItineraryPage from './pages/MyItineraryPage'
 import MyShowsPage from './pages/MyShowsPage'
+import MyProfile from './pages/MyProfile'
 import ProtectedRoute from './components/ProtectedRoute';
 import {useSelector, useDispatch} from 'react-redux'
 import {  useEffect } from 'react'
@@ -48,15 +49,21 @@ function App() {
       <Route path="/home" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
-      <Route path="/new-city" element={<NewCity/>}/>
-      <Route path="/my-cities" element={<MyCitiesPage/>}/>
+      <Route path="/new-city" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <NewCity/>
+        </ProtectedRoute>}/>
+      <Route path="/my-cities" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <MyCitiesPage/>
+        </ProtectedRoute>}/>
       <Route path="/my-itineraries" element={<MyItineraryPage/>}/>
       <Route path="/my-shows" element={<MyShowsPage/>}/>
       <Route path="/sign-up" element={<SignUpPage/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/hotel/:hotel" element={<Hotel/>} />
       <Route path="/city/:id" element={<CityPage/>} />
-      <Route path="/new-hotel" element={<NewHotel/>} />
+      <Route path="/new-hotel" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <NewHotel/>
+        </ProtectedRoute>}/>
       <Route path="/*" element={<NotFound/>}/>
       <Route path="/hotels/admin/" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
       <MyHotels/>
@@ -64,10 +71,12 @@ function App() {
       <Route path="/hotels/admin/:id" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
       <EditHotel />
         </ProtectedRoute>}/>
-      
       <Route path="/shows/admin/:id" element={<ProtectedRoute isAllowed={logged=== true && role==="adm"} reDirect={"/"} >
       <EditShows />
-        </ProtectedRoute>}/>     
+        </ProtectedRoute>}/>  
+        <Route path="/my-profile" element={<ProtectedRoute isAllowed={logged === true} reDirect={"/"} >
+      <MyProfile />
+        </ProtectedRoute>}/>   
     </Routes>
     </main>
     
