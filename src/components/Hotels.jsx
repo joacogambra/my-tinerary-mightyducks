@@ -11,24 +11,27 @@ export default function Hotels() {
    
    const {getHotels,filter } = hotelsActions
    let hotels= useSelector (state=> state.hotelsReducer.hotels)
-   let { order, text, hotelsfiltrado } = useSelector (state=> state.hotelsReducer)
-  
+   let { order, text } = useSelector (state=> state.hotelsReducer)
+  console.log(text);
 
   const dispatch = useDispatch()
   
   useEffect(()=>{
     if (order=== "" || text === ""){
+      console.log("estoy en el if")
       dispatch(getHotels())
   } else if(!order || !text) {
+    console.log("else");
       dispatch(filter())
   } else{
     dispatch(filter())
+    console.log("no encontrado")
       if (filter.success=== false){
-           return hotels= hotelsfiltrado
+           dispatch(filter())
         }
   }
       // eslint-disable-next-line    
-  },[])
+  },[order, text])
 
 
 //BUSQUEDA X TEXT

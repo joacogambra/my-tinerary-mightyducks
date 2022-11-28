@@ -68,7 +68,7 @@ export default function Profile() {
             text: (`${  error }`),
             
            })
-           .then(window.location.reload() )
+           navigate(`/my-profile`)
           }
           
         }) 
@@ -81,7 +81,6 @@ export default function Profile() {
           text: (`${  error }`),
           
          })
-         .then(window.location.reload() )
       
           }
   })
@@ -89,6 +88,7 @@ export default function Profile() {
       else if (result.isDenied) {
         Swal.fire('Changes are not saved') 
       }
+      navigate(`/my-profile`)
     })
   }
 
