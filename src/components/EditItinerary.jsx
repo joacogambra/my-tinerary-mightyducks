@@ -55,7 +55,7 @@ export default function EditItinerary() {
         
        })
     }
-    navigate(`/my-shows`)
+    
   }) 
   .catch(error=>{
     let message = error.response.data.message.join( ",\n ")
@@ -69,7 +69,7 @@ export default function EditItinerary() {
        })
     }
   )
-  navigate(`/my-shows`)
+  
 }
 
   return (

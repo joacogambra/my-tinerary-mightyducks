@@ -58,7 +58,7 @@ export default function EditShow() {
             
            })
         }
-        navigate(`/my-shows`)
+        
       })
       .catch(error=>{
         // let message = error.data.message.join( ",\n ")
@@ -72,7 +72,7 @@ export default function EditShow() {
            })
         }
       )
-      navigate(`/my-shows`)
+      
     }
   
 

@@ -6,21 +6,20 @@ export default function UserNav() {
 
     let [user, setUser]= useState({})
     let [dropDownOcultar, setdropDownOcultar] = useState(false)
-    let { name, photo,   role, logged}= useSelector(state=>state.userReducer)
-  
-
-useEffect(()=>{
-  if(logged===true){
-    setUser({
-      name: name,
-      photo: photo,
-      logged: logged,
-      role: role
-    })
+    let { name, photo, role, logged}= useSelector(state=>state.userReducer)
+    console.log(role);
+    useEffect(()=>{
+      if(logged===true){
+        setUser({
+          name: name,
+          photo: photo,
+          logged: logged,
+          role: role
+        })
     
   }
 // eslint-disable-next-line  
-},[])
+},[logged])
 
 let logProfile=[
     {linkTo: "/my-profile", name: "Profile"},
@@ -39,18 +38,18 @@ logProfile.concat([
 let [profile,SetProfile]= useState(logProfile)
 
 useEffect(()=>{
-
- if (role === 'adm' ){
-           SetProfile(admProfile)
-        }
+  if (role === 'adm' ){
+    SetProfile(admProfile)
+  }
   else{
+
     SetProfile(logProfile)
   }
 
-
-  
   // eslint-disable-next-line  
-},[user, logged, role])
+},[user, role])
+
+console.log(role)
 let dropDown=()=>{
   setdropDownOcultar(!dropDownOcultar)
 }

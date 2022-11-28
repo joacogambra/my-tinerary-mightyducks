@@ -31,12 +31,12 @@ const hotelsReducer = createReducer(initialState,
                })
       
             .addCase(filter.fulfilled, (state, action)=>{
-             
+              
               let filtros = {
                 text: action.payload.response,
                 order:action.payload.response || "desc",
               }
-             
+             console.log(action.payload);
              
               
               let newState ={
