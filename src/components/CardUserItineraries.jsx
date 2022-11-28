@@ -2,9 +2,11 @@ import React from 'react'
 import myItinerariesAction from '../redux/actions/myItinerariesAction'
 import Swal from 'sweetalert2'
 import { useDispatch } from "react-redux";
+import { Link as LinkRouter} from 'react-router-dom'
+
 
 export default function CardUserItineraries(props) {
-    let { name, image, category, city, price, duration, _id, editar } = props
+    let { name, image, category, city, price, duration, _id } = props
 
     const dispatch = useDispatch()
     const { deleteOneItinerary } = myItinerariesAction
@@ -40,7 +42,7 @@ export default function CardUserItineraries(props) {
             <p>Price:$ {`${price}`}</p>
             <p>Duration:$ {`${duration}`}</p>
             <button className='button' onClick={deleteItinerary}>Delete</button>
-          <button className='button' id={_id} onClick={editar}>Edit</button>
+            <LinkRouter to={`/my-itineraries/${_id}`} className="button">Edit</LinkRouter>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ const initialState={
     order: '', 
     myHotels: [],  
   
+  
 }
 const hotelsReducer = createReducer(initialState,
     (builder)=>{
@@ -30,12 +31,12 @@ const hotelsReducer = createReducer(initialState,
                })
       
             .addCase(filter.fulfilled, (state, action)=>{
-             
+              
               let filtros = {
                 text: action.payload.response,
                 order:action.payload.response || "desc",
               }
-             
+             console.log(action.payload);
              
               
               let newState ={
@@ -55,12 +56,13 @@ const hotelsReducer = createReducer(initialState,
             })
 
             .addCase(deleteHotel.fulfilled, (state,action)=>{
-
+                
               return {
                   ...state,
                   myHotels: state.myHotels.filter((hotel) => hotel._id !== action.payload.hoteldeleted),
                 }
           })
+     
       })
             
     

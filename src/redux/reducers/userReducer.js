@@ -45,17 +45,19 @@ const userReducer = createReducer(InitialState,
 
             })
             .addCase(keepLog.fulfilled, (state, action) => {
-               
                 const { success,response } = action.payload
                 if (success) {
-                    let { user,token } = response
+                    const user=action.payload.response.user 
+                    console.log(user);
+                    let { token } = response
                     let newState = {
                         ...state,
                         name: user.name,
                         photo: user.photo,
                         logged: true,
                         token: token,
-                        _id: user.id
+                        _id: user.id,
+                        role: user.role
                     }
                     return newState
                 } else {
