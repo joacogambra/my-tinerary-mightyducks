@@ -22,10 +22,11 @@ const keepLog= createAsyncThunk('keepLog', async(token)=>{
 
     try{
         let user= await axios.post(`${BASE_URL}/api/auth/token`,null, headers)
+        console.log(user.data.response.user.id);
         return {
             success: true,
             response: {
-                user: user.data.response,
+                user: user.data.response.user,               
                 token
             }
         }
