@@ -16,5 +16,26 @@ const deleteOneItinerary = createAsyncThunk('deleteOneItinerary', async(data)=>{
       }
 })
 
-const myItinerariesAction = {deleteOneItinerary}
+const newItinerary = createAsyncThunk('newItinerary', async (data)=>{
+  // let baseurl = `${BASE_URL}/itineraries/`
+  try{
+    let res = await axios.post(`${BASE_URL}/itineraries/`, data)
+    if(res.data.success){
+      return{
+        success:true,
+        message:res.data.message,
+        newItinerary:res.data.id
+      }
+    }else{
+      return{
+        success:false,
+        message:res.data.message
+      }
+    }
+  }catch(error){
+    console.log(error.message)
+  }
+})
+
+const myItinerariesAction = {deleteOneItinerary, newItinerary}
 export default myItinerariesAction
