@@ -3,10 +3,11 @@ import showAction from '../redux/actions/showAction'
 import Swal from 'sweetalert'
 import { useDispatch } from "react-redux";
 import { Link as LinkRouter} from 'react-router-dom'
+import { useNavigate } from "react-router"
 
 export default function CardUserShows(props) {
     let { name, image, category, price,  cardid } = props
-
+    let navigate = useNavigate();
     const dispatch = useDispatch()
     const { deleteOneShow } = showAction
 
@@ -26,7 +27,7 @@ export default function CardUserShows(props) {
           Swal("Poof! show file has been deleted!", {
             icon: "success",
           })
-          .then(()=>{window.location.reload()})
+          navigate(`/my-shows`)
           dispatch(deleteOneShow({id: id}))
         } else {
           Swal("Your show  is safe!");

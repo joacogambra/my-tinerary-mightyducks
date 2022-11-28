@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate, useParams } from "react-router";
-import { useState, useEffect, useRef } from 'react'
+import {  useRef } from 'react'
 import { BASE_URL } from '../Api/url'
 import axios from 'axios'
 import { useSelector } from 'react-redux'

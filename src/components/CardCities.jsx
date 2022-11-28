@@ -71,7 +71,7 @@ export default function CardCities() {
         <>
             <div className='input-nav inputcheck' role="search">
                 <input  type="text" placeholder="Search" ref={search} onChange={citiesFound} value={filter.name} />
-                <div className='checks p-5'>
+                <div className='checks'>
                 {Array.from(new Set(checkBox?.map(i => i.continent))).map(i => {
             return(
             <><input  type="checkbox" checked={filter.continent.includes(i) ? true : false} value={i} onClick={citiesChecks}/> 
