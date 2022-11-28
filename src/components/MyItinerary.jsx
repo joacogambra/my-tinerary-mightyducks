@@ -5,6 +5,7 @@ import axios from 'axios'
 import CardUserItineraries from './CardUserItineraries'
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
+import FormNewItinerary from '../components/FormNewItinerary'
 
 export default function MyItinerary() {
 
@@ -58,7 +59,7 @@ export default function MyItinerary() {
       if(response.data.success === true){
         Swal({
           title: "Success",
-          text: "The Hotel was editted succesfully",
+          text: "The Itinerary was editted succesfully",
            icon: "success",
            timer: 5000,
            confirmButtonText: "Cool"
@@ -79,7 +80,9 @@ export default function MyItinerary() {
       <div className='myCities'>      
         {itine?.map((i)=>(
               <CardUserItineraries city={i} name={i.name} key={i._id} image={i.photo[0]} category={i.description} id={i._id} price={i.price} duration={i.duration} editar={editar} _id={i._id} />))}
-      </div></>)
+      </div>
+      <FormNewItinerary/>
+      </>)
 
       :(<form className="sign-in" >
          

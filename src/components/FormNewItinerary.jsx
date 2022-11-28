@@ -73,7 +73,6 @@ export default function FormNewItinerary() {
             <input name='description' type="text" placeholder="Description" ref={description} required />
             <input name='price' type="number" placeholder="Price" ref={price} required />
             <input name='duration' type="number" placeholder='Duration' ref={duration} required />
-            {/* <input name='userId' type="string" placeholder='userId' ref={userId} required /> */}
             <button className='button add' type='submit' onClick={handleSubmit}>Add activity</button>
         </form>
     )
