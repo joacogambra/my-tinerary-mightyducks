@@ -62,7 +62,7 @@ export default function FormNewItinerary() {
     return (
         <form className='sign-in form-itinerary' ref={form}>
             <h3>Add a new activity</h3>
-            <select name="select">
+            <select name="select" className='selects'>
                 {selectors.map((i)=>(<option value={i._id} key={i._id}>{i.name}</option>))}             
             </select>
             <input name='citiId' type="string" placeholder='citiId' ref={citiId} required />
