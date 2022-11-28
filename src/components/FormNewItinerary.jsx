@@ -45,14 +45,14 @@ export default function FormNewItinerary() {
             userId: _id,
         };  
         try {
-          const res = await dispatch(newItinerary(data));    
+          const res = await dispatch(newItinerary(data));  
           if (res.payload.success) {
             Swal.fire(
               'Created',
               'Your itinerary has been created.',
               'success'
             )
-            .then(()=>{window.location.reload()})
+           .then(()=>{window.location.reload()})
           } else {
             console.log(res.payload.message);
           }
