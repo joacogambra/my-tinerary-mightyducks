@@ -24,7 +24,7 @@ export default function MyShows() {
  
 
 ///add a shows
-
+    console.log(showDel)
  
     return (
       <>

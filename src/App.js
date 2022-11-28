@@ -22,7 +22,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import {useSelector, useDispatch} from 'react-redux'
 import {  useEffect } from 'react'
 import userActions from './redux/actions/userActions'
-import EditShow from "./pages/NewShow"
+import EditShow from "./pages/EditShow"
 import EditItinerary from "./pages/EditItinerary"
 function App() {  
 
@@ -66,7 +66,7 @@ function App() {
       <MyShowsPage/>
         </ProtectedRoute>}/>
         <Route path="/my-shows/:id" element={<ProtectedRoute isAllowed={logged=== true} reDirect={"/"} >
-      <EditShow/>
+          <EditShow/>
         </ProtectedRoute>}/>
       <Route path="/sign-up" element={<SignUpPage/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>

@@ -7,8 +7,7 @@ import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
 export default function EditItinerary() {
-  let { itiId : id } = useParams();
-    let [form, setForm] = useState(true)
+    let itiId  = useParams();
     const {_id} = useSelector((store) => store.userReducer)
     let navigate = useNavigate();
     let userid = _id
@@ -24,7 +23,7 @@ export default function EditItinerary() {
 
   let handleSubmit=(e)=>{
     e.preventDefault()
-  setForm=({
+  let form={
     name: name.current.value,
     photo: photo.current.value,
     description: description.current.value,
@@ -32,9 +31,9 @@ export default function EditItinerary() {
     duration: duration.current.value,
     cityId: cityId.current.value,
     userId: userid
-  })
-  axios.put(`${BASE_URL}/itineraries/${id}`, form )
-  .then(response=>{setForm(response.data.response);
+  }
+  axios.put(`${BASE_URL}/itineraries/${itiId.id}`, form )
+  .then(response=>{console.log(response.data.response);
     if(response.data.success === true){
       Swal({
         title: "Success",
@@ -44,15 +43,34 @@ export default function EditItinerary() {
          confirmButtonText: "Cool"
       })
       
-      navigate(`/my-shows`)
-      
-       
-    }  
-  
-  })
-  .catch(error=>console.log(error))
+      navigate(`/my-itineraries`)     
+    }  else{
+      let error = response.data.message.join( ",\n ")
+    
+        console.log(error)
+      Swal({
+        icon: 'error',
+        title: 'Check the info you sent:',
+        text: (`${  error }`),
+        
+       })
+    }
+    navigate(`/my-shows`)
+  }) 
+  .catch(error=>{
+    let message = error.response.data.message.join( ",\n ")
+    
+        console.log(error)
+      Swal({
+        icon: 'error',
+        title: 'Check the info you sent:',
+        text: (`${  message }`),
+        
+       })
+    }
+  )
+  navigate(`/my-shows`)
 }
-
 
   return (
     <form className="sign-in" >

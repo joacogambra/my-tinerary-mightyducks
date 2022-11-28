@@ -5,13 +5,14 @@ import Footer from '../components/Footer'
 import UserNav from '../components/UserNav'
 
 
-export default function EditHotel() {
+export default function Edit() {
 
 
   return (
     <>
-    <HeaderVideo componenttop={<UserNav/>} />
-    <EditShow/>
+   
+    <HeaderVideo componenttop={<UserNav/>} componentmiddle={ <EditShow/>}/>
+
    <Footer></Footer>
    </>
 

@@ -7,11 +7,14 @@ import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
 export default function EditShow() {
-    let { showId : id } = useParams();
-    let [form, setForm] = useState(true)
+
+    const showId  = useParams()
+
+    // let [form, setForm] = useState('')
     const {_id} = useSelector((store) => store.userReducer)
     let navigate = useNavigate();
     let userid = _id
+  console.log(showId)
     //form
     let name= useRef()
     let photo= useRef()
@@ -22,7 +25,7 @@ export default function EditShow() {
 
     let handleSubmit=(e)=>{
         e.preventDefault()
-        setForm=({
+       let form={
           name: name.current.value,
           photo: photo.current.value,
           description: description.current.value,
@@ -30,11 +33,11 @@ export default function EditShow() {
           userId: userid,
           price: price.current.value,
           date: date.current.value,
-        })
-    }
-    axios.patch(`${BASE_URL}/api/shows/${id}`, form )
+        }
+        console.log(form);
+      
+    axios.patch(`${BASE_URL}/api/shows/${showId.id}`, form )
        .then(response=>{console.log(response.data.response)
-        setForm(response.data.response)
         if(response.data.success === true){
           Swal({
             title: "Success",
@@ -44,17 +47,34 @@ export default function EditShow() {
              confirmButtonText: "Cool"
           })
           navigate(`/my-shows`)
+        } else{
+          let error = response.data.message.join( ",\n ")
+        
+            console.log(error)
+          Swal({
+            icon: 'error',
+            title: 'Check the info you sent:',
+            text: (`${  error }`),
+            
+           })
         }
+        navigate(`/my-shows`)
       })
       .catch(error=>{
-          console.log(error); 
-        if (error.response.status === 400){
-        Swal({
-          icon: 'error',
-          title: 'Check the info you sent:',})
-        } 
-    })
-     
+        // let message = error.data.message.join( ",\n ")
+        
+            console.log(error)
+          Swal({
+            icon: 'error',
+            title: 'Check the info you sent:',
+            text: (''),
+            
+           })
+        }
+      )
+      navigate(`/my-shows`)
+    }
+  
 
   return (
     <form className="sign-in" >

@@ -4,7 +4,7 @@ import HeaderVideo from '../components/HeaderVideo'
 import NewShow from '../components/NewShow'
 import UserNav from '../components/UserNav'
 
-export default function EditShows() {
+export default function New() {
 
 
   return (
