@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { BASE_URL } from '../Api/url'
 import axios from 'axios'
 import CardUserCities from './CardUserCities'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
 
@@ -78,6 +78,7 @@ export default function MyCities() {
 
   return (
     <>
+    <h2 className='text-white'>My Cities</h2>
     {form
     ?(<div className='myCities'>
       {cities?.map((i)=>(
