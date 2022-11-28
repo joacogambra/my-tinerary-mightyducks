@@ -1,15 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../Api/url";
+//import { useSelector } from "react-redux";
 
 const deleteOneItinerary = createAsyncThunk('deleteOneItinerary', async(data)=>{
     let baseurl = `${BASE_URL}/itineraries/`
+    //let {token} = useSelector(state => state.userReducer)
+    //let headers = { headers: { Authorization: `Bearer ${token}` } }
     try {
         const { id } = data    
-        const res = await axios.delete(baseurl + id)
+        const res = await axios.delete(baseurl + id )
         return {
         success: true,
-        itiDeleted: res.data.itiDeleted,      
+        itiDeleted: res.data.itiDeleted,
         }
       } catch (error) {
         console.log(error.message)
@@ -18,6 +21,8 @@ const deleteOneItinerary = createAsyncThunk('deleteOneItinerary', async(data)=>{
 
 const newItinerary = createAsyncThunk('newItinerary', async (data)=>{
   // let baseurl = `${BASE_URL}/itineraries/`
+  //let {token} = useSelector(state => state.userReducer)
+  //let headers = { headers: { Authorization: `Bearer ${token}` } }
   try{
     let res = await axios.post(`${BASE_URL}/itineraries/`, data)
     if(res.data.success){
