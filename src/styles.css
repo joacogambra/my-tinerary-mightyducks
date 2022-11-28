@@ -116,6 +116,10 @@
     color:white;
     border-radius: 15px;
 }
+.drop-down-nav > a{
+    border-bottom: 1.5px solid rgba(128, 128, 128, 0.589);
+    border-radius: 1mm;
+}
 
 .user-image {
     width: 40px;
@@ -158,7 +162,7 @@ video {
     padding-top: 0;
     gap: .5rem;
     width: 100%;
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex; 
     flex-direction: column;
      justify-content: center;
