@@ -13,7 +13,7 @@ export default function NewShow() {
 
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/api/hotels`)
+    axios.get(`${BASE_URL}/api/shows`)
         .then(res => setHotelsName(res.data.response))
         .catch(error => console.log(error.message))
 }, [])
@@ -51,10 +51,7 @@ axios.post(`${BASE_URL}/api/shows/`, form)
        icon: "success",
        timer: 5000,
        confirmButtonText: "Cool"
-    })
-    
-  
-    
+    })   
      
   } else{
     let error = response.data.message.join( ",\n ")
