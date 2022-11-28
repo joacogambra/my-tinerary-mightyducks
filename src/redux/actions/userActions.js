@@ -26,7 +26,7 @@ const keepLog= createAsyncThunk('keepLog', async(token)=>{
         return {
             success: true,
             response: {
-                user: user.data.response,
+                user: user.data.response.user,               
                 token
             }
         }
