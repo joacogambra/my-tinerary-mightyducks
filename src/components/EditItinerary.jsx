@@ -21,7 +21,10 @@ export default function EditItinerary() {
   const photoS = useRef();
   const photoT = useRef();
 
-
+  let {token} = useSelector(state => state.userReducer)
+  console.log(token);
+  let headers = { headers: { Authorization: `Bearer ${token}` } }
+  console.log(headers);
   let handleSubmit = (e) => {
     e.preventDefault()
     let form = {
@@ -33,7 +36,7 @@ export default function EditItinerary() {
       citiId: citiId.current.value,
       userId: userid
     }
-    axios.put(`${BASE_URL}/itineraries/${itiId.id}`, form)
+    axios.put(`${BASE_URL}/itineraries/${itiId.id}`, form, headers)
       .then(response => {
         console.log(response.data.response);
         if (response.data.success === true) {
