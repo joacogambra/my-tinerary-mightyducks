@@ -34,7 +34,6 @@ const userReducer = createReducer(InitialState,
                         token: token,
                         role: user.role
                     }
-                    console.log(newState);
                     return newState
                 }else {
                     let newState={
@@ -58,7 +57,6 @@ const userReducer = createReducer(InitialState,
                         token: token,
                         _id: user.id
                     }
-                    console.log(newState);
                     return newState
                 } else {
                     let newState = {
