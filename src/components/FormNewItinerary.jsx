@@ -30,7 +30,7 @@ export default function FormNewItinerary() {
 
     const dispatch = useDispatch()
     const {newItinerary} =  myItinerariesAction
-    let userid = "636d2cd4a943744050f9ef16"
+    let userid = "63821b63e9d8209ed80198ba"
     const handleSubmit = async (e) => {
         e.preventDefault();
         let data = {

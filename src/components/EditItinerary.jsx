@@ -11,10 +11,12 @@ export default function EditItinerary() {
     const {_id} = useSelector((store) => store.userReducer)
     let navigate = useNavigate();
     let userid = _id
-
+  console.log(itiId);
   //form
   let name= useRef()
-  let photo= useRef()
+  let photoP= useRef()
+  let photoS= useRef()
+  let photoT= useRef()
   let description= useRef()
   let price = useRef()
   let duration = useRef()
@@ -25,19 +27,20 @@ export default function EditItinerary() {
     e.preventDefault()
   let form={
     name: name.current.value,
-    photo: photo.current.value,
+    photo: [photoP.current.value, photoS.current.value, photoT.current.value],
     description: description.current.value,
     price: price.current.value,
     duration: duration.current.value,
-    cityId: cityId.current.value,
+    citiId: cityId.current.value,
     userId: userid
   }
+  console.log(form)
   axios.put(`${BASE_URL}/itineraries/${itiId.id}`, form )
   .then(response=>{console.log(response.data.response);
     if(response.data.success === true){
       Swal({
         title: "Success",
-        text: "The Hotel was editted succesfully",
+        text: "The Itinerary was editted succesfully",
          icon: "success",
          timer: 5000,
          confirmButtonText: "Cool"
@@ -75,13 +78,16 @@ export default function EditItinerary() {
   return (
     <form className="sign-in" >
          
-      <h3>Update your Show</h3>
+      <h3>Update your Itinerary</h3>
      
-             <input name="photo" type="text"  placeholder='Photo'  ref={photo} required   />
+             <input name="photo" type="text"  placeholder='Photo'  ref={photoP} required   />
+             <input name="photo" type="text"  placeholder='Photo'  ref={photoS} required   />
+             <input name="photo" type="text"  placeholder='Photo'  ref={photoT} required   />
              <input name= "name"  type="text"  placeholder="Name" ref={name}  required/>
              <input name="price" type="number"  placeholder='Price'  ref={price} required/>
              <input name="durarion" type="number"  placeholder='Duration'  ref={duration} required/>
              <input name="description" type="text"  placeholder='Description'  ref={description} required/>
+             <input name="citiId" type="text"  placeholder='CitiId'  ref={cityId} required/>
              <button  className='button add' onClick={handleSubmit} > Update</button>
              <button  className='button add' onClick={()=> { window.location.reload() }}> Cancel </button>
         
