@@ -5,6 +5,7 @@ import axios from 'axios'
 import CardUserItineraries from './CardUserItineraries'
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
+import FormNewItinerary from '../components/FormNewItinerary'
 
 export default function MyItinerary() {
 
@@ -22,10 +23,10 @@ export default function MyItinerary() {
 
     const itineraries = useSelector((store) => store.itineraryReducer.itineraries)
 
-    console.log(itineraries);
-  
+
+    // let {_id, token} = useSelector(state => state.userReducer)
     let userid = "636d2cd4a943744050f9ef16"
-    //  636d2cd4a943744050f9ef16
+    
     let [itine, setItine] = useState([])
     useEffect(() => {
       axios.get(`${BASE_URL}/itineraries?userId=` + userid)
@@ -33,7 +34,6 @@ export default function MyItinerary() {
         .catch(error => console.log(error.message))
       // eslint-disable-next-line
     }, [])
-    console.log(itine);  
     //let { name, image, continente, category, city, price, duration } = props
 
     ///editar y form
@@ -43,7 +43,6 @@ export default function MyItinerary() {
       
     }
 
-    console.log(id);
     let handleSubmit=(e)=>{
       e.preventDefault()
     let form={
@@ -60,7 +59,7 @@ export default function MyItinerary() {
       if(response.data.success === true){
         Swal({
           title: "Success",
-          text: "The Hotel was editted succesfully",
+          text: "The Itinerary was editted succesfully",
            icon: "success",
            timer: 5000,
            confirmButtonText: "Cool"
@@ -74,14 +73,16 @@ export default function MyItinerary() {
     })
     .catch(error=>console.log(error))
   }
-console.log(form)
+
     return (
       <>
-      {!form
-      ?(<div className='myCities'>
+      {!form ?(<><h2 className='text-white'>My Itineraries</h2>
+      <div className='myCities'>      
         {itine?.map((i)=>(
               <CardUserItineraries city={i} name={i.name} key={i._id} image={i.photo[0]} category={i.description} id={i._id} price={i.price} duration={i.duration} editar={editar} _id={i._id} />))}
-      </div>)
+      </div>
+      <FormNewItinerary/>
+      </>)
 
       :(<form className="sign-in" >
          

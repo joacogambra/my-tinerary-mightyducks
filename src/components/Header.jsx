@@ -84,10 +84,11 @@ export default function Header() {
           'Come back soon',
           'success'
         )
+        .then(()=>{window.location='/home'})
       }
-    });
-  };
-
+    })
+  }
+  
   return (
 
     <nav className='navBar'>
@@ -126,7 +127,7 @@ export default function Header() {
               return <LinkRouter to={item.linkTo} key={item.name} >{item.name}</LinkRouter>
             })}
             {logged === true ? (
-              <h3 onClick={logOut} className='logout' >Log Out</h3>
+              <h3 onClick={logOut} className='logout'>Log Out</h3>           
             ) : null}
           </div>
         </div>)

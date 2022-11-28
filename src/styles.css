@@ -332,6 +332,8 @@ video {
 /* my cities*/
 .myCities{
     display: flex;
+    width: 100%;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -610,6 +612,20 @@ input[type="checkbox"]{
     box-shadow: none;
 }
 
+.form-itinerary{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px; 
+}
+
+.selects{
+    width: 30%;
+    text-align: center;
+    border: none;
+    box-shadow: 1px 1px 11px #252525;
+    border-radius: 1mm;
+}
 
 @media(max-width: 459px) {
     .signup .content .category {
