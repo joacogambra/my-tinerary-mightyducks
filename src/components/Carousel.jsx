@@ -24,17 +24,17 @@ export default function Carousel() {
 
    }, [imgCarousel, dispatch,photo])
  
-   
+   console.log(photo)
  
-   let photo2 = photo
-   let photo3= photo
-   let photos= photo
-
+   let photo2 = photo.slice(0,6)
+   let photo3= photo.slice(6,12)
+   let photos= photo.slice(12,24)
+   console.log(photos);
  
     let [numero, setNumero]= useState(0)
     let [selectedImage, setSelectedImage]= useState(photos[0])
     let [selectedImage2, setSelectedImage2]= useState(photo2[0])
-    let [selectedImageb, setSelectedImageb]= useState(photos[0])
+    let [selectedImageb, setSelectedImageb]= useState(photos[6])
     let [selectedImagec, setSelectedImagec]= useState(photo3[0])
     let [id, setId]= useState(0)
     let [id2, setId2]= useState(0)
@@ -47,12 +47,12 @@ export default function Carousel() {
                () => {
                     next()
                            },
-                    8000
+                    4000
                  ) 
                  setId(idInterval)
                  return clearInterval(id)
                  //eslint-disable-next-line
-        },[selectedImage])
+        },[selectedImage,selectedImageb])
         useEffect(
           ()=>{
             let idInterval=  setInterval(
@@ -64,15 +64,15 @@ export default function Carousel() {
                    setId2(idInterval)
                    return clearInterval(id2)
                    //eslint-disable-next-line
-          },[selectedImage2])
+          },[selectedImage2,selectedImagec])
     
   
     function previous (){
         let nextIndex= numero > 0 ? numero -1 : photos.length -1
         setSelectedImage(photos[nextIndex+1])
-        setSelectedImageb(photos[nextIndex+2])
-        setSelectedImage2(photo2[nextIndex+3])
-        setSelectedImagec (photo3[nextIndex+4])
+        setSelectedImageb(photos[nextIndex])
+        setSelectedImage2(photo2[nextIndex])
+        setSelectedImagec (photo3[nextIndex])
         setNumero(nextIndex)
         clearInterval(id)
     }
@@ -81,9 +81,9 @@ export default function Carousel() {
  
         let nextIndex= numero < photos.length ? numero +1 : 0
         setSelectedImage(photos[nextIndex+1])
-        setSelectedImage2(photo2[nextIndex+2])
-        setSelectedImageb(photos[nextIndex+3])
-        setSelectedImagec (photo3[nextIndex+4])
+        setSelectedImage2(photo2[nextIndex])
+        setSelectedImageb(photos[nextIndex])
+        setSelectedImagec (photo3[nextIndex])
         setNumero(nextIndex)
         clearInterval(id)
     }
