@@ -48,7 +48,6 @@ const userReducer = createReducer(InitialState,
                 const { success,response } = action.payload
                 if (success) {
                     const user=action.payload.response.user 
-                    console.log(user);
                     let { token } = response
                     let newState = {
                         ...state,
