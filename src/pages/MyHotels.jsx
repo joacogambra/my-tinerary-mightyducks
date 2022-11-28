@@ -1,8 +1,10 @@
+
 import React from 'react'
-import MyProfile from '../components/MyProfile'
+import MyHotelLayout from '../layouts/MyHotelLayout'
+
 
 export default function HotelPage() {
   return (
-    <MyProfile/>
+    <MyHotelLayout/>
   )
 }

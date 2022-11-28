@@ -2,10 +2,10 @@ import React from 'react'
 import showAction from '../redux/actions/showAction'
 import Swal from 'sweetalert'
 import { useDispatch } from "react-redux";
-
+import { Link as LinkRouter} from 'react-router-dom'
 
 export default function CardUserShows(props) {
-    let { name, image, category, price, editar, cardid } = props
+    let { name, image, category, price,  cardid } = props
 
     const dispatch = useDispatch()
     const { deleteOneShow } = showAction
@@ -46,7 +46,7 @@ export default function CardUserShows(props) {
             <p className='price'>Price:$ {`${price}`}</p>
           <div className='flex-row gap'>
             <button className='button' value={cardid} onClick={deleteShow}>Delete</button>
-            <button className='button' value={cardid} onClick={editar}>Edit</button>
+            <LinkRouter to={`/my-shows/${cardid}`} className="button">Edit</LinkRouter>
           </div> 
            
         </div>

@@ -6,10 +6,13 @@ import CardUserItineraries from './CardUserItineraries'
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
 
+
 export default function MyItinerary() {
 
   let [id, setId]= useState('')
   let [form, setForm] = useState(false)
+  const {_id} = useSelector((store) => store.userReducer)
+  let userid = _id
 
   let name= useRef()
   let photo= useRef()
@@ -24,8 +27,6 @@ export default function MyItinerary() {
 
     console.log(itineraries);
   
-    let userid = "636d2cd4a943744050f9ef16"
-    //  636d2cd4a943744050f9ef16
     let [itine, setItine] = useState([])
     useEffect(() => {
       axios.get(`${BASE_URL}/itineraries?userId=` + userid)

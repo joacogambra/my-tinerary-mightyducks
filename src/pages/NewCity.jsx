@@ -3,11 +3,12 @@ import Footer from '../components/Footer'
 import HeaderVideo from '../components/HeaderVideo'
 import Header from '../components/Header'
 import FormCities from '../components/FormCities'
+import UserNav from '../components/UserNav'
 
 export default function NewCity() {
   return (
     <>
-    <HeaderVideo componenttop={<Header/>} componentmiddle={<FormCities/>} />
+    <HeaderVideo componenttop={<UserNav/>} componentmiddle={<FormCities/>} />
       <Footer/>     
     </>
   )

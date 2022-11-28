@@ -12,6 +12,7 @@ const initialState={
     order: '', 
     myHotels: [],  
   
+  
 }
 const hotelsReducer = createReducer(initialState,
     (builder)=>{
@@ -55,12 +56,13 @@ const hotelsReducer = createReducer(initialState,
             })
 
             .addCase(deleteHotel.fulfilled, (state,action)=>{
-
+                
               return {
                   ...state,
                   myHotels: state.myHotels.filter((hotel) => hotel._id !== action.payload.hoteldeleted),
                 }
           })
+     
       })
             
     

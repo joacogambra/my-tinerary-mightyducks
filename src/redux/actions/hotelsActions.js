@@ -66,10 +66,15 @@ const deleteHotel = createAsyncThunk('deleteHotel', async(data)=>{
       }
     }
 })
+
+
+
+
 const hotelsActions ={
     getHotels,
     filter,
-    deleteHotel
+    deleteHotel,
+  
    
     
     
