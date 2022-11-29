@@ -32,7 +32,7 @@ let {text, order }= filtros
 
   try{
     let respuesta = await axios.get(`${BASE_URL}/api/hotels/?order=${order}&name=${text}` )
-    
+    console.log(respuesta)
    
     return{
       success: true,

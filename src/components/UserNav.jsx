@@ -2,12 +2,14 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
+
 export default function UserNav() {
 
     let [user, setUser]= useState({})
     let [dropDownOcultar, setdropDownOcultar] = useState(false)
     let { name, photo, role, logged}= useSelector(state=>state.userReducer)
     useEffect(()=>{
+      
       if(logged===true){
         setUser({
           name: name,
@@ -51,6 +53,8 @@ useEffect(()=>{
 let dropDown=()=>{
   setdropDownOcultar(!dropDownOcultar)
 }
+
+
 
   return (
     <nav  className='user-nav'>

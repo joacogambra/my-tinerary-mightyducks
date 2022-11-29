@@ -8,8 +8,8 @@ name: '',
 lastName: '',
 photo: '',
 logged: false,
-token: ''
-
+token: '',
+role: ''
 
 }
 
@@ -48,13 +48,15 @@ const userReducer = createReducer(InitialState,
                 const { success,response } = action.payload
                 if (success) {
                     const user=action.payload.response.user 
-                    let { token } = response
+                    console.log(action.payload.response.token)
+                    console.log(user);
+                    // let { token } = response
                     let newState = {
                         ...state,
                         name: user.name,
                         photo: user.photo,
                         logged: true,
-                        token: token,
+                        token: action.payload.response.token,
                         _id: user.id,
                         role: user.role
                     }
