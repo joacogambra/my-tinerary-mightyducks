@@ -30,7 +30,9 @@ export default function FormNewItinerary() {
 
     const dispatch = useDispatch()
     const {newItinerary} =  myItinerariesAction
-    let userid = "63821b63e9d8209ed80198ba"
+    let { _id } = useSelector(state => state.userReducer)
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let data = {
@@ -40,17 +42,17 @@ export default function FormNewItinerary() {
             description: description.current.value,
             price: price.current.value,
             duration: duration.current.value,
-            userId: userid,
+            userId: _id,
         };  
         try {
-          const res = await dispatch(newItinerary(data));    
+          const res = await dispatch(newItinerary(data));  
           if (res.payload.success) {
             Swal.fire(
               'Created',
               'Your itinerary has been created.',
               'success'
             )
-            .then(()=>{window.location.reload()})
+           .then(()=>{window.location.reload()})
           } else {
             console.log(res.payload.message);
           }

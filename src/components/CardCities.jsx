@@ -10,12 +10,8 @@ import { BASE_URL } from '../Api/url'
 
 export default function CardCities() {  
     const {getCities, getFiltering} = citiesAction  
-    // useEffect(()=>{
-    //     dispatch(citiesAction.getCities())
-    //     // eslint-disable-next-line
-    // },[])
     const filter = useSelector(state => state.citiesFilterReducer)
-    let search = useRef()
+    let search = useRef(null)
     let [checkBox, setCheckBox] = useState([])
     const {checkboxs, inputSearch} = citiesFiltered
     let cities = useSelector(store => store.citiesReducer.cities)
@@ -52,20 +48,18 @@ export default function CardCities() {
             selected = selected.filter(event => event !== e.target.value)
         }
         let defaultCheck = selected
-        console.log(selected);
         dispatch(checkboxs(defaultCheck))
     }
 
-    let citiesFound = () => {
+    let citiesFound = (e) => {
         let text = search.current.value.trim()
-        console.log(text);
         dispatch(inputSearch(text))
     } 
 
     function renderCards(array){
         return array.map((i)=>(
             <Cards name={i.name} key={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
-    }   
+    }
 
     return (
         <>
