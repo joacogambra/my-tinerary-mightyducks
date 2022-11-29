@@ -7,7 +7,6 @@ export default function UserNav() {
     let [user, setUser]= useState({})
     let [dropDownOcultar, setdropDownOcultar] = useState(false)
     let { name, photo, role, logged}= useSelector(state=>state.userReducer)
-    console.log(role);
     useEffect(()=>{
       if(logged===true){
         setUser({
@@ -49,7 +48,6 @@ useEffect(()=>{
   // eslint-disable-next-line  
 },[user, role])
 
-console.log(role)
 let dropDown=()=>{
   setdropDownOcultar(!dropDownOcultar)
 }

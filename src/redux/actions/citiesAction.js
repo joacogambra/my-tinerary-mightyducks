@@ -20,7 +20,7 @@ const getFiltering = createAsyncThunk('getFiltering', async(e) => {
     try {
         let name = e.name
         let continent = e.continent.join('&continent=')
-        let res = await axios.get(`${BASE_URL}/cities?name=${name}&continent=${continent}`)
+        let res = await axios.get(`${BASE_URL}/cities?continent=${continent}&name=${name}&userId=`)
         return {
             cities: res.data.response
         }
