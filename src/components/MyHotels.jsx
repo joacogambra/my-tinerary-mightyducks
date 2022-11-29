@@ -4,16 +4,16 @@ import { BASE_URL } from '../Api/url'
 import { useEffect, useState, useRef } from 'react'
 import EditCards from './EditCards'
 import Swal from 'sweetalert';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import hotelsActions from '../redux/actions/hotelsActions'
-
+import {useNavigate} from 'react-router-dom'
 
 export default function MyHotels() {
 
   const dispatch = useDispatch()
   const { deleteHotel } = hotelsActions
-
-
+  const navigate = useNavigate() 
+  let { _id, token} = useSelector(state=>state.userReducer)
 //form
     let [myHotels, setMyHotels]= useState([])
     // let [myShows, setMyShows]= useState([])
@@ -23,20 +23,18 @@ export default function MyHotels() {
     let photo= useRef()
     let capacity= useRef()
     let cityId = useRef()
-    let userId = useRef()
-    
-    //traer user hotels 
-    let adm= "636d2cd4a943744050f9ef16"
+  
+
+
     useEffect(()=>{
-        let query= `${BASE_URL}/api/hotels?userId=${adm}`
+  
+        let query= `${BASE_URL}/api/hotels?userId=${_id}`
         axios.get(query)
          .then(response=>setMyHotels(response.data.response))
          .catch(error=> console.log(error) )
-         
-     },[adm])   
+     },[_id, token])   
     
     
-     //onclick editar
      let editar= (e) => {
         setId(e.target.value)
         setForm(!form)
@@ -67,7 +65,7 @@ let borrar=(e)=>{
       });
     }
     //id
-    console.log(id)    
+    
 
 //printcard Hotel
      function allCards(array){
@@ -84,12 +82,12 @@ let borrar=(e)=>{
         photo: photo.current.value,
         capacity: capacity.current.value,
         cityId: cityId.current.value,
-        userId: userId.current.value,
+        userId: _id,
       }
 
      //form alert 
-      
-        axios.patch(`${BASE_URL}/api/hotels/${id}`, form )
+        let headers = { headers: { Authorization: `Bearer ${token}` } }
+        axios.patch(`${BASE_URL}/api/hotels/${id}`, form , headers)
           .then(response=>{setForm(response.data.response);
             if(response.data.success === true){
               Swal({
@@ -99,8 +97,8 @@ let borrar=(e)=>{
                  timer: 5000,
                  confirmButtonText: "Cool"
               })
-              
-            .then(()=>{window.location=`/hotel/${response.data.response?._id}`}) 
+              .then(()=>navigate(`/hotel/${response.data.response?._id}`))
+            // .then(()=>{window.location=`/hotel/${response.data.response?._id}`}) 
               
                
             }  
@@ -137,7 +135,6 @@ let borrar=(e)=>{
                 <input name= "name"  type="text"  placeholder="Name" ref={name}  required/>
                 <input name="capacity" type="number"  placeholder='Capacity/Popullation'  ref={capacity} required/>
                 <input name="cityId" type="text"  placeholder='City Id'  ref={cityId} required/>
-                <input name="userId" type="text"  placeholder='Your Id' ref={userId} required/>
                 <button  className='button add' onClick={handleSubmit} > Update</button>
                 <button  className='button add' onClick={()=> { window.location.reload() }}> Cancel </button>
            

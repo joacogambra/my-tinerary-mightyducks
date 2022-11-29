@@ -12,7 +12,7 @@ export default function Hotels() {
    let [word, setWord]= useState()
   const {getHotels,filter } = hotelsActions
   let hotels= useSelector (state=> state.hotelsReducer.hotels)
-  let { order, text, hotelsfiltrado } = useSelector (state=> state.hotelsReducer)
+  let { order, text, hotelsfiltrado,success } = useSelector (state=> state.hotelsReducer)
  
 
  const dispatch = useDispatch()

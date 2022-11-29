@@ -24,12 +24,11 @@ export default function Carousel() {
 
    }, [imgCarousel, dispatch,photo])
  
-   console.log(photo)
- 
+
    let photo2 = photo.slice(0,6)
    let photo3= photo.slice(6,12)
    let photos= photo.slice(12,24)
-   console.log(photos);
+
  
     let [numero, setNumero]= useState(0)
     let [selectedImage, setSelectedImage]= useState(photos[0])
@@ -39,7 +38,6 @@ export default function Carousel() {
     let [id, setId]= useState(0)
     let [id2, setId2]= useState(0)
    
-
 
     useEffect(
         ()=>{
