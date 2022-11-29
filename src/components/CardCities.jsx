@@ -10,12 +10,8 @@ import { BASE_URL } from '../Api/url'
 
 export default function CardCities() {  
     const {getCities, getFiltering} = citiesAction  
-    // useEffect(()=>{
-    //     dispatch(citiesAction.getCities())
-    //     // eslint-disable-next-line
-    // },[])
     const filter = useSelector(state => state.citiesFilterReducer)
-    let search = useRef()
+    let search = useRef(null)
     let [checkBox, setCheckBox] = useState([])
     const {checkboxs, inputSearch} = citiesFiltered
     let cities = useSelector(store => store.citiesReducer.cities)
@@ -52,26 +48,24 @@ export default function CardCities() {
             selected = selected.filter(event => event !== e.target.value)
         }
         let defaultCheck = selected
-        console.log(selected);
         dispatch(checkboxs(defaultCheck))
     }
 
-    let citiesFound = () => {
+    let citiesFound = (e) => {
         let text = search.current.value.trim()
-        console.log(text);
         dispatch(inputSearch(text))
     } 
 
     function renderCards(array){
         return array.map((i)=>(
             <Cards name={i.name} key={i.name} image={i.photo} continente={i.continent} category="Continent" page="city" id={i._id}/>))
-    }   
+    }
 
     return (
         <>
             <div className='input-nav inputcheck' role="search">
                 <input  type="text" placeholder="Search" ref={search} onChange={citiesFound} value={filter.name} />
-                <div className='checks p-5'>
+                <div className='checks'>
                 {Array.from(new Set(checkBox?.map(i => i.continent))).map(i => {
             return(
             <><input  type="checkbox" checked={filter.continent.includes(i) ? true : false} value={i} onClick={citiesChecks}/> 

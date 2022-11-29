@@ -1,16 +1,18 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import HeaderVideo from '../components/HeaderVideo'
-import Header from '../components/Header'
-import MyCities from '../components/MyCities'
+import NewShow from '../components/NewShow'
 import UserNav from '../components/UserNav'
 
-export default function MyCitiesPage() {
+export default function New() {
+
+
   return (
     <>
-    <HeaderVideo componenttop={<UserNav/>} componentmiddle={<MyCities/>}/>
-    
-    
+   
+    <HeaderVideo componenttop={<UserNav/>}  componentmiddle={<NewShow/>}/>
+   
+   
       <Footer/>     
     </>
   )

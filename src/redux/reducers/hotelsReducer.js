@@ -11,6 +11,7 @@ const initialState={
     text: '',
     order: '', 
     myHotels: [],  
+    success: true
   
 }
 const hotelsReducer = createReducer(initialState,
@@ -32,21 +33,34 @@ const hotelsReducer = createReducer(initialState,
             .addCase(filter.fulfilled, (state, action)=>{
              
               let filtros = {
-                text: action.payload.response,
-                order:action.payload.response || "desc",
+                text: action.payload.response.filtros.text,
+                order:action.payload.response.filtros.order
               }
-             
-              console.log(action);
-              
-              let newState ={
-                ...state,
-                filtros,
-                hotels:  action.payload.response.hotels
-              }
+              console.log(action.payload.response.filtros)
+              if (action.payload.success=== true){
+                let newState ={
+                  ...state,
+                  filtros,
+                  text: action.payload.response.filtros.text,
+                  order:action.payload.response.filtros.order,
+                  hotels:  action.payload.response.hotels
+                }
+               
                 return newState
+              } else {
+                return {
+                  ...state,
+                  hotels : [],
+                  success: false
+                }
+            
+              }
+              
+             
             })
             
             .addCase(filter.rejected, (state,action)=>{
+              console.log(action)
               
               return {   ...state,
                 hotels: []
@@ -55,12 +69,13 @@ const hotelsReducer = createReducer(initialState,
             })
 
             .addCase(deleteHotel.fulfilled, (state,action)=>{
-
+                
               return {
                   ...state,
                   myHotels: state.myHotels.filter((hotel) => hotel._id !== action.payload.hoteldeleted),
                 }
           })
+     
       })
             
     

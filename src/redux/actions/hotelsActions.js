@@ -29,9 +29,10 @@ const filter = createAsyncThunk('filter', async (filtros) => {
 let {text, order }= filtros
 // if (filtros === '') return { hotels: [] }
 
+
   try{
     let respuesta = await axios.get(`${BASE_URL}/api/hotels/?order=${order}&name=${text}` )
-    
+    console.log(respuesta)
    
     return{
       success: true,
@@ -66,10 +67,15 @@ const deleteHotel = createAsyncThunk('deleteHotel', async(data)=>{
       }
     }
 })
+
+
+
+
 const hotelsActions ={
     getHotels,
     filter,
-    deleteHotel
+    deleteHotel,
+  
    
     
     

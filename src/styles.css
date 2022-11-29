@@ -40,7 +40,9 @@
 .gap{
     gap:2rem;
 }
-
+.mar-2{
+    margin: 2rem 2rem;
+}
 .render {
     min-height:100vh ;
     width:100%; 
@@ -114,11 +116,18 @@
     color:white;
     border-radius: 15px;
 }
+.drop-down-nav > a{
+    border-bottom: 1.5px solid rgba(128, 128, 128, 0.589);
+    border-radius: 1mm;
+}
 
 .user-image {
     width: 40px;
 }
-
+.logged{
+    width: 50px;
+    border-radius: 50%;
+}
 .logo {
     width: 80px;
 }
@@ -153,7 +162,7 @@ video {
     padding-top: 0;
     gap: .5rem;
     width: 100%;
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex; 
     flex-direction: column;
      justify-content: center;
@@ -290,6 +299,19 @@ video {
     cursor: pointer;
     
 }
+.logout{
+    cursor: pointer;
+    font-size: 1.3rem;
+    border-radius: 4mm;
+    padding: 0.2rem;
+    color: rgb(80,76,76);
+    font-weight:400
+}
+
+.logout:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    color: white;
+}
 .add{
     width: 90%;
     width: max(20vw, 70%);
@@ -304,12 +326,10 @@ video {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-weight:500;    
+    font-weight:500;
+    padding: 1rem;
+    gap: 1rem;  
 } 
-.p-5{
-    padding: 2rem;
-    gap: 1rem;
-}
 
 .cities404{
     background-color: #252525;
@@ -318,6 +338,8 @@ video {
 /* my cities*/
 .myCities{
     display: flex;
+    width: 100%;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -439,6 +461,34 @@ span.label {
     height: 350px;
     border-radius: 30px;
     object-fit: cover;
+}
+/*USER*/
+.user-nav{
+    padding-right: 1rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  
+}
+.user-nav a {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    color: white;
+    flex-grow: 1;
+    text-shadow: 1px 1px 1px rgb(22, 19, 19);
+    font-weight: 800;
+}
+.profile-img{
+    border-radius: 50%;
+}
+.profile-text:disabled{
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 1px rgb(235, 227, 233);
+
+
 }
 
 /**footer*/
@@ -568,6 +618,20 @@ input[type="checkbox"]{
     box-shadow: none;
 }
 
+.form-itinerary{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px; 
+}
+
+.selects{
+    width: 30%;
+    text-align: center;
+    border: none;
+    box-shadow: 1px 1px 11px #252525;
+    border-radius: 1mm;
+}
 
 @media(max-width: 459px) {
     .signup .content .category {

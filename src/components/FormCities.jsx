@@ -3,6 +3,7 @@ import { useState, useRef } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
 import Swal from 'sweetalert'
+import { useSelector } from 'react-redux'
 
 export default function FormCities() {
     let [city, setCity] = useState([])
@@ -13,6 +14,8 @@ export default function FormCities() {
     let population = useRef()
     let userId = useRef()
 
+    let {token} = useSelector(state => state.userReducer)
+    let headers = { headers: { Authorization: `Bearer ${token}` } }
     let handleSubmit = (e) => {
         e.preventDefault()
         let form = {
@@ -22,7 +25,7 @@ export default function FormCities() {
             population: population.current.value,
             userId: userId.current.value,
         }
-        axios.post(`${BASE_URL}/cities`, form)
+        axios.post(`${BASE_URL}/cities`, form, headers)
             .then(response => {
                 setCity(response.data.response);
                 if (response.data.success === true) {
