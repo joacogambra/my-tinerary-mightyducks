@@ -7,24 +7,24 @@ import Swal from 'sweetalert';
 import { useDispatch, useSelector } from "react-redux";
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useNavigate} from 'react-router-dom'
+import { current } from '@reduxjs/toolkit'
 
 export default function MyHotels() {
 
   const dispatch = useDispatch()
-  const { deleteHotel } = hotelsActions
+  const { deleteHotel} = hotelsActions
   const navigate = useNavigate() 
   let { _id, token} = useSelector(state=>state.userReducer)
+
+
 //form
+
     let [myHotels, setMyHotels]= useState([])
-    // let [myShows, setMyShows]= useState([])
     let [id, setId]= useState('')
     let [form, setForm] = useState(true)
     let name= useRef()
     let photo= useRef()
     let capacity= useRef()
-    let cityId = useRef()
-  
-
 
     useEffect(()=>{
   
@@ -37,9 +37,15 @@ export default function MyHotels() {
     
      let editar= (e) => {
         setId(e.target.value)
-        setForm(!form)
-        console.log(form)  
+        setForm(!form) 
       }
+
+  console.log(myHotels);
+ function filtrado(array, id){
+    let edit= array.filter(e=>e._id === id)
+   
+    return edit[0]
+ }
 
 //onclick borrar
 
@@ -64,24 +70,28 @@ let borrar=(e)=>{
         }
       });
     }
-    //id
-    
 
+  
 //printcard Hotel
      function allCards(array){
         return array?.map((items)=>(
-        <EditCards name={items.name} image={items.photo[0]} dato="Capacity" capacity={items.capacity} id={items._id} editar={editar} borrar={borrar}/>
+        <EditCards name={items.name} image={items.photo[0]} dato="Capacity" capacity={items.capacity} id={items._id} editar={editar} borrar={borrar} hotel_id={items.hotelId}/>
 
     )) }
-
 ///form datos
+
+  let editHotel= filtrado(myHotels, id)
+  console.log(editHotel);
+     
     let handleSubmit=(e)=>{
         e.preventDefault()
+       
+       
       let form={
-        name: name.current.value,
-        photo: photo.current.value,
-        capacity: capacity.current.value,
-        cityId: cityId.current.value,
+        name: name.current.value || name.defaultValue, 
+        photo: photo.current.value || photo.defaulValue,
+        capacity: capacity.current.value || capacity.defaulValue,
+        cityId: editHotel.cityId,
         userId: _id,
       }
 
@@ -99,8 +109,7 @@ let borrar=(e)=>{
               })
               .then(()=>navigate(`/hotel/${response.data.response?._id}`))
             // .then(()=>{window.location=`/hotel/${response.data.response?._id}`}) 
-              
-               
+                             
             }  
           
           })
@@ -128,15 +137,14 @@ let borrar=(e)=>{
      :(
     
         <form className="sign-in" >
-         
+        
          <h3> Enter the Hotel information</h3>
         
-                <input name="photo" type="text"  placeholder='Photo'  ref={photo} required className="card__details"/>
-                <input name= "name"  type="text"  placeholder="Name" ref={name}  required/>
-                <input name="capacity" type="number"  placeholder='Capacity/Popullation'  ref={capacity} required/>
-                <input name="cityId" type="text"  placeholder='City Id'  ref={cityId} required/>
-                <button  className='button add' onClick={handleSubmit} > Update</button>
-                <button  className='button add' onClick={()=> { window.location.reload() }}> Cancel </button>
+                <input name="photo" type="text"  placeholder={editHotel.photo} defaultValue={editHotel.photo}  ref={photo}  className="card__details"/>
+                <input name= "name"  type="text"  placeholder={editHotel.name} ref={name} defaultValue={editHotel.name} />
+                <input name="capacity" type="number"  placeholder={editHotel.capacity} defaultValue={editHotel.capacity} ref={capacity} />
+                <button  className='button add' onClick={handleSubmit} type="submit" > Update</button>
+                <button  className='button add' onClick={() => navigate(-1)}> Cancel </button>
            
     </form>
    
