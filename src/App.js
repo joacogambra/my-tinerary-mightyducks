@@ -24,6 +24,8 @@ import {  useEffect } from 'react'
 import userActions from './redux/actions/userActions'
 import EditShow from "./pages/EditShow"
 import EditItinerary from "./pages/EditItinerary"
+import ReactionsCreat from "./pages/ReactionsCreat"
+
 function App() {  
 
 
@@ -46,7 +48,7 @@ function App() {
     <main className="main">
     <AutoToTop/>
     <Routes>
-    <Route path="/" element={<Home/>}/>
+      <Route path="/" element={<Home/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
@@ -87,7 +89,8 @@ function App() {
         </ProtectedRoute>}/>  
         <Route path="/my-profile" element={<ProtectedRoute isAllowed={logged === true} reDirect={"/"} >
       <MyProfile />
-        </ProtectedRoute>}/>   
+        </ProtectedRoute>}/>  
+      <Route path="/reactions" element={<ReactionsCreat/>}/> 
     </Routes>
     </main>
     
