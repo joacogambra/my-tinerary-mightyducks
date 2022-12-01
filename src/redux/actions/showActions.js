@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../Api/url";
 
@@ -32,6 +32,24 @@ const createShow = createAsyncThunk('createShow', async(data, body)=>{
       console.log(error.message)
     }
 })
+const read = createAsyncThunk('read', async(id)=>{
 
-const showAction = {deleteOneShow, createShow}
+ 
+  try {
+      const res = await axios.get(`${BASE_URL}/api/shows/?_id=${id}`
+      )
+    console.log(res.data.response);
+      return {
+      success: true,
+      response:  res.data.response ,
+        
+      }
+    } catch (error) {
+      console.log(error)
+    }
+})
+
+
+
+const showAction = {deleteOneShow, createShow, read}
 export default showAction
