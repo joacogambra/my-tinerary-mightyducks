@@ -7,7 +7,7 @@ import Swal from 'sweetalert';
 import { useDispatch, useSelector } from "react-redux";
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useNavigate} from 'react-router-dom'
-import { current } from '@reduxjs/toolkit'
+
 
 export default function MyHotels() {
 

@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import userActions from '../redux/actions/userActions';
-import Swal from 'sweetalert2';
+import {  useSelector } from 'react-redux';
+import LogOut from './LogOut'
 
 
 export default function Header() {
   let [dropDownOcultar, setdropDownOcultar] = useState(false)
   let [mostrarOcultar, setMostrarOcultar] = useState(false)
   let [user, setUser] = useState({})
-  let { name, photo, _id, role, logged, token } = useSelector(state => state.userReducer)
-  let { signOut } = userActions
-  let dispatch = useDispatch()
+  let { name, photo, _id, role, logged } = useSelector(state => state.userReducer)
 
   useEffect(() => {
     if (logged === true) {
@@ -47,7 +44,7 @@ export default function Header() {
     { linkTo: '/my-itineraries', name: 'My Itineraries' },
   ]
 
-  let admProfile =
+  let adminProfile =
     logProfile.concat([
       { linkTo: '/my-cities', name: 'My Cities' },
       { linkTo: '/hotels/admin/', name: 'My Hotels' },
@@ -58,8 +55,8 @@ export default function Header() {
 
     if (logged === true) {
       SetProfile(logProfile)
-      if (role === 'adm') {
-        SetProfile(admProfile)
+      if (role === 'admin') {
+        SetProfile(adminProfile)
       }
     }
     else {
@@ -68,27 +65,6 @@ export default function Header() {
     // eslint-disable-next-line  
   }, [user, logged, role])
 
-  function logOut() {
-    Swal.fire({
-      title: 'Are you sure want logged out?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonColor: '#252525',
-      cancelButtonColor: '#252525',
-      confirmButtonText: 'Log out'
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await dispatch(signOut(token));
-        Swal.fire(
-          'Logged out succesfally',
-          'Come back soon',
-          'success'
-        )
-        .then(()=>{window.location='/home'})
-      }
-    })
-  }
-  
   return (
 
     <nav className='navBar'>
@@ -104,7 +80,7 @@ export default function Header() {
               <LinkRouter to='/home'>Home</LinkRouter>
               <LinkRouter to='/cities'>Cities</LinkRouter>
               <LinkRouter to='/hotels'>Hotels</LinkRouter>
-              {role === 'adm'
+              {role === 'admin'
                 ? (<>
                   <LinkRouter to='/new-city'>New City</LinkRouter>
                   <LinkRouter to='/new-hotel'>New Hotel</LinkRouter>
@@ -127,7 +103,7 @@ export default function Header() {
               return <LinkRouter to={item.linkTo} key={item.name} >{item.name}</LinkRouter>
             })}
             {logged === true ? (
-              <h3 onClick={logOut} className='logout'>Log Out</h3>           
+              <LogOut/>      
             ) : null}
           </div>
         </div>)
