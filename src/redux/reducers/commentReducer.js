@@ -10,22 +10,23 @@ const commentReducer = createReducer(initialState,
     (builder)=>{
          builder
               .addCase(getComments.fulfilled, (state, action)=>{
-                if(action.payload.success){
-                  let newState= {
-                    ...state,
-                  }
+                
+                 if(action.payload.success){
+                   let newState= {
+                     ...state,
+                   }
                   newState[action.payload.showId]=action.payload.comments
                  
-                  return   newState
+                   return   newState
               
-                }else{
-                  let newState= {
-                    ...state,
-                  }
-                  newState[action.payload.showId]=[]
+                 }else{
+                   let newState= {
+                     ...state,
+                   }
+                   newState[action.payload.showId]=[]
                  
                   return   newState
-                }
+                 }
                                                               
                  })
 
@@ -38,11 +39,11 @@ const commentReducer = createReducer(initialState,
                })
 
                .addCase(create.fulfilled, (state, action)=>{
-            
+               
                 let newState={
                   ...state,
                 }
-                newState[action.payload.newComment.showId]=[action.payload.newComment,...newState[action.payload.newComment.showId]]
+                newState[action.payload.showId]=[action.payload.newComment,...newState[action.payload.showId]]
                 return newState
         
 
@@ -71,9 +72,7 @@ const commentReducer = createReducer(initialState,
                               
                })
                .addCase(edit.fulfilled, (state,action)=>{
-               console.log(action.payload.success)
-               console.log(action.payload.showId)
-               console.log(action.payload.editComment)
+              
                 if (action.payload.success){
                   let { showId, comment}= action.payload
                   let newComment= action.payload.editComment
@@ -90,7 +89,7 @@ const commentReducer = createReducer(initialState,
                       return post
                     }
                   })
-                  console.log(newState);
+                 
                   return newState
                 }
                               

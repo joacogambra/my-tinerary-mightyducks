@@ -6,30 +6,28 @@ import Swal from 'sweetalert2'
 // import { useEffect } from 'react'
 
 
-export default function CreateComment({id}) {
-  let [form, setForm]= useState({})
+export default function CreateComment(props) {
+  let {value, id}=props
+  // let [form, setForm]= useState({})
   let {create, success}= commentActions
   let { token} = useSelector(state=>state.userReducer)
   const dispatch = useDispatch()
-
-  console.log(id);
-
-  let comment= useRef()
+  let post= useRef()
   
+
   let handleSubmit=async(e)=>{
     e.preventDefault()
+ 
     
-    let form={
-      comment: comment.current.value,
-      key: id.id
-      
-    }
-    let str= comment.current.value
+    let comment= post.current.value
+   
+  
+    let str= comment
 
-    if (comment.current.value ==="" || str.length < 3){   
+    if (post.current.value ==="" || str.length < 3){   
       Swal.fire('Write your comment of at least 3 characters')
     }else{ 
-     setForm(form)
+    //  setForm(form)
      let confirmation= await Swal.fire({
       title: 'Do you want to post it?',
       showCancelButton: true,
@@ -39,9 +37,10 @@ export default function CreateComment({id}) {
       // allowOutsideClick: () => !Swal.isLoading()
     })
     if (confirmation.isConfirmed){
-      let response= await dispatch(create({form, id , token})).unwrap()
-            if (response.success=== false) {
-              console.log("entro al if")
+    
+      await dispatch(create({comment, value, id, token})).unwrap()
+            if (success=== false) {
+          
                Swal.fire({
                 icon: 'error',
                 title: 'Post can not be sent, try again',
@@ -61,7 +60,7 @@ export default function CreateComment({id}) {
   
   return (
      <form className='comments'>  
-        <textarea className='input-comment' type="text" minLength={3} placeholder='Leave a comment...' ref={comment} required />
+        <textarea className='input-comment' type="text" minLength={3} placeholder='Leave a comment...' ref={post} required />
         <div className='icon-comment'>
         <button type="submit" onClick={handleSubmit}><img src='/img/plane.png' alt='send'/></button>
         <button type="reset"><img src='/img/reset.png' alt='reset'/></button>

@@ -1,15 +1,14 @@
 import React from 'react'
-import { useState, useEffect,useRef } from 'react'
+import { useState, useEffect } from 'react'
 import commentActions from '../redux/actions/commentActions'
 import { useDispatch, useSelector } from 'react-redux'
 import CreateComment from './CreateComment'
 import Swal from 'sweetalert2'
 
- export default function Comments({id}) {
-  
+ export default function Comments(props) {
+  let {id, value}=props
     let [visible, setVisible]= useState(false)
     let [options, setOptions]= useState(false)
-     let [commentId, setCommentId]= useState('')
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
     const hideOpt = {display: options ? 'none' : ''}
@@ -19,7 +18,7 @@ import Swal from 'sweetalert2'
     let {getComments, erase, edit}= commentActions
     let comments= useSelector(state=>state.commentReducer)
     let { _id, name, token, } = useSelector(state=>state.userReducer)
- 
+   
 
 useEffect(()=>{
 
@@ -39,7 +38,7 @@ let handleDelete =async(e)=>{
   if (confirmation.isConfirmed){
     let response= await dispatch(erase({commentId, id, token})).unwrap()
           if (response.success=== false) {
-            console.log(response)
+          
              Swal.fire({
               icon: 'error',
               title: 'We could not delete it',
@@ -57,7 +56,7 @@ let handleDelete =async(e)=>{
   
   let handleEdit=async(e)=>{
     let commentId=(e.target.name)
-    console.log(commentId)
+  
     Swal.fire({
       title: 'Edit your comment',
       html: `<input type="text" id="comment" class="swal2-input">`,
@@ -73,7 +72,7 @@ let handleDelete =async(e)=>{
         }
         else{
           
-          console.log(commentId);
+      
        
           dispatch(edit({comment: comment, commentId: commentId , id: id, token: token}))
         }
@@ -126,7 +125,7 @@ let handleDelete =async(e)=>{
           })
         
         }
-        <CreateComment id={{name:'showsId',  id}}/>
+        <CreateComment value={value} id={id}/>
       </div>
     </div>
     </>
