@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 export default function CreateComment({id}) {
   let [form, setForm]= useState({})
-  let {create}= commentActions
+  let {create, success}= commentActions
   let { token} = useSelector(state=>state.userReducer)
   const dispatch = useDispatch()
 

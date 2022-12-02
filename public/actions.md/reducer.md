@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit'
 import commentActions from '../actions/commentActions'
-const { getComments, create, erase, edit} = commentActions
+const { getComments, create, erase} = commentActions
 
 const initialState={}
 // comments: [],
@@ -49,52 +49,13 @@ const commentReducer = createReducer(initialState,
               })
 
                .addCase(create.rejected, (state,action)=>{
-               
+               console.log(action.payload);
                  return {   ...state, 
                   success:false,
                  message: action.payload.response  }
                })
-               .addCase(erase.fulfilled, (state,action)=>{
-              
-                if (action.payload.success){
-                  let newState={
-                    ...state,
-                  }
-                 newState[action.payload.showId]=newState[action.payload.showId].filter(comment=> comment._id !== action.payload.comment)
-                
-                  return newState
-                } else{
 
-                  return { ...state,}
-                      
-                }
-                              
-               })
-               .addCase(edit.fulfilled, (state,action)=>{
-               console.log(action.payload.success)
-               console.log(action.payload.showId)
-               console.log(action.payload.editComment)
-                if (action.payload.success){
-                  let { showId, comment}= action.payload
-                  let newComment= action.payload.editComment
-
-                  let newState={
-                    ...state,
-                  }
-
-                  newState[showId]= newState[showId].map(post=>{
-                    if (post._id === comment){
-                        return  newComment
-                        
-                    }else{
-                      return post
-                    }
-                  })
-                  console.log(newState);
-                  return newState
-                }
-                              
-               })
+      
      
       })
             

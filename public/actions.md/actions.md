@@ -28,7 +28,7 @@ catch(error) {
 const create =  createAsyncThunk('create', async (data)=>{
   let {form, id, token}= data
   let headers = { headers: { Authorization: `Bearer ${token}` } }
-  
+
 
       try{
           let respuesta = await axios.post(`${BASE_URL}/api/comments?showId=${id}`, form, headers)
@@ -51,66 +51,32 @@ const create =  createAsyncThunk('create', async (data)=>{
 const erase= createAsyncThunk('erase', async(data)=>{
 let token= data.token
 let id= data.commentId
-let showId= data.id
-
 
   let headers = { headers: { Authorization: `Bearer ${token}` } }
 
   
   try{
     let res = await axios.delete(`${BASE_URL}/api/comments/${id}`, headers)
- 
+    let deleted= res.data
     console.log(res.data)
     return{
       success: true,
       comment: id,
-      showId: showId,
-  
+      response: deleted
     }
 
   }catch(error){
     return{
-      success: false,
+      success: true,
       response: error.response
       } 
   }
 
-}) 
-const edit =  createAsyncThunk('edit', async (data)=>{
-  // let { id, token, commentId}= data
-  let headers = { headers: { Authorization: `Bearer ${data.token}` } }
- 
-  let comment={
-    comment: data.comment
-  }   
- 
-
-
-       try{
-          let respuesta = await axios.put(`${BASE_URL}/api/comments/${data.commentId}`, comment, headers)
-            let editComment = respuesta.data.response
-          
-
-          return{
-          success: true,
-          showId: data.id,
-          comment: data.commentId,
-          editComment
-          }           
-   }
-   catch(error) {
-
-    return{
-      success: false,
-      response: error.response
-    }
-  }
-    
-})
+})  
 
 
 
 
 
-const commentAction = {getComments, create, erase, edit}
+const commentAction = {getComments, create, erase}
 export default commentAction

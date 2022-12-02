@@ -393,6 +393,9 @@ justify-content: space-between;
     color:#9b59b6;
     font-weight: bold;
 }
+.icon-option img{
+width: 20%;
+}
 
 /*BUTTONS*/
 .button{
