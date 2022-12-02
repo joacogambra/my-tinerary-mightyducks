@@ -28,7 +28,7 @@ export default function Detail() {
   .catch(error=> console.log(error))
   
   }, [hotel])
-
+ 
 
   return (
 
@@ -42,7 +42,7 @@ export default function Detail() {
             <p>Date: {shows.date.slice(0,10)}</p>
             </div>
            <div>
-            <Comments id={shows._id}/> 
+            { <Comments id={shows._id}/>  }
            </div>
            </>
         </ShowCard>

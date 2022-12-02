@@ -12,13 +12,16 @@ export default function CreateComment({id}) {
   let { token} = useSelector(state=>state.userReducer)
   const dispatch = useDispatch()
 
-  let comment= useRef()
+  console.log(id);
 
+  let comment= useRef()
+  
   let handleSubmit=async(e)=>{
     e.preventDefault()
     
     let form={
       comment: comment.current.value,
+      key: id.id
       
     }
     let str= comment.current.value
@@ -36,7 +39,7 @@ export default function CreateComment({id}) {
       // allowOutsideClick: () => !Swal.isLoading()
     })
     if (confirmation.isConfirmed){
-      let response= await dispatch(create({form ,id, token})).unwrap()
+      let response= await dispatch(create({form, id , token})).unwrap()
             if (response.success=== false) {
               console.log("entro al if")
                Swal.fire({

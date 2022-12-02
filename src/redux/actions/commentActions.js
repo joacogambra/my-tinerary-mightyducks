@@ -3,11 +3,11 @@ import axios from "axios";
 import { BASE_URL } from "../../Api/url";
 
 const getComments =  createAsyncThunk('getComments', async (id)=>{
-
+ 
     try{
         let respuesta = await axios.get(`${BASE_URL}/api/comments?showId=${id}`)
-         let comments = respuesta.data.response
-
+         let comments = respuesta.data.response.comment
+          
        
         return{
       showId: id,
@@ -31,9 +31,9 @@ const create =  createAsyncThunk('create', async (data)=>{
   
 
       try{
-          let respuesta = await axios.post(`${BASE_URL}/api/comments?showId=${id}`, form, headers)
+          let respuesta = await axios.post(`${BASE_URL}/api/comments?${id}`, form, headers)
            let newComment = respuesta.data.response
-        
+        console.log(respuesta.data);
           return{
           success: true,
           newComment
