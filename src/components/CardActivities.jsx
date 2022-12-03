@@ -1,11 +1,8 @@
 import React from 'react'
 import ReactionsLike from './ReactionsLike'
-import { useState } from "react"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import actionForReaction from "../redux/actions/actionForReaction"
-import axios from 'axios'
-import { BASE_URL } from '../Api/url'
 
 export default function CardActivities(props) {
     let { name, image, image1, continente, price, itinerary } = props
