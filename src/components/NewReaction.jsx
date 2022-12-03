@@ -3,7 +3,6 @@ import { useState, useRef } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
 import Swal from 'sweetalert'
-import { useSelector } from 'react-redux'
 
 export default function NewReaction() {
     let[reaction, setReaction] = useState([])
@@ -11,7 +10,6 @@ export default function NewReaction() {
     let icon = useRef()
     let iconBack = useRef()
     let itineraryId = useRef()
-    let { _id } = useSelector(state => state.userReducer)
 
     let handleSubmit = (e) =>{
         e.preventDefault()
@@ -20,7 +18,6 @@ export default function NewReaction() {
             icon: icon.current.value,
             iconBack: iconBack.current.value,
             itineraryId: itineraryId.current.value,
-            userId: _id
         }
         axios.post(`${BASE_URL}/reactions`, form)
         .then(response => {

@@ -26,6 +26,8 @@ import EditShow from "./pages/EditShow"
 
 import EditItinerary from "./pages/EditItinerary"
 import ReactionsCreat from "./pages/ReactionsCreat"
+import MyLikes from "./pages/MyLikes"
+
 
 function App() {  
 
@@ -92,6 +94,7 @@ function App() {
       <MyProfile />
         </ProtectedRoute>}/>  
       <Route path="/reactions" element={<ReactionsCreat/>}/> 
+      <Route path="/my-reactions" element={<MyLikes/>}/> 
     </Routes>
     </main>
     

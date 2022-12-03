@@ -227,6 +227,61 @@ video {
    align-items: center;
    text-overflow:unset;
   }
+  /* reactions*/
+  .reaction{
+    width: 280px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #6f8d9f;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+.reaction-reaction{
+    display: flex;
+}
+.like-dislike{
+    width: 50px !important;
+    height: 40px !important;
+    object-fit: contain;
+}
+.uniqueReaction{
+    display: flex;
+}
+.likes{
+    display: flex;
+    align-items: center;
+}
+.containter-myreactions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+.deleteLike{
+    min-width: 48px;
+    min-height: 40px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    padding: .5rem 1rem; 
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    font-size: 1.5rem;
+    border-radius: 0.75em;
+}
+.deleteLike:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+    cursor: pointer;
+}
  /*textoverflow*/ 
  .textflow{
     height: 200px;

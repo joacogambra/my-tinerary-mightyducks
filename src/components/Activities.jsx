@@ -3,25 +3,22 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
-// import CardActivities from './CardActivities'
+import CardActivities from './CardActivities'
 import ShowCard from './ShowCard'
 import Comments from './Comments'
 
-export default function Detail() {
+export default function Detail(props) {
    const { id }= useParams()
-   let [activity,setActivity] = useState([])
+   let [activities,setActivity] = useState([])
 
     useEffect(()=>{
         axios.get(`${BASE_URL}/itineraries?citiId=${id}`)
         .then(res => setActivity(res.data.response))
         .catch(error=> console.log(error))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, [])
   
-
-  return (
-
- 
+  return ( 
         activity.map((activity)=>(
            <ShowCard name={activity.name} photo={activity.photo[0]} id={activity._id} description={activity.description} value='itineraryId'>
            <>
@@ -36,6 +33,4 @@ export default function Detail() {
          </ShowCard>
   
        ))
-       
-      
 )}

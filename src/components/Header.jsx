@@ -42,6 +42,7 @@ export default function Header() {
     { linkTo: "/my-profile", name: "Profile" },
     { linkTo: '/my-shows', name: 'My Shows' },
     { linkTo: '/my-itineraries', name: 'My Itineraries' },
+    { linkTo: '/my-reactions', name: 'My Reactions' },
   ]
 
   let adminProfile =
