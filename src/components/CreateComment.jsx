@@ -10,7 +10,7 @@ export default function CreateComment(props) {
   let {value, id}=props
   // let [form, setForm]= useState({})
   let {create, success}= commentActions
-  let { token} = useSelector(state=>state.userReducer)
+  let { token, logged} = useSelector(state=>state.userReducer)
   const dispatch = useDispatch()
   let post= useRef()
   
@@ -21,11 +21,12 @@ export default function CreateComment(props) {
     
     let comment= post.current.value
    
-  
     let str= comment
 
-    if (post.current.value ==="" || str.length < 3){   
+    if (post.current.value ==="" || str.length < 3 ){   
       Swal.fire('Write your comment of at least 3 characters')
+    } else if(!logged){
+      Swal.fire('Please sign in to sent a comment')
     }else{ 
     //  setForm(form)
      let confirmation= await Swal.fire({
