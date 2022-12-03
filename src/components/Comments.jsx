@@ -95,13 +95,13 @@ let handleDelete =async(e)=>{
           <div className='comments-box'>
           { comments[id]?.map(function (id, key) {
             let isUser= _id=== (id.userId?._id || id.userId )
-            
+            console.log(id)
            
             return <div className={isUser? 'user-logged': 'comments'} >
               <div className='comments-info' key={id._id}>
                 <div className='comments-user'>
-                  <img src={id.photo} alt={id.userId?.name} />
-                  <p><span className='user-name'> {id.userId?.name|| name} </span>said: </p>
+                  <img src={id.photo} alt={id.name} />
+                  <p><span className='user-name'> {id.name} </span>said: </p>
                 </div>
                 
                 <p> {id.updatedAt?.slice(0, 10)}</p>  

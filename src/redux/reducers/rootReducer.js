@@ -6,7 +6,7 @@ import showReducer from './showReducer'
 import userReducer from './userReducer';
 import commentReducer from './commentReducer'
 import reactionReducer from './reactionReducer';
-import commentReducer from './commentReducer'
+
 
 const rootReducer ={
     hotelsReducer, citiesReducer, citiesFilterReducer, itineraryReducer, showReducer,userReducer,commentReducer,reactionReducer
