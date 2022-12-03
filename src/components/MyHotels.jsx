@@ -144,7 +144,7 @@ let borrar=(e)=>{
                 <input name= "name"  type="text"  placeholder={editHotel.name} ref={name} defaultValue={editHotel.name} />
                 <input name="capacity" type="number"  placeholder={editHotel.capacity} defaultValue={editHotel.capacity} ref={capacity} />
                 <button  className='button add' onClick={handleSubmit} type="submit" > Update</button>
-                <button  className='button add' onClick={() => navigate(-1)}> Cancel </button>
+                <button  className='button add' onClick={()=>navigate(`/hotel/${editHotel._id}`)}> Cancel </button>
            
     </form>
    

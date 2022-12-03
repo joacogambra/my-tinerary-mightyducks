@@ -921,9 +921,15 @@ input[type="checkbox"]{
         justify-content: center;
         align-items: center;
     }
+    .query {
+        gap: 0.5rem;
+    }
    
-
+}
 @media (max-width:425px) {
+    .query {
+        gap: 0.5rem;
+    }
     footer {
         height: auto;
         flex-direction: column;
@@ -941,6 +947,10 @@ input[type="checkbox"]{
     form input {
         width: 100%;
     }
+    .card{
+        gap: 1rem;
+        width: 90%;
+    }
 }
+
    
-}

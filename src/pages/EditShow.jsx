@@ -2,7 +2,7 @@ import React from 'react'
 import EditShow from '../components/EditShow'
 import HeaderVideo from '../components/HeaderVideo'
 import Footer from '../components/Footer'
-import UserNav from '../components/UserNav'
+import Header from '../components/Header'
 
 
 export default function Edit() {
@@ -11,7 +11,7 @@ export default function Edit() {
   return (
     <>
    
-    <HeaderVideo componenttop={<UserNav/>} componentmiddle={ <EditShow/>}/>
+    <HeaderVideo componenttop={<Header/>} componentmiddle={ <EditShow/>}/>
 
    <Footer></Footer>
    </>

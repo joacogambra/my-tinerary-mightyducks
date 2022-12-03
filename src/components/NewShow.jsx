@@ -19,7 +19,7 @@ export default function NewShow() {
         .catch(error => console.log(error.message))
 }, [])
 
-console.log(_id)
+
 
 //form
 let Showname= useRef()
@@ -85,7 +85,7 @@ axios.post(`${BASE_URL}/api/shows/`, form)
                  </select>
 
                  <button  className='button add' onClick={handleSubmit} > Save</button>
-                   <button  className='button add' onClick={()=> { window.location.reload() }}> Cancel </button>
+                   <button  className='button add' onClick={()=>navigate(`/my-shows`)}> Cancel </button>
            
     </form>
   )

@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 export default function PageNotFound() {
   return (
         <NoFoundLayout>
-         <HeaderVideo componenttop=<Header></Header> componentmiddle=<NotFound/>/>
+         <HeaderVideo componenttop={<Header></Header>} componentmiddle={<NotFound/>}/>
          <Footer></Footer>
         </NoFoundLayout>
   )

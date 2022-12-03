@@ -95,7 +95,7 @@ let handleDelete =async(e)=>{
           <div className='comments-box'>
           { comments[id]?.map(function (id, key) {
             let isUser= _id=== (id.userId?._id || id.userId )
-            console.log(id)
+            
            
             return <div className={isUser? 'user-logged': 'comments'} >
               <div className='comments-info' key={id._id}>

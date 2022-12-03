@@ -26,7 +26,7 @@ export default function Carousel() {
     } else{
       setNumero(0)
     }
-    console.log("anda next");
+  
     clearInterval(id)
   }
   let previous=()=>{
@@ -37,7 +37,7 @@ export default function Carousel() {
     }clearInterval(id)
 
   }
-console.log(hotel)
+
 
   return (
     
