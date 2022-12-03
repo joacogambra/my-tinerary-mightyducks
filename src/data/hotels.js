@@ -10,7 +10,7 @@ let hotels=[
     {
         id: "ho2",
         name: "Palau Sant Jordi ",
-        photo: ["https://espanarusa.com/files/autoupload/65/38/36/ewy4zcbg313406.jpg.[pr].jpg"],
+        photo: ["https://espanarusa.com/files/autoupload/65/38/36/ewy4zcbg313406.jpg.[pr].jpg", "https://media-cdn.tripadvisor.com/media/photo-s/0e/ce/a0/0c/prestige.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEkUpoXcrT2a5fbwKJ8JCFRWyLn_hoL8qtxqlUKYcQQo_qZslmV8N1ze80wxTqYAjHA18&usqp=CAU"],
         capacity: 17000,
         citiId: "city2",
         userId:  "adm2" ,
