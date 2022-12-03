@@ -24,6 +24,7 @@ export default function EditItinerary() {
 
   let {token} = useSelector(state => state.userReducer)
   let headers = { headers: { Authorization: `Bearer ${token}` } }
+  console.log(token);
   let handleSubmit = (e) => {
     e.preventDefault()
     let form = {
