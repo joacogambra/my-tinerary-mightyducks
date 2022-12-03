@@ -5,20 +5,13 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { BASE_URL } from '../Api/url'
 import ShowCard from './ShowCard'
-import { useDispatch, useSelector } from 'react-redux'
-import showAction from '../redux/actions/showActions'
+
+
 
 export default function Detail() {
 
    let [Allshows, setAllShows]= useState([])
    const { hotel }= useParams()
-  //  const dispatch = useDispatch
-  //  let {read}= showAction
-  //  const {shows}= useSelector (state=> state.showReducer.shows)
-
-// useEffect(()=>{
-//    dispatch(read(id))
-// },[])
 
    
    useEffect(() =>{ 
@@ -28,21 +21,21 @@ export default function Detail() {
   .catch(error=> console.log(error))
   
   }, [hotel])
-
+ 
 
   return (
 
 <>    { Allshows.length > 0
 
       ? ( Allshows.map((shows, key)=>(
-        <ShowCard name={shows.name} photo={shows.photo[0]} id={shows._id} description={shows.description}>
+        <ShowCard name={shows.name} photo={shows.photo[0]} id={shows._id} description={shows.description} value='showId'>
           <>
             <div className='insta-price' >
             <p>Price: ${shows.price}</p>
             <p>Date: {shows.date.slice(0,10)}</p>
             </div>
            <div>
-            <Comments id={shows._id}/> 
+            { <Comments id={shows._id} value='showId'/> }
            </div>
            </>
         </ShowCard>

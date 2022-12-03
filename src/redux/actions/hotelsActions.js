@@ -12,6 +12,7 @@ const getHotels= createAsyncThunk('gethotels', async ()=>{
       //  console.log(hotels)
        
         return{
+      succes:true,
        hotels
         }           
 }
@@ -19,7 +20,7 @@ catch(error) {
 
   return{
     success: false,
-    response: error
+    response: error.response.data.response
   }
 }
     
@@ -28,16 +29,25 @@ catch(error) {
 const filter = createAsyncThunk('filter', async (filtros) => {
 let {text, order }= filtros
 // if (filtros === '') return { hotels: [] }
-
+console.log(order);
 
   try{
     let respuesta = await axios.get(`${BASE_URL}/api/hotels/?order=${order}&name=${text}` )
     console.log(respuesta)
-   
+   if (respuesta.data.success){
     return{
       success: true,
-      response: {filtros, hotels: respuesta.data.response}
-    }           
+      response: {text: text, order: order, hotels: respuesta.data.response}
+    }  
+
+   } else {
+    console.log(respuesta);
+    return{
+      success: false, 
+      response: { text: text, order:order, hotels:[]}
+    }
+   }
+             
 }
 catch(error) {
 

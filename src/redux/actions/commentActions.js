@@ -3,11 +3,11 @@ import axios from "axios";
 import { BASE_URL } from "../../Api/url";
 
 const getComments =  createAsyncThunk('getComments', async (id)=>{
-
+ 
     try{
         let respuesta = await axios.get(`${BASE_URL}/api/comments?showId=${id}`)
-         let comments = respuesta.data.response
-
+         let comments = respuesta.data.response.comment
+          
        
         return{
       showId: id,
@@ -26,15 +26,18 @@ catch(error) {
     
 })
 const create =  createAsyncThunk('create', async (data)=>{
-  let {form, id, token}= data
+
+  let {comment, value, id, token}= data
   let headers = { headers: { Authorization: `Bearer ${token}` } }
   
-
+let form={ [value]: id, comment: comment}
+console.log(form);
       try{
-          let respuesta = await axios.post(`${BASE_URL}/api/comments?showId=${id}`, form, headers)
+          let respuesta = await axios.post(`${BASE_URL}/api/comments?${value}=${id}`, form, headers)
            let newComment = respuesta.data.response
-        
+        console.log(respuesta.data);
           return{
+          showId:id,
           success: true,
           newComment
           }           
@@ -42,6 +45,7 @@ const create =  createAsyncThunk('create', async (data)=>{
   catch(error) {
 
     return{
+      showId:id,
       success: false,
       response: error.response
     }
@@ -83,8 +87,6 @@ const edit =  createAsyncThunk('edit', async (data)=>{
   let comment={
     comment: data.comment
   }   
- 
-
 
        try{
           let respuesta = await axios.put(`${BASE_URL}/api/comments/${data.commentId}`, comment, headers)

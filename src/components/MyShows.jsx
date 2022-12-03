@@ -22,10 +22,10 @@ export default function MyShows() {
       // eslint-disable-next-line
     }, [])
       
- 
+
 
 ///add a shows
-    console.log(showDel)
+ 
  
     return (
       <>

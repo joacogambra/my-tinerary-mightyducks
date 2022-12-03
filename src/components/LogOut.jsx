@@ -31,7 +31,7 @@ function logOut() {
       }
 
   return (
-    <p onClick={()=>logOut()} className='user-nav'>
-    LogOut </p>  
+    <button onClick={()=>logOut()} className='drop-down' >
+    LogOut </button>  
   )
 }

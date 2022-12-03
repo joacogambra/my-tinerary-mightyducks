@@ -2,8 +2,8 @@ import React from 'react'
 
 
 export default function useCardsWithComments( props) {
-    let {name, photo, description, id, children}= props
-  
+    let {name, photo, description, id, children, value}= props
+  console.log(value);
   return (
     <div className='instaCard' id={id}>
         <div className='insta-header' >{name}</div>
@@ -14,7 +14,8 @@ export default function useCardsWithComments( props) {
             <p> {description}</p>
         </div>
         <div >
-         {children}          
+         {children} 
+          
         </div>
     </div>
    
