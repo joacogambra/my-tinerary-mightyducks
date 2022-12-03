@@ -1,9 +1,7 @@
 import React from "react"
-import actionForReaction from "../redux/actions/actionForReaction"
 
 export default function ReactionsLike(props) {
   let {name, icon, iconBack, booleanReaction, count, onClick, itineraryId} = props
-  let { getReactions} = actionForReaction
 
 
   return (
