@@ -26,7 +26,7 @@ export default function CardUserCities(props) {
           'success'
         )
         .then(()=>{window.location.reload()})
-        dispatch(deleteOneCity({ id: city._id }));
+         dispatch(deleteOneCity({ id: city._id }));
       }
     })
   }

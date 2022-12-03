@@ -11,10 +11,13 @@ export default function HotelLayout() {
   return (
     <>
    
-    <HeaderVideo componenttop={<Header/>} componentmiddle={<Hotel/>} />
-      <div className='flex-row grow gap evenly'>
+    <HeaderVideo componenttop={<Header/>} componentmiddle={ <Hotel/>}/>
+    <div className='flex-column gap '>
+     
       <Shows></Shows>
-      </div>
+
+    </div>
+  
    <Footer></Footer>
 
    </>

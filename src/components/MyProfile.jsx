@@ -13,6 +13,7 @@ export default function Profile() {
   let [user, setUser]= useState('')
   let [form, setForm] = useState(true)
   let { _id } = useSelector(state=>state.userReducer)
+
   useEffect(()=>{
     let query= `${BASE_URL}/api/auth/me/${_id}`
         axios.get(query)
@@ -53,15 +54,19 @@ export default function Profile() {
       confirmButtonText: 'Save',
       denyButtonText: `Don't save`,
     }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
-        .then(window.location.reload() )
-        
+      if (result.isConfirmed) {       
         axios.patch(`${BASE_URL}/api/auth/me/${_id}`, form )
-       .then(response=>{console.log(response)
-        if (response.data.success === false){
+       .then(response=>{setUser(response.data.response)
+        console.log(response);
+         setForm(true)
+         if (response.data.success=== true){
+          Swal.fire('Saved!', '', 'success')
+
+         }
+        else if (response.data.success === false){
           let error = response.data.message.join( ",\n ")
           console.log(response.data.success)
+        
           new Swal({
             icon: 'error',
             title: 'Check the info you sent:',

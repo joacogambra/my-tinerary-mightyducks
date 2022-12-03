@@ -1,31 +1,45 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Cards from './Cards'
+import Comments from './Comments'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { BASE_URL } from '../Api/url'
+import ShowCard from './ShowCard'
+
+
 
 export default function Detail() {
-   let [shows, setShows]= useState([])
+
+   let [Allshows, setAllShows]= useState([])
    const { hotel }= useParams()
-   console.log(hotel);
+
    
    useEffect(() =>{ 
       
    axios.get(`${BASE_URL}/api/shows?hotelId=${hotel}`)
-  .then(response=> setShows(response.data.response))
+  .then(response=> setAllShows(response.data.response))
   .catch(error=> console.log(error))
   
   }, [hotel])
-
+ 
 
   return (
 
-<>    { shows.length > 0
+<>    { Allshows.length > 0
 
-      ? ( shows.map((shows, key)=>(
-         
-       <Cards name={shows.name} image={shows.photo} id={shows._id} key={shows._id} category= "Description" continente={shows.description} ></Cards>
+      ? ( Allshows.map((shows, key)=>(
+        <ShowCard name={shows.name} photo={shows.photo[0]} id={shows._id} description={shows.description} value='showId'>
+          <>
+            <div className='insta-price' >
+            <p>Price: ${shows.price}</p>
+            <p>Date: {shows.date.slice(0,10)}</p>
+            </div>
+           <div>
+            { <Comments id={shows._id} value='showId'/> }
+           </div>
+           </>
+        </ShowCard>
+      //  <Cards name={shows.name} image={shows.photo} id={shows._id} key={shows._id} category= "Description" continente={shows.description}  page='show' ></Cards>
       
        ))
        )

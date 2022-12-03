@@ -1,9 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
-import showAction from '../actions/showAction'
+import showActions from '../actions/showActions'
 
-const {deleteOneShow} = showAction
+const {deleteOneShow, read } = showActions
 const initialState = {
     shows:[],
+    success: ''
 }
 
 const showReducer = createReducer(initialState, (builder)=>{
@@ -14,6 +15,24 @@ const showReducer = createReducer(initialState, (builder)=>{
             shows: state.shows.filter((show) => show._id !== action.payload.showDeleted),
           }
     })
+     .addCase(read.fulfilled, (state, action)=>{
+          console.log(action.payload);
+          return {
+            ...state,
+              shows: action.payload.response,
+              success:true
+         }
+
+     })
+     .addCase(read.rejected, (state, action)=>{
+   
+        return {
+          ...state,
+            shows: [],
+            success: false
+       }
+
+   })
 })
 
 export default showReducer

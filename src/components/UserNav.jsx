@@ -2,12 +2,17 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
+import LogOut from './LogOut'
+
+
 export default function UserNav() {
 
     let [user, setUser]= useState({})
     let [dropDownOcultar, setdropDownOcultar] = useState(false)
     let { name, photo, role, logged}= useSelector(state=>state.userReducer)
+
     useEffect(()=>{
+      
       if(logged===true){
         setUser({
           name: name,
@@ -22,12 +27,11 @@ export default function UserNav() {
 
 let logProfile=[
     {linkTo: "/my-profile", name: "Profile"},
-    {linkTo: "/", name: "Log Out"},
     {linkTo: '/my-shows', name: 'My Shows'},
     {linkTo: '/my-itineraries', name: 'My Itineraries'},
 ]
 
-let admProfile=
+let adminProfile=
 logProfile.concat([
     {linkTo: '/my-cities', name: 'My Cities'},
     {linkTo: '/hotels/admin/', name: 'My Hotels'},
@@ -37,8 +41,8 @@ logProfile.concat([
 let [profile,SetProfile]= useState(logProfile)
 
 useEffect(()=>{
-  if (role === 'adm' ){
-    SetProfile(admProfile)
+  if (role === 'admin' ){
+    SetProfile(adminProfile)
   }
   else{
 
@@ -51,6 +55,7 @@ useEffect(()=>{
 let dropDown=()=>{
   setdropDownOcultar(!dropDownOcultar)
 }
+
 
   return (
     <nav  className='user-nav'>
@@ -66,7 +71,7 @@ let dropDown=()=>{
       <LinkRouter to='/home'>Home</LinkRouter>
       <LinkRouter to='/cities'>Cities</LinkRouter>
       <LinkRouter to='/hotels'>Hotels</LinkRouter>
-      { role=== 'adm'
+      { role=== 'admin'
       ?(<>
       <LinkRouter to='/new-city'>New City</LinkRouter>
       <LinkRouter to='/new-hotel'>New Hotel</LinkRouter>
@@ -82,7 +87,8 @@ let dropDown=()=>{
     
        
        { profile.map((item,key) => {
-              return <LinkRouter to={item.linkTo} key={item.name} >{item.name}</LinkRouter>})}      
+              return <LinkRouter to={item.linkTo} key={item.name} >{item.name}</LinkRouter>})} 
+         <LogOut/>       
         <img src={ photo ? photo: '/img/image.png'} alt="user" className="user-image logged"/>
         
     </nav>

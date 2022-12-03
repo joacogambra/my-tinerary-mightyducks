@@ -4,16 +4,17 @@ import { useState, useEffect, useRef } from 'react'
 import Swal from 'sweetalert';
 import { BASE_URL } from '../Api/url'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 export default function NewShow() {
   let [hotelsName, setHotelsName]=useState([])
   let [form, setForm] = useState({})
   let [hotelid, setHotelid]= useState('')
   const {_id} = useSelector((store) => store.userReducer)
-
+  const navigate = useNavigate() 
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/api/hotels`)
+    axios.get(`${BASE_URL}/api/shows`)
         .then(res => setHotelsName(res.data.response))
         .catch(error => console.log(error.message))
 }, [])
@@ -51,11 +52,8 @@ axios.post(`${BASE_URL}/api/shows/`, form)
        icon: "success",
        timer: 5000,
        confirmButtonText: "Cool"
-    })
-    
-  
-    
-     
+    })   
+    .then(()=>navigate('/my-shows'))
   } else{
     let error = response.data.message.join( ",\n ")
   

@@ -2,9 +2,9 @@ import React from 'react'
 
 
 export default function EditCards(props) {
-    let {name, image,dato,capacity,id,editar,borrar}= props
+    let {name, image,dato,capacity,id,editar,borrar, hotel_id}= props
   return (
-    <div className="card" key={id}>
+    <div className="card" key={hotel_id}>
         <img src={image} alt={name} className="img-card "/>
 <div className="card__details">
   <div className="name">
