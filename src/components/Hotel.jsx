@@ -5,7 +5,7 @@ import NotFound from './NotFound'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
-import Comments from './Comments'
+
 
 export default function Detail() {
   let [hotels, setHotels]= useState([])
@@ -38,10 +38,7 @@ export default function Detail() {
           <>
             <div className='insta-price' >
             <p>Capacity: {hotels.capacity}</p>
-            </div>
-           <div>
-            <Comments id={hotels._id}/> 
-           </div>
+            </div>         
            </>
         </ShowCard>            
     

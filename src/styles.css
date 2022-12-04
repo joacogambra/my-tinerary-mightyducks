@@ -129,6 +129,7 @@
 
 .user-image {
     width: 40px;
+    height: 50px;
 }
 .logged{
     width: 50px;
@@ -136,6 +137,7 @@
 }
 .logo {
     width: 80px;
+    height: 80px;
 }
 video {
     object-fit: cover;
@@ -637,7 +639,7 @@ span.label {
 .image {
     width: 460px;
     height: 350px;
-    border-radius: 30px;
+    image-rendering: optimizeSpeed;
     object-fit: cover;
 }
 /*USER*/

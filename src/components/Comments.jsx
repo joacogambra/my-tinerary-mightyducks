@@ -17,12 +17,13 @@ import Swal from 'sweetalert2'
     const dispatch = useDispatch()
     let {getComments, erase, edit}= commentActions
     let comments= useSelector(state=>state.commentReducer)
-    let { _id, name, token, } = useSelector(state=>state.userReducer)
+    let { _id, token, } = useSelector(state=>state.userReducer)
    
 
 useEffect(()=>{
 
    dispatch(getComments(id))
+     // eslint-disable-next-line  
 }, [])
 
 let handleDelete =async(e)=>{ 
@@ -91,7 +92,7 @@ let handleDelete =async(e)=>{
           <div>
           <img src='/img/comment.PNG' alt='show comments' onClick={()=> setVisible(false)}></img>
           </div>
-          
+          <CreateComment value={value} id={id}/>
           <div className='comments-box'>
           { comments[id]?.map(function (id, key) {
             let isUser= _id=== (id.userId?._id || id.userId )
@@ -125,7 +126,7 @@ let handleDelete =async(e)=>{
           })
         
         }
-        <CreateComment value={value} id={id}/>
+       
       </div>
     </div>
     </>

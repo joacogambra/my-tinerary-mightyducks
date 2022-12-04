@@ -10,7 +10,7 @@ const commentReducer = createReducer(initialState,
     (builder)=>{
          builder
               .addCase(getComments.fulfilled, (state, action)=>{
-                console.log(action.payload.comments)
+                
                  if(action.payload.success){
                    let newState= {
                      ...state,

@@ -11,7 +11,7 @@ export default function FormHotel() {
   let [cityName, setCityName]=useState([])
   let [cityId, setCityId]= useState('')
 
-  const {_id} = useSelector((store) => store.userReducer)
+  const {_id, token} = useSelector((store) => store.userReducer)
   const navigate = useNavigate() 
 
   useEffect(() => {
@@ -37,7 +37,8 @@ let form={
   cityId: cityId,
   userId: _id,
 }
-  axios.post(`${BASE_URL}/api/hotels/`, form )
+let headers = {headers: {'Authorization': `Bearer ${token}`}}
+  axios.post(`${BASE_URL}/api/hotels/`, form, headers )
     .then(response=>{setHotel(response.data.response);
       if(response.data.success === true){
         Swal({
@@ -48,7 +49,7 @@ let form={
            confirmButtonText: "Cool"
         })
         
-      .then(()=>navigate('/my-hotels')) 
+      .then(()=>navigate('/hotels/admin/')) 
         
          
       } else{
