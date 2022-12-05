@@ -45,7 +45,7 @@ export default function CardUserShows(props) {
             <p className='textflow'>{`${category}`}</p>
           </div>
             <p className='price'>Price:$ {`${price}`}</p>
-          <div className='flex-row gap'>
+          <div className='flex-row gap query'>
             <button className='button' value={cardid} onClick={deleteShow}>Delete</button>
             <LinkRouter to={`/my-shows/${cardid}`} className="button">Edit</LinkRouter>
           </div> 

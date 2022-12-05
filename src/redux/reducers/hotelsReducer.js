@@ -17,6 +17,7 @@ const hotelsReducer = createReducer(initialState,
     (builder)=>{
          builder
               .addCase(getHotels.fulfilled, (state, action)=>{
+             
                 if (action.payload.succes){
                   return { ...state, initial:false,
                     hotels: action.payload.hotels

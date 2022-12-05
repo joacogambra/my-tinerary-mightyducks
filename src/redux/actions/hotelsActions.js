@@ -5,11 +5,10 @@ import { BASE_URL } from '../../Api/url'
 
 
 const getHotels= createAsyncThunk('gethotels', async ()=>{
-    try{
-        let respuesta = await axios.get(`${BASE_URL}/api/hotels/`)
-         let hotels = respuesta.data.response
-      
-      //  console.log(hotels)
+  try{
+    let respuesta = await axios.get(`${BASE_URL}/api/hotels/`)
+    let hotels = respuesta.data.response
+  
        
         return{
       succes:true,
@@ -61,10 +60,11 @@ return{
 })
 
 const deleteHotel = createAsyncThunk('deleteHotel', async(data)=>{
-  const { id } = data  
-
+  const { id, token } = data  
+  let headers = {headers: {'Authorization': `Bearer ${token}`}}
   try {
-      let respuesta = await axios.delete(`${BASE_URL}/api/hotels/${id}`)
+      let respuesta = await axios.delete(`${BASE_URL}/api/hotels/${id}`, headers)
+      console.log(respuesta);
       return {
       success: true,
       hoteldeleted : respuesta.data.hoteldeleted

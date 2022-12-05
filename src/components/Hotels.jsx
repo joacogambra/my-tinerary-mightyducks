@@ -1,13 +1,15 @@
 import React from 'react'
-import { useRef, useEffect, useState} from 'react'
+import { useRef, useEffect} from 'react'
 import Cards from './Cards'
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useDispatch, useSelector} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 
 
 
 
 export default function Hotels() {
+  const navigate = useNavigate() 
   //  let [sort, setSort]= useState()
   //  let [word, setWord]= useState()
   const {getHotels,filter } = hotelsActions
@@ -76,7 +78,7 @@ function printCards(array){
              <div className="card__details">
               <div className="name">
              <h4>The search for "{text}"... didn't bring any result</h4>
-             <div className='button' onClick={()=> { window.location.reload() }}> Go Back</div>
+             <div className='button' onClick={()=>navigate(0)}> Go Back</div>
               </div>
               </div>
           </div>

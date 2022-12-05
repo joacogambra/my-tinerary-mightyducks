@@ -96,7 +96,7 @@ export default function EditShow() {
                    <input name="date" type="date"  placeholder={show.date}   defaultValue={show.date}/>
                   
                  <button type="submit" className='button add' onClick={handleSubmit} > Update</button>
-                   <button  className='button add' onClick={()=> { window.location.reload() }}> Cancel </button>
+                   <button  className='button add' onClick={()=>navigate(`/my-shows`)}> Cancel </button>
                    </>}
            
     </form>
