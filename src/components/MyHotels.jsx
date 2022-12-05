@@ -27,15 +27,17 @@ export default function MyHotels() {
     let capacity= useRef()
 
     useEffect(()=>{
-  
-    let query= `${BASE_URL}/api/hotels?userId=${_id}`
-    axios.get(query)
-     .then(response=>setMyHotels(response.data.response))
-     .catch(error=> console.log(error) )
+      if (myHotels){
 
-       
-     },[])   
+        let query= `${BASE_URL}/api/hotels?userId=${_id}`
+        axios.get(query)
+         .then(response=>setMyHotels(response.data.response))
+         .catch(error=> console.log(error) )
+      }
     
+  
+       
+     },[ _id, myHotels])   
     
      let editar= (e) => {
         setId(e.target.value)
@@ -100,7 +102,10 @@ let borrar=(e)=>{
      //form alert 
         let headers = { headers: { Authorization: `Bearer ${token}` } }
         axios.patch(`${BASE_URL}/api/hotels/${id}`, form , headers)
-          .then(response=>{setForm(response.data.response);
+          .then(response=>{
+            
+            setForm(response.data.response)
+            
             if(response.data.success === true){
               Swal({
                 title: "Success",
@@ -146,7 +151,7 @@ let borrar=(e)=>{
                 <input name= "name"  type="text"  placeholder={editHotel.name} ref={name} defaultValue={editHotel.name} />
                 <input name="capacity" type="number"  placeholder={editHotel.capacity} defaultValue={editHotel.capacity} ref={capacity} />
                 <button  className='button add' onClick={handleSubmit} type="submit" > Update</button>
-                <button  className='button add' onClick={()=>navigate('/hotels/admin/')}> Cancel </button>
+                <button  className='button add' onClick={()=> setForm(!form) }> Cancel </button>
            
     </form>
    
