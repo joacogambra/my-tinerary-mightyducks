@@ -1,4 +1,4 @@
-# My Tinerary - Sprint 3
+# My Tinerary - Sprint 4
 ## Mighty Ducks Team 
 ### Students: Jalil, Laila - Gambra,Joaquin 🦾
 #### Stage Web Development Stack : **MERN** ⚛
@@ -19,7 +19,7 @@ npm start
 ![image](https://user-images.githubusercontent.com/114600775/203625949-d8924a41-7905-42db-bdb4-9be8ab67ad91.png)
 ##### Create a new City/Hotel:
 ![image](https://user-images.githubusercontent.com/114600775/203626078-47d73671-a058-4238-96d4-fc60173ea4fa.png)
-##### Sign in/Sign up:
+##### Sign in/Sign up. Used passport, jwt and nodemailer
 ![image](https://user-images.githubusercontent.com/114600775/203626240-967390eb-02b1-47d5-8643-146326073b78.png)
 ##### View admin, can edit and delete cities and cities activities:
 ![image](https://user-images.githubusercontent.com/114600775/203626414-e890dc59-be3d-4e15-80e4-bab1e1a2a5fb.png)
