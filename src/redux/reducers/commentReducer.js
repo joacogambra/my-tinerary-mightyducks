@@ -55,6 +55,7 @@ const commentReducer = createReducer(initialState,
                   success:false,
                  message: action.payload.response  }
                })
+               
                .addCase(erase.fulfilled, (state,action)=>{
               
                 if (action.payload.success){
