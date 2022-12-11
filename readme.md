@@ -1,4 +1,4 @@
-# My Tinerary - Sprint 3
+# My Tinerary - Sprint 5
 ## Mighty Ducks Team 
 ### Students: Jalil, Laila - Gambra,Joaquin 🦾
 #### Stage Web Development Stack : **MERN** ⚛
