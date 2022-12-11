@@ -29,7 +29,6 @@ npm start
 ##### reactions/likes box:
 ![image](https://user-images.githubusercontent.com/114600775/206923493-ee929517-f31e-48cf-9ba1-7e72c7cd9c08.png)
 ##### section for MyReactions and can delete:
-![image](https://user-images.githubusercontent.com/114600775/206923525-7f54519a-159e-40e2-ad3e-32142283071f.png)
 ![image](https://user-images.githubusercontent.com/114600775/206923526-2e02dbde-5bc3-4309-84e3-d080511f8e29.png)
 ##### box for comments (can delete and edit my comments):
 ![image](https://user-images.githubusercontent.com/114600775/206923537-a2492fd5-c445-4c5f-802c-1ee4c5118deb.png)
