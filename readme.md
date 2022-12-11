@@ -26,6 +26,13 @@ npm start
 ![image](https://user-images.githubusercontent.com/114600775/203626740-383ff837-3436-4004-8db4-5ac0132705f5.png)
 ##### also my hotels and shows hotels:
 ![image](https://user-images.githubusercontent.com/114600775/203626587-8f75b75d-0e12-4bcd-b8e2-04052fa9d2a6.png)
+##### reactions/likes box:
+![image](https://user-images.githubusercontent.com/114600775/206923493-ee929517-f31e-48cf-9ba1-7e72c7cd9c08.png)
+##### section for MyReactions and can delete:
+![image](https://user-images.githubusercontent.com/114600775/206923525-7f54519a-159e-40e2-ad3e-32142283071f.png)
+![image](https://user-images.githubusercontent.com/114600775/206923526-2e02dbde-5bc3-4309-84e3-d080511f8e29.png)
+##### box for comments (can delete and edit my comments):
+![image](https://user-images.githubusercontent.com/114600775/206923537-a2492fd5-c445-4c5f-802c-1ee4c5118deb.png)
 ##### FOOTER:
 ![image](https://user-images.githubusercontent.com/114600775/203625874-153f4c82-ce42-4f57-9989-0e8de5b3eaaa.png)
 
@@ -40,6 +47,7 @@ npm start
 | Postman  | API Platform      | v10.1.2  |
 | Redux  | State container for JavaScript  | v4.2  |
 | React-redux  | library for managing and updating app | v8.0.5  |
+| Passport-jwt  | Authenticator Json Web Token | v4.0.0 |
 
 #### * Thank you for reading *
 
