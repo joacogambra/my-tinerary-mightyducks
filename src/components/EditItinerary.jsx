@@ -5,6 +5,7 @@ import { BASE_URL } from '../Api/url'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert';
+import { useState, useEffect } from 'react';
 
 export default function EditItinerary() {
   let itiId = useParams();
@@ -22,9 +23,8 @@ export default function EditItinerary() {
   const photoT = useRef();
 
   let {token} = useSelector(state => state.userReducer)
-  console.log(token);
   let headers = { headers: { Authorization: `Bearer ${token}` } }
-  console.log(headers);
+  console.log(token);
   let handleSubmit = (e) => {
     e.preventDefault()
     let form = {
@@ -73,22 +73,32 @@ export default function EditItinerary() {
         })
       }
       )
-
   }
-
+  let [itine, setItine] = useState([])
+  useEffect( () => {
+      axios.get(`${BASE_URL}/itineraries?userId=` + userid)
+        .then(res => setItine(res.data.response))
+        .catch(error => console.log(error.message))
+      // eslint-disable-next-line
+    }, [])
+    console.log(itine);
+    // let valueDefault = itine[0]
+    // console.log(valueDefault);
+    // console.log(valueDefault.name);
+    
   return (
     <form className="sign-in" >
 
       <h3>Update your Show</h3>
 
       <input name='citiId' type="string" placeholder='citiId' ref={citiId} required />
-      <input name='name' type="text" placeholder="Name" ref={name} required />
-      <input name='photoP' type="url" placeholder="First picture" ref={photoP} required />
-      <input name='photoS' type="url" placeholder="Second picture" ref={photoS} required />
-      <input name='photoT' type="url" placeholder="Third picture" ref={photoT} required />
-      <input name="price" type="number" placeholder='Price' ref={price} required />
-      <input name="durarion" type="number" placeholder='Duration' ref={duration} required />
-      <input name="description" type="text" placeholder='Description' ref={description} required />
+      <input name='name' type="text" placeholder="Name"  ref={name} required />
+      <input name='photoP' type="url" placeholder="First picture"  ref={photoP} required />
+      <input name='photoS' type="url" placeholder="Second picture"  ref={photoS} required />
+      <input name='photoT' type="url" placeholder="Third picture"  ref={photoT} required />
+      <input name="price" type="number" placeholder='Price'  ref={price} required />
+      <input name="durarion" type="number" placeholder='Duration'  ref={duration} required />
+      <input name="description" type="text" placeholder='Description'  ref={description} required />
       <button className='button add' onClick={handleSubmit} > Update</button>
       <button className='button add' onClick={() => { window.location.reload() }}> Cancel </button>
 

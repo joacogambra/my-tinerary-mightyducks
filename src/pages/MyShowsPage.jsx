@@ -1,14 +1,13 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import HeaderVideo from '../components/HeaderVideo'
-import Header from '../components/Header'
 import MyShows from '../components/MyShows'
-import UserNav from '../components/UserNav'
+import Header from '../components/Header'
 
 export default function MyShowsPage() {
   return (
     <>
-    <HeaderVideo componenttop={<UserNav/>} componentmiddle={<MyShows/>}/>
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<MyShows/>}/>
     
     
       <Footer/>     

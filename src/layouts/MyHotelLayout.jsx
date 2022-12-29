@@ -1,9 +1,8 @@
 import React from 'react'
 import MyHotels from '../components/MyHotels'
-import Header from '../components/Header'
 import HeaderVideo from '../components/HeaderVideo'
 import Footer from '../components/Footer'
-import UserNav from '../components/UserNav'
+import Header from '../components/Header'
 
 
 
@@ -14,7 +13,7 @@ export default function HotelLayout() {
   return (
     <>
    
-    <HeaderVideo componenttop={<UserNav/> }componentmiddle={<MyHotels/>} />
+    <HeaderVideo componenttop={<Header/>} componentmiddle={<MyHotels/>} />
      
    <Footer></Footer>
 

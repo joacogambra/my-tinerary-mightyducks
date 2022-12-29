@@ -9,12 +9,14 @@
 .flex-column{
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     justify-content: center;
+    padding: 1rem 0;
 }
 .evenly {
     justify-content: space-evenly;
 }
+
 .flex-row{
     display: flex;
     align-content: center;
@@ -99,7 +101,7 @@
     text-align: center; 
 }
 
-.drop-down-nav a {
+.drop-down-nav a, .drop-down-nav button {
     display: block;
     width: 100%;
     padding: .2rem;
@@ -107,22 +109,27 @@
     color: rgb(80, 76, 76);
     
 }
+.drop-down-nav button{
+    border: none;
+    background-color: rgba(248, 242, 242, 0.396);
+}
 .w-50{
     transform: translateX(-50%);
 }
 
-.drop-down-nav a:hover  {
+.drop-down-nav a:hover, .drop-down-nav button:hover {
     background: linear-gradient(-135deg, #71b7e682, #9c59b6a5);
     color:white;
     border-radius: 15px;
 }
-.drop-down-nav > a{
+.drop-down-nav  a, .drop-down-nav button{
     border-bottom: 1.5px solid rgba(128, 128, 128, 0.589);
     border-radius: 1mm;
 }
 
 .user-image {
     width: 40px;
+    height: 50px;
 }
 .logged{
     width: 50px;
@@ -130,6 +137,7 @@
 }
 .logo {
     width: 80px;
+    height: 80px;
 }
 video {
     object-fit: cover;
@@ -165,9 +173,10 @@ video {
     min-height: 80vh;
     display: flex; 
     flex-direction: column;
-     justify-content: center;
+    justify-content: center;
     align-items: center;
     color: #252525;
+    margin-bottom: 1rem;
   }
 /*card*/
 .card{
@@ -212,7 +221,7 @@ video {
   }
   .card__details {
     
-    padding: 16px 8px 8px 8px;
+   padding: 16px 8px 8px 8px;
    width: 100%;
    display: flex;
    flex-direction: column;
@@ -220,6 +229,61 @@ video {
    align-items: center;
    text-overflow:unset;
   }
+  /* reactions*/
+  .reaction{
+    width: 280px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #6f8d9f;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+.reaction-reaction{
+    display: flex;
+}
+.like-dislike{
+    width: 50px !important;
+    height: 40px !important;
+    object-fit: contain;
+}
+.uniqueReaction{
+    display: flex;
+}
+.likes{
+    display: flex;
+    align-items: center;
+}
+.containter-myreactions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+.deleteLike{
+    min-width: 48px;
+    min-height: 40px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    padding: .5rem 1rem; 
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    font-size: 1.5rem;
+    border-radius: 0.75em;
+}
+.deleteLike:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+    cursor: pointer;
+}
  /*textoverflow*/ 
  .textflow{
     height: 200px;
@@ -276,6 +340,122 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+/* instaCard*/
+.instaCard{
+min-height: 600px;
+display: flex;
+flex-direction: column;
+border-radius: 12px;
+gap: .5rem;
+width: 80%;
+height: auto;
+background-color: white;
+border: 1px solid #6f8d9f;
+padding: 8px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.insta-img{
+    height: 400px;
+    
+}
+.insta-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.insta-header{
+text-align: center;
+ height: 50px;
+ padding: 1rem;
+ color: rgb(102, 62, 94);
+;
+
+}
+.insta-desc{
+font-size: 1rem;
+font-weight: bold;
+color: rgb(47, 43, 46);
+
+}
+.insta-desc img{
+ width: 35px;
+ margin-left: 1rem;
+}
+.insta-price{
+padding: .5rem;
+display: flex;
+color:  rgb(128, 66, 115);
+font-weight: bold;
+flex-direction: row;
+justify-content: space-between;
+}
+.icon-comment{
+    display: inline;
+    text-align: end;
+    
+}
+.icon-comment button{
+    border: none;
+}
+.input-comment{
+    padding: .5rem;
+    min-height: 5rem;
+    border-radius: 12px;
+    resize: none;
+}
+/* .icon-comment img{
+    width: 25px;
+} */
+.user-logged{
+    border: 1px solid rgba(112, 9, 112, 0.31);
+    background-color: rgba(98, 20, 150, 0.247) ;
+    border-radius: 12px;
+    padding: .5rem; 
+    margin-bottom: 1rem;   
+} 
+.user-options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comments{
+    background-color: rgba(173, 170, 170, 0.175);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: .5rem; 
+    margin-bottom: 1rem;   
+
+}
+.comments-info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    align-content: stretch;
+}
+.comments-info{
+    font-size: .5rem;
+}
+
+.comments-info img{
+    border-radius: 50%;
+}
+.comments-user {
+    font-size: .9rem;
+     display: flex;
+     align-items: center;
+}
+.user-name{
+    color:#9b59b6;
+    font-weight: bold;
+}
+.icon-option img{
+width: 20%;
 }
 
 /*BUTTONS*/
@@ -459,7 +639,7 @@ span.label {
 .image {
     width: 460px;
     height: 350px;
-    border-radius: 30px;
+    image-rendering: optimizeSpeed;
     object-fit: cover;
 }
 /*USER*/
@@ -472,7 +652,7 @@ span.label {
     flex-wrap: wrap;
   
 }
-.user-nav a {
+.user-nav a, .user-nav p {
     display: flex;
     justify-content: space-around;
     text-decoration: none;
@@ -483,6 +663,8 @@ span.label {
 }
 .profile-img{
     border-radius: 50%;
+    width: 300px;
+    height: 300px;
 }
 .profile-text:disabled{
     font-size: 1.5rem;
@@ -678,6 +860,7 @@ input[type="checkbox"]{
         right: 5%;
     }
     .drop-down-nav a,
+    .drop-down-nav button,
     .toaction,
     .links  {
         font-size: 1.4rem;
@@ -705,6 +888,7 @@ input[type="checkbox"]{
 @media (min-width: 1440px) {
 
     .drop-down-nav a,
+    .drop-down-nav button,
     .toaction,
     .links  {
         font-size: 1.5rem;
@@ -741,9 +925,15 @@ input[type="checkbox"]{
         justify-content: center;
         align-items: center;
     }
+    .query {
+        gap: 0.5rem;
+    }
    
-
+}
 @media (max-width:425px) {
+    .query {
+        gap: 0.5rem;
+    }
     footer {
         height: auto;
         flex-direction: column;
@@ -761,6 +951,10 @@ input[type="checkbox"]{
     form input {
         width: 100%;
     }
+    .card{
+        gap: 1rem;
+        width: 90%;
+    }
 }
+
    
-}

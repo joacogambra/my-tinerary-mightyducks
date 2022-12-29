@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Details from './Details'
+import ShowCard from './ShowCard'
 import NotFound from './NotFound'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -10,9 +10,6 @@ import { BASE_URL } from '../Api/url'
 export default function Detail() {
   let [hotels, setHotels]= useState([])
   const { hotel }= useParams()
-console.log(hotel)
-
-
 
 
   useEffect(() =>{ 
@@ -36,13 +33,14 @@ console.log(hotel)
   return (
  
 
-         <div>
-        <Details name={hotels.name} image={hotels.photo[0]} category="Capacity" number={hotels.capacity} ></Details>
-        
-        </div>
-        
-     
       
+        <ShowCard name={hotels.name} photo={hotels.photo[0]} id={hotels._id} description={hotels.description}>
+          <>
+            <div className='insta-price' >
+            <p>Capacity: {hotels.capacity}</p>
+            </div>         
+           </>
+        </ShowCard>            
     
   )
 }

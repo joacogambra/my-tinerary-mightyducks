@@ -4,26 +4,45 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Api/url'
 import CardActivities from './CardActivities'
+// import ShowCard from './ShowCard'
+// import Comments from './Comments'
 
-
-export default function Detail() {
+export default function Detail(props) {
    const { id }= useParams()
-   let [activity,setActivity] = useState([])
+   let [activities,setActivity] = useState([])
 
     useEffect(()=>{
         axios.get(`${BASE_URL}/itineraries?citiId=${id}`)
         .then(res => setActivity(res.data.response))
         .catch(error=> console.log(error))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, [])
-    console.log(activity);
+  
+  return ( 
+    <div className='flex-row gap'>
 
-  return (
+   {     activities.map((activity)=>(
+              <CardActivities name={activity.name}  image={activity.photo[0]} image1={activity.photo[1]} id={activity._id} continente={activity.description} price={activity.price} itinerary={activity} key={activity.name}  value='itineraryId'>
+        
 
-  <div className='actividades'>
-       { activity.map((activity)=>(
-      <CardActivities name={activity.name} image={activity.photo[0]} image1={activity.photo[1]} id={activity._id} continente={activity.description} price={activity.price} ></CardActivities>    
-       ))
-       }
-       </div>
+              </CardActivities>
+
+
+
+        ))}
+        </div>
+      //   activities.map((activity)=>(
+      //      <ShowCard name={activity.name} photo={activity.photo[0]} id={activity._id} description={activity.description} value='itineraryId'>
+      //      <>
+      //        <div className='insta-price' >
+      //        <p>Price: ${activity.price}</p>
+      //        <p>Duration: {activity.duration}hs</p>
+      //        </div>
+      //       <div>
+      //        { <Comments id={activity._id} value='itineraryId'/>   }
+      //       </div>
+      //       </>
+      //    </ShowCard>
+  
+      //  ))
 )}

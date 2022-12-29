@@ -2,15 +2,14 @@ import React from 'react'
 import Footer from '../components/Footer'
 import HeaderVideo from '../components/HeaderVideo'
 import NewShow from '../components/NewShow'
-import UserNav from '../components/UserNav'
-
+import Header from '../components/Header'
 export default function New() {
 
 
   return (
     <>
    
-    <HeaderVideo componenttop={<UserNav/>}  componentmiddle={<NewShow/>}/>
+    <HeaderVideo componenttop={<Header/>}  componentmiddle={<NewShow/>}/>
    
    
       <Footer/>     

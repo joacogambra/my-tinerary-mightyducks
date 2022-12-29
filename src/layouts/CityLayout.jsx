@@ -10,8 +10,7 @@ export default function CityLayout() {
   return (
       <>
       <HeaderVideo componenttop={<Header/>} componentmiddle={<Activities/>} />
-      <div className='flex-row grow gap evenly'>
-      </div>
+   
       <Footer/>
    
       </>

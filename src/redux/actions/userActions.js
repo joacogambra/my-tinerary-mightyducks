@@ -2,12 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../Api/url";
 
-let _id=''
+// let _id=''
 
 const signIn= createAsyncThunk('signIn', async(payload)=>{
        
-   _id= payload.response.user._id
-    console.log(_id)
+//  let  _id= payload.response.user._id
+   
 
     return { 
         datos: payload.response.user, 
@@ -31,10 +31,10 @@ const keepLog= createAsyncThunk('keepLog', async(token)=>{
             }
         }
     } catch (error) {
-        console.log(error.response)
+        // console.log(error.response)
         return {
             success: false,
-            response: error.response.data.message
+            response: error.response.data
         }
     }
 }) 

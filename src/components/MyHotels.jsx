@@ -7,7 +7,7 @@ import Swal from 'sweetalert';
 import { useDispatch, useSelector } from "react-redux";
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useNavigate} from 'react-router-dom'
-import { current } from '@reduxjs/toolkit'
+
 
 export default function MyHotels() {
 
@@ -27,20 +27,24 @@ export default function MyHotels() {
     let capacity= useRef()
 
     useEffect(()=>{
-  
+      if (myHotels){
+
         let query= `${BASE_URL}/api/hotels?userId=${_id}`
         axios.get(query)
          .then(response=>setMyHotels(response.data.response))
          .catch(error=> console.log(error) )
-     },[_id, token])   
+      }
     
+  
+       
+     },[ _id, myHotels])   
     
      let editar= (e) => {
         setId(e.target.value)
         setForm(!form) 
       }
 
-  console.log(myHotels);
+
  function filtrado(array, id){
     let edit= array.filter(e=>e._id === id)
    
@@ -52,7 +56,7 @@ export default function MyHotels() {
 let borrar=(e)=>{
   setId(e.target.value)
     let id= e.target.value
-    dispatch(deleteHotel({id}))
+    dispatch(deleteHotel({id, token}))
       Swal({
         title: 'Are you sure?',
         text: "you want to delete this hotel?",
@@ -64,7 +68,7 @@ let borrar=(e)=>{
           Swal("Poof! Hotel file has been deleted!", {
             icon: "success",
           })
-        .then(window.location.reload() )
+        .then(navigate('/hotels/admin/'))
         } else {
           Swal("Your Hotel  is safe!");
         }
@@ -81,7 +85,7 @@ let borrar=(e)=>{
 ///form datos
 
   let editHotel= filtrado(myHotels, id)
-  console.log(editHotel);
+
      
     let handleSubmit=(e)=>{
         e.preventDefault()
@@ -98,7 +102,10 @@ let borrar=(e)=>{
      //form alert 
         let headers = { headers: { Authorization: `Bearer ${token}` } }
         axios.patch(`${BASE_URL}/api/hotels/${id}`, form , headers)
-          .then(response=>{setForm(response.data.response);
+          .then(response=>{
+            
+            setForm(response.data.response)
+            
             if(response.data.success === true){
               Swal({
                 title: "Success",
@@ -107,7 +114,7 @@ let borrar=(e)=>{
                  timer: 5000,
                  confirmButtonText: "Cool"
               })
-              .then(()=>navigate(`/hotel/${response.data.response?._id}`))
+              .then(()=>navigate('/hotels/admin/'))
             // .then(()=>{window.location=`/hotel/${response.data.response?._id}`}) 
                              
             }  
@@ -144,7 +151,7 @@ let borrar=(e)=>{
                 <input name= "name"  type="text"  placeholder={editHotel.name} ref={name} defaultValue={editHotel.name} />
                 <input name="capacity" type="number"  placeholder={editHotel.capacity} defaultValue={editHotel.capacity} ref={capacity} />
                 <button  className='button add' onClick={handleSubmit} type="submit" > Update</button>
-                <button  className='button add' onClick={() => navigate(-1)}> Cancel </button>
+                <button  className='button add' onClick={()=> setForm(!form) }> Cancel </button>
            
     </form>
    

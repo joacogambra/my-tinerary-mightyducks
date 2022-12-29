@@ -1,28 +1,29 @@
 import React from 'react'
-import { useRef, useEffect, useState} from 'react'
+import { useRef, useEffect} from 'react'
 import Cards from './Cards'
 import hotelsActions from '../redux/actions/hotelsActions'
 import {useDispatch, useSelector} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 
 
 
 
 export default function Hotels() {
-   let [sort, setSort]= useState('desc')
-   let [word, setWord]= useState()
+  const navigate = useNavigate() 
+  //  let [sort, setSort]= useState()
+  //  let [word, setWord]= useState()
   const {getHotels,filter } = hotelsActions
   let hotels= useSelector (state=> state.hotelsReducer.hotels)
-  let { order, text, hotelsfiltrado,success } = useSelector (state=> state.hotelsReducer)
+  let { order, text, initial} = useSelector (state=> state.hotelsReducer)
  
 
  const dispatch = useDispatch()
  
  useEffect(()=>{
-   if (order=== "" || text === "" || hotelsfiltrado===[]){
+   if (initial){
      dispatch(getHotels())
- } else {
-     dispatch(filter(hotelsfiltrado))
- }
+ } 
+ 
      // eslint-disable-next-line    
  },[])
 
@@ -31,19 +32,19 @@ export default function Hotels() {
 let search = useRef()
 
 function filtrar(){
-  setWord(search.current.value)
+  // setWord(search.current.value)
      dispatch(filter({
-       text: word,
-       order: sort
+       text: search.current.value,
+       order: order
      })
      )   
 } 
 
 function sortBy(e){
-  setSort(e.target.value)
+  // setSort(e.target.value)
     dispatch(filter({
-     text : word,
-     order: sort
+     text : text,
+     order: e.target.value
     }))
  } 
 
@@ -61,9 +62,9 @@ function printCards(array){
   
   <div className='input-nav'  >
   
-    <input type="text" placeholder='Search...'  onKeyUp={filtrar} ref={search}/>
-    <select  onChange={(e)=>{sortBy(e,text)}}>
-        <option value="DEFAULT" disabled>SortBy:</option>
+    <input type="text" defaultValue={text} placeholder='Search...'  onKeyUp={filtrar} ref={search}/>
+    <select defaultValue={order} onChange={(e)=>{sortBy(e,text)}}>
+        <option value="" disabled>SortBy:</option>
         <option value={"asc"} >Ascending</option>
         <option value={"desc"}>Descending</option>
       </select>
@@ -77,7 +78,7 @@ function printCards(array){
              <div className="card__details">
               <div className="name">
              <h4>The search for "{text}"... didn't bring any result</h4>
-             <div className='button' onClick={()=> { window.location.reload() }}> Go Back</div>
+             <div className='button' onClick={()=>navigate(0)}> Go Back</div>
               </div>
               </div>
           </div>

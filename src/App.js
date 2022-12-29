@@ -23,7 +23,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {  useEffect } from 'react'
 import userActions from './redux/actions/userActions'
 import EditShow from "./pages/EditShow"
+
 import EditItinerary from "./pages/EditItinerary"
+import ReactionsCreat from "./pages/ReactionsCreat"
+import MyLikes from "./pages/MyLikes"
+
+
 function App() {  
 
 
@@ -46,11 +51,11 @@ function App() {
     <main className="main">
     <AutoToTop/>
     <Routes>
-    <Route path="/" element={<Home/>}/>
+      <Route path="/" element={<Home/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
       <Route path="/cities" element={<Cities/>}/>
-      <Route path="/new-city" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <Route path="/new-city" element={<ProtectedRoute isAllowed={logged === true && role==="admin"} reDirect={"/"} >
       <NewCity/>
         </ProtectedRoute>}/>
       <Route path="/my-cities" element={<ProtectedRoute isAllowed={logged === true} reDirect={"/"} >
@@ -72,14 +77,14 @@ function App() {
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/hotel/:hotel" element={<Hotel/>} />
       <Route path="/city/:id" element={<CityPage/>} />
-      <Route path="/new-hotel" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <Route path="/new-hotel" element={<ProtectedRoute isAllowed={logged === true && role==="admin"} reDirect={"/"} >
       <NewHotel/>
         </ProtectedRoute>}/>
       <Route path="/*" element={<NotFound/>}/>
-      <Route path="/hotels/admin/" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <Route path="/hotels/admin/" element={<ProtectedRoute isAllowed={logged === true && role==="admin"} reDirect={"/"} >
       <MyHotels/>
         </ProtectedRoute>}/>
-      <Route path="/hotels/admin/:id" element={<ProtectedRoute isAllowed={logged === true && role==="adm"} reDirect={"/"} >
+      <Route path="/hotels/admin/:id" element={<ProtectedRoute isAllowed={logged === true && role==="admin"} reDirect={"/"} >
       <EditHotel />
         </ProtectedRoute>}/>
       <Route path="/new-show" element={<ProtectedRoute isAllowed={logged=== true} reDirect={"/"} >
@@ -87,7 +92,9 @@ function App() {
         </ProtectedRoute>}/>  
         <Route path="/my-profile" element={<ProtectedRoute isAllowed={logged === true} reDirect={"/"} >
       <MyProfile />
-        </ProtectedRoute>}/>   
+        </ProtectedRoute>}/>  
+      <Route path="/reactions" element={<ReactionsCreat/>}/> 
+      <Route path="/my-reactions" element={<MyLikes/>}/> 
     </Routes>
     </main>
     
